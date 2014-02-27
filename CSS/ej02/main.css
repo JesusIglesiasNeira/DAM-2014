@@ -2,7 +2,9 @@ html, body{
     background-color: #f7f7f7;
 }
 
-*{border: 1px solid #000;}
+*{border: 1px solid #000;
+    box-sizing: border-box; /* hace que el ancho sea el que es*/
+}
 
 body{
     font: 14pt/1.48em "Source Sans Pro", sans-serif;
@@ -69,3 +71,7 @@ table{
     margin: 0 auto;     /* centrar el elemento de bloque*/
     padding: 40px 0;    /* Separación entre secciones*/
 } /*Medido con phot*/
+.fleft{float: left;}
+.col-25{width:25%;}
+.col-50{width:50%;}
+.col-75{width:75%;}
