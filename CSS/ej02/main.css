@@ -1,0 +1,71 @@
+html, body{
+    background-color: #f7f7f7;
+}
+
+*{border: 1px solid #000;}
+
+body{
+    font: 14pt/1.48em "Source Sans Pro", sans-serif;
+    color:#464646;
+}
+a{
+    color:#000;
+    text-decoration: none;
+}
+
+
+h1, .h1{
+
+    font-size: 2em; /* 28pt del h1 entre 14pt(tamaño base) */
+    line-height: 1.08em; /*30.24pt/28 */ /* 28= doble de tamaño base que es 14 obtenido por photoshop*/
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6{
+    margin-top: 0;  /*eliminar margenes superiores pq se añaden al padding*/
+}
+
+
+ul{
+    margin: 0;  /*eliminar margenes superiores pq se añaden al padding*/
+}
+
+
+table{
+    width: 100%;    /*Tablas deberían ocupar el 100% del cont padre*/
+}
+
+/*Textos*/
+.bold{ font-weight: bold;}
+.normal{font-weight: normal;}
+.small{font-size: 0.8em ;}
+.big{font-size: 1.5em;}
+.uppercase{text-transform: uppercase;}
+.list{ list-style: none; padding: 0;}
+.center{text-align: center;}
+
+
+
+
+/*Colores*/
+.txt-red{color: #F00;}
+.bg-white{color:#FFFFFF;}
+.list-blue{color: #00F; padding-left: 20px;}
+
+
+/*cabecera*/
+.breadcrum li{
+    text-transform: uppercase;
+    list-style: none;
+    padding: 0;
+}
+
+
+/*layout*/
+.wrapper{
+    width: 990px;
+    margin: 0 auto;     /* centrar el elemento de bloque*/
+    padding: 40px 0;    /* Separación entre secciones*/
+} /*Medido con phot*/
