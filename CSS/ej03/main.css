@@ -1,41 +1,38 @@
-﻿
-.contenedor{margin: 0 auto;}
-*{border: 1px solid #000;
-    box-sizing: border-box; /* hace que el ancho sea el que es*/
+﻿/*Genérico para los dos*/
+ul{padding: 0;}
+ul{list-style: none;}
+ul li{
+    position: relative;
+    width: 20px;
+    padding: 5px 15px;
+
 }
 
-div.uno ul{list-style: none;}
+/*vertical*/
 
-div.uno ul li{position: relative;}
-
-
-
-div.uno ul li ul{position: absolute;
+div.vertical ul li ul{position: absolute;
         top:0px;
-        left: 10px;
+        left: 100%;
         display: none;
         }
 
 
-div.uno ul li:hover ul{display: block;}
+div.vertical ul li:hover ul{display: block;}
 
-div.uno ul li{display: block;}
+div.vertical ul li{display: block;}
 /*------------------------------------------------------------------------------*/
-div.dos ul{list-style: none;}
 
-div.dos ul li{position: relative;}
+/*horizontal*/
 
-div.dos ul li ul{position: absolute;
+div.horizontal ul li ul{position: absolute;
         top:100%;
         left: 0;
         display: none;
         }
 
-div.dos ul li:hover ul{display: block;}
+div.horizontal ul li:hover ul{display: block;}
 
-div.dos ul li{display: inline-block;
-    width: 200px;
-
+div.horizontal ul li{display: inline-block;
 }
 
 
