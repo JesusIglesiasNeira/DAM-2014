@@ -2,7 +2,7 @@ html, body{
     background-color: #f7f7f7;
 }
 
-*{border: 1px solid #000;
+*{/*border: 1px solid #000;*/
     box-sizing: border-box; /* hace que el ancho sea el que es*/
 }
 
@@ -39,39 +39,124 @@ table{
     width: 100%;    /*Tablas deberían ocupar el 100% del cont padre*/
 }
 
-/*Textos*/
+/*---------------------------Textos------------------------------------*/
 .bold{ font-weight: bold;}
+.italic{font-style: italic;}
+
 .normal{font-weight: normal;}
 .small{font-size: 0.8em ;}
 .big{font-size: 1.5em;}
 .uppercase{text-transform: uppercase;}
 .list{ list-style: none; padding: 0;}
 .center{text-align: center;}
+.list p{margin-top: 0;}
+.list li{padding: 20px 0;}
+.list li:first-child{padding-top: 0px;}
+.list li h4{font-style: italic; color: #7CBCFC;}
+.price{font-size: 1.5em;}
 
 
-
-
-/*Colores*/
+/*---------------------------Colores-----------------------------------*/
 .txt-red{color: #F00;}
-.bg-white{color:#FFFFFF;}
-.list-blue{color: #00F; padding-left: 20px;}
+.txt-blue{color: #7CBCFC;}
+.bg-white{background-color:#FFFFFF;}
+.list-blue li{
+    background: transparent url("http://placehold.it/5x5") no-repeat 0 0;/*transparente, dir de imagen, no repetir y posicion*/
+    padding-left: 20px;
+}
 
 
-/*cabecera*/
-.breadcrum li{
+
+/*---------------------------cabecera----------------------------------*/
+.breadcrum{
     text-transform: uppercase;
     list-style: none;
     padding: 0;
 }
 
+.breadcrum li{display: inline-block;}
 
-/*layout*/
+.breadcrum li:after{content:"/";}               /*añadir "/" entre enlaces del menu*/
+
+.breadcrum li:last-child:after{content: "";}    /*El ultimo no se muestra "/"*/
+
+.breadcrum a{margin-right: 5px;}                /*Separar los enlaces de la barra*/
+
+
+/*-----------------------------layout-----------------------------------*/
 .wrapper{
     width: 990px;
     margin: 0 auto;     /* centrar el elemento de bloque*/
-    padding: 40px 0;    /* Separación entre secciones*/
-} /*Medido con phot*/
+    padding: 40px 0;    /* Separación entre secciones*//*Medido con phot*/
+}
+
+/*Usado para divs que en su interior poseen elementos flotantes para que el div abarque todo
+el elemento y no se produzcan solapamientos*/
+.wrapper:before, .wrapper:after,
+.clearfix:before, .clearfix:after{
+    content:"";
+    display:table;
+}
+.wrapper:after,
+.clearfix:after{
+    clear:both;
+}
+.clearfix{
+    zoom: 1; /*Para el explorer*/
+}
+
+.bg-gray:first-child .wrapper{
+    padding-bottom: 0px;
+}
+
+/*--------------------------------botones---------------------------------*/
+.btn{
+    display: inline-block;
+    width: 100px;
+    padding: 2px;
+    color:#FFF;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 3px;
+    margin: auto 3px;
+    box-shadow: 0 3px 5px #CDCDCD;
+    background-image: linear-gradient(to bottom, #999, #CCC);
+
+}
+
+.btn-red{ background-image: linear-gradient(to bottom, #f74040 80%, #d33535);}
+
+.btn-big{padding: 10px inherit;
+}
+
+.btn-green{background-image: linear-gradient(to bottom, #0F0 80%, #5F5);}
+
+
+
+/*--------------------------------------------------*/
+
 .fleft{float: left;}
 .col-25{width:25%;}
 .col-50{width:50%;}
 .col-75{width:75%;}
+
+.marco{
+    background-color:#FFF;
+    padding: 10px;
+    box-shadow: 0 0 5px #CDCDCD;
+}
+img{max-width: 100%;}   /*Las imagenes tomarán tl ancho máximo del que disponga */
+
+
+
+.description{padding: 20px;}
+
+
+/*Todo*/
+/*
+Elementos en linea de breadcrum
+botones
+tabla
+balines
+pie en linea
+*/
