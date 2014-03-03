@@ -152,8 +152,77 @@ img{max-width: 100%;}   /*Las imagenes tomarán tl ancho máximo del que dispong
 .description{padding: 20px;}
 
 
-/*Falta*/
-/*
-tabla
-pie en linea
-*/
+
+/*-----------Contacto horizontal---------------------*/
+
+.menupie{
+    text-align: center;
+}
+.menupie li {
+    display: inline;
+    margin: 0 5px;
+}
+
+/*------------------Tabla---------------------------*/
+
+/* Tabla */
+table {
+    border-collapse: collapse;
+}
+
+table thead th {
+    text-align: left;
+    font-weight: normal;
+    padding-bottom: 10px;
+}
+
+table tbody {
+    border-bottom: 10px solid #FFF;
+}
+
+table tbody tr {
+    border-top: 10px solid #FFF;
+    border-left: 10px solid #FFF;
+    border-right: 10px solid #FFF;
+    background-color: #fafafa;
+}
+
+table tbody td {
+    padding: 10px 0;
+}
+
+table tbody td * {
+    vertical-align: middle;
+}
+
+table .col-10{
+    padding-left: 80px;
+    border-top: 30px solid #FFF;
+    border-bottom: 30px solid #FFF;
+    border-left: 10px solid #FFF;
+    border-right: 10px solid #FFF;
+    background :#555;}
+
+table .social {
+    background-color: #FFF;
+    border: 1px solid #e9e9e9;
+    text-align: center;
+    padding: 7px 5px 6px 5px;
+    display: inline-block;
+    min-width: 100px;
+}
+
+.hidden{display: none;}
+
+table .social:hover .share {
+    display: none;
+}
+
+table .social:hover .links {
+    display: inline;
+}
+
+table tbody td:last-child {
+    text-align: right;
+}
+
