@@ -1,0 +1,85 @@
+﻿div.exampleborderradius {
+            background-color: #eee;
+            padding: 20px;
+            margin-top: 10px;
+            margin-right: 20px;
+            text-align: center;
+        }
+
+        div.exampleborderradiusa {
+            background-color: #464646;
+            float:left;
+            margin-top: 20px;
+            margin-right: 40px;
+            height: 65px;
+            width:160px;
+            text-align: center;
+            border-bottom-right-radius: 50px;
+        }
+
+        div.exampleborderradiusb {
+            background-color: #464646;
+            float:left;
+            margin-top: 20px;
+            margin-right: 40px;
+            height: 65px;
+            width:160px;
+            text-align: center;
+            border-bottom-right-radius: 80px 40px;
+        }
+
+        div.exampleborderradiusc {
+            background-color: #464646;
+            float:left;
+            margin-top: 20px;
+            margin-right: 40px;
+            height: 65px;
+            width:160px;
+            text-align: center;
+            border-bottom-right-radius: 40px 60px;
+        }
+
+        div.exampleborderradiusd {
+            background-color: #464646;
+            float:left;
+            margin-top: 20px;
+            margin-right: 40px;
+            width: 12em;
+            height: 5em;
+            text-align: center;
+            border-top-right-radius: 60px 40px;
+            border-bottom-left-radius: 60px 40px;
+
+        }
+
+        div.exampleborderradiuse {
+            background-color: #464646;
+            float:left;
+            margin-top: 20px;
+            margin-right: 40px;
+            height: 65px;
+            width:160px;
+            text-align: center;
+            /*border-bottom-left-radius:15px 40px;
+            border-top-right-radius:15px 40px;
+            border-top-left-radius:40px 15px;
+            border-bottom-right-radius:40px 15px;*/
+            border-radius: 15px 40px / 40px 15px;}
+
+        div.exampleborderradiusf {
+            float:left;
+            background-color: #464646;
+            margin-top: 20px;
+            margin-right: 40px;
+            width: 70px;
+            height: 70px;
+            text-align: center;
+            border-radius: 50px;
+        }
+
+        .examplelabelborderradius {
+            color: white;
+            font-size: 20px;
+            position: relative;
+            top: 20px;
+        }

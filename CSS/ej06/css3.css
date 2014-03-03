@@ -1,0 +1,33 @@
+﻿.offset { overflow: hidden; margin: 20px 0 40px 20px; }
+
+        .offset div {
+            background-color: #eee;
+            float:left;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-right: 40px;
+            margin-left:40px;
+            height: 65px;
+            width:160px;
+            text-align: center;
+        }
+
+        .examplelabelboxshadow {
+            color: #888;
+            font-size: 20px;
+            position: relative;
+            top: 20px;
+        }
+
+        .exampleboxshadowa{box-shadow: -5px -5px #888;}
+        .exampleboxshadowb{box-shadow: -5px -5px 5px 2px #888}
+        .exampleboxshadowc{box-shadow: -5px -5px 0px 5px #888 ;}
+        .exampleboxshadowd{box-shadow: -5px -5px 5px 5px #888;}
+        .exampleboxshadowe{box-shadow: 0px 0px 2px 0px #888;}
+        .exampleboxshadowf{box-shadow: 0px 0px 4px 6px #888;}
+        .exampleboxshadowg{box-shadow: inset -5px -5px 0px 1px #888;}
+        .exampleboxshadowh{box-shadow: inset -5px -5px 10px 1px #888;}
+        .exampleboxshadowi{box-shadow: inset -5px -5px 0px 5px #888;}
+        .exampleboxshadowj{box-shadow: inset -5px -5px 10px 5px #888;}
+        .exampleboxshadowk{box-shadow: inset 0px 0px 2px 2px #888;}
+        .exampleboxshadowl{box-shadow: inset 0px 0px 10px 5px #888;}

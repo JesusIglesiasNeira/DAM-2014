@@ -1,0 +1,16 @@
+﻿ p { font-size: 2em; margin: 1em; padding: 0 5px; }
+
+@font-face{
+    font-family: "Mystery"
+    src:url("MysteryLovesCompanyDEMO.ttf") format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+.dos{
+    font: "Mystery";
+    color:#FFF;
+    text-shadow:0.1em 0.1em 0.2em #F00;
+}
+
+.tres{}

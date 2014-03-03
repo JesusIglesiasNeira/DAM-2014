@@ -1,0 +1,37 @@
+﻿#container { width: 500px; height:500px; position: relative;}
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            font-size: 20px;
+            position:absolute;
+            padding: 5px;
+
+        }
+        .box:hover {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            color: yellow;
+            font-size: 18px;
+            position:absolute;
+            -webkit-transform:rotate(270deg);
+            -webkit-transition:all 3s ease 1s;
+        }
+        .ex01 .box {
+            left: 10px;
+            top: 10px;
+        }
+        .ex02 .box {
+            left: 10px;
+            top: 130px;
+        }
+        .ex03 .box {
+            left: 10px;
+            top: 250px;
+        }
+        .ex04 .box {
+            left: 10px;
+            top: 370px;
+        }
+
