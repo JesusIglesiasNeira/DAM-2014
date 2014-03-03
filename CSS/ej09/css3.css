@@ -1,9 +1,11 @@
-﻿ #container > div { margin-bottom: 10px; border: 1px dotted #000; width: 250px; }
+﻿ #container > div { margin-bottom: 10px; margin-left: 300px; border: 1px dotted #000; width: 250px; }
 .box { width: 200px; height: 100px; border: 5px solid gray; background-color: silver; margin: 25px auto; }
 
-#ex01{-webkit-transform: translate(100px, 50px);}
-#ex02 .box{-webkit-transform: scale(200%);}
-#ex03 {-webkit-transform: rotate(45deg);}
-#ex03 {-webkit-transform: rotate(45deg);}
+#ex01{-webkit-transform: translateX(100px) translateY(50px);}
+#ex02 {-webkit-transform: scale(2,1);}
+#ex03 {-webkit-transform: rotate(45deg);
+}
+#ex04 {-webkit-transform: skew(25deg);
+}
 
 
