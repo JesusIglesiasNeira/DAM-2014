@@ -15,8 +15,9 @@
             color: yellow;
             font-size: 18px;
             position:absolute;
-            -webkit-transform:rotate(270deg);
-            -webkit-transition:all 3s ease 1s;
+            -webkit-transform:translateX(100px) translateY(100px) rotate(270deg);
+            -webkit-transform-origin:top left;
+            -webkit-transition:all 3s ease-in-out 2s;
         }
         .ex01 .box {
             left: 10px;
@@ -34,4 +35,3 @@
             left: 10px;
             top: 370px;
         }
-
