@@ -12,29 +12,80 @@
     font-size: 2em;
     position: absolute;
     }
+
+
+@keyframes caida{
+    from {top:0px;}
+    20%{transform: translateX(60px);}
+    40%{transform: translateX(-40px);}
+    60%{transform: translateX(20px);}
+    80%{transform: translateX(-20px);}
+    to {top:480px;}
+}
+
+
+@-webkit-keyframes caida{
+    from {top:0px;}
+    20%{-webkit-transform: translateX(60px);}
+    40%{-webkit-transform: translateX(-40px);}
+    60%{-webkit-transform: translateX(20px);}
+    80%{-webkit-transform: translateX(-20px);}
+    to {top:480px;}
+}
+
+@-moz-keyframes caida{
+    from {top:0px;}
+    20%{-moz-transform: translateX(60px);}
+    40%{-moz-transform: translateX(-40px);}
+    60%{-moz-transform: translateX(20px);}
+    80%{-moz-transform: translateX(-20px);}
+    to {top:480px;}
+}
+
+@keyframes fading{
+    from{ opacity: 1;}
+    to{ opacity: 0; }
+}
+
+@-webkit-keyframes fading{
+    from{ opacity: 1;}
+    to{ opacity: 0; }
+}
+@-moz-keyframes fading{
+    from{ opacity: 1;}
+    to{ opacity: 0; }
+}
+
+
+
 .snowflake.f1 {
     left: 40px;
-        -webkit-animation: caida 10s ease-in infinite , fading 10s linear;
+    -animation: caida 10s ease infinite, fading 10s linear infinite;
+    -webkit-animation: caida 10s ease infinite, fading 10s linear infinite;
+    -moz-animation: caida 10s ease infinite, fading 10s linear infinite;
+        /*-webkit-animation: caida 10s ease-in infinite , fading 10s linear;*/
+        /*animation: caida 10s ease 0s infinite alternate none running;
+        -webkit-animation: caida 10s ease 0s infinite alternate none running;
+        -moz-animation: caida 10s ease 0s infinite alternate none running;*/
     }
 .snowflake.f2 {
     font-size: 1.8em;
     left: 120px;
+    -animation: caida 8s ease infinite, fading 8s linear infinite;
+    -webkit-animation: caida 8s ease infinite, fading 8s linear infinite;
+    -moz-animation: caida 8s ease infinite, fading 8s linear infinite;
     }
 .snowflake.f3 {
     left: 200px;
+    -animation: caida 14s ease infinite, fading 14s linear infinite;
+    -webkit-animation: caida 14s ease infinite, fading 14s linear infinite;
+    -moz-animation: caida 14s ease infinite, fading 14s linear infinite;
     }
 .snowflake.f4 {
     font-size: 1.5em;
     left: 280px;
+    -animation: caida 12s ease infinite, fading 12s linear infinite;
+    -webkit-animation: caida 12s ease infinite, fading 12s linear infinite;
+    -moz-animation: caida 12s ease infinite, fading 12s linear infinite;
 }
 
-@-webkit-keyframe caida{
-    from{ webkit-transform: translateY(-50px);}
-    90%{ webkit-transform: translateY(450px);}
-    to{ webkit-transform: translateY(480px);}
-}
-
-@-webkit-keyframe fading{
-    from{ opacity: 1;}
-    to{ opacity: 0; }
-}
