@@ -1,0 +1,65 @@
+.start {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 5em;
+}
+
+#clock {
+    position: relative;
+    width: 378px;
+    height: 378px;
+    background-image: url('../img/clockFace.png');
+    left: 50%;
+    margin: 5em 0 0 -189px;
+}
+
+#clock div {
+    position: absolute;
+}
+
+@-webkit-keyframes rotacionsegs{
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes rotacionsegs{
+    from {-moz-transform: rotate(0deg);}
+    to {-moz-transform: rotate(360deg);}
+}
+
+@-ms-keyframes rotacionsegs{
+    from {-ms-transform: rotate(0deg);}
+    to {-ms-transform: rotate(360deg);}
+}
+@-o-keyframes rotacionsegs{
+    from {-o-transform: rotate(0deg);}
+    to {-o-transform: rotate(360deg);}
+}
+
+#segundos{
+    -animation: rotacionsegs 60s infinite linear;
+    -webkit-animation: rotacionsegs 60s infinite linear;
+    -moz-animation: rotacionsegs 60s infinite linear;
+    -ms-animation: rotacionsegs 60s infinite linear;
+    -o-animation: rotacionsegs 60s infinite linear;
+}
+
+#minutos{
+    -animation: rotacionsegs 3600s infinite linear;
+    -webkit-animation: rotacionsegs 3600s infinite linear;
+    -moz-animation: rotacionsegs 3600s infinite linear;
+    -ms-animation: rotacionsegs 3600s infinite linear;
+    -o-animation: rotacionsegs 3600s infinite linear;
+}
+
+#horas{
+    -animation: rotacionsegs 43200s infinite linear;
+    -webkit-animation: rotacionsegs 43200s infinite linear;
+    -moz-animation: rotacionsegs 43200s infinite linear;
+    -ms-animation: rotacionsegs 43200s infinite linear;
+    -o-animation: rotacionsegs 43200s infinite linear;
+}
+
+
+/* ANIMACIONES Y TRANSFORMACIONES */
