@@ -130,7 +130,7 @@ body {
 
 
 
-
+/*parrafo*/
  .view:hover .mask p{
   display: inline-block;
   animation: texto 0.5s ease;
@@ -162,10 +162,7 @@ body {
 
 
 
-
-
-
-
+/*Enlace*/
  .view:hover .mask a{
   display: inline-block;
   animation: enlace 1.5s ease;
@@ -207,9 +204,7 @@ body {
 
 
 
-
-
-
+/*fondo*/
  .view:hover .mask {
   display: inline-block;
   animation: fondo 1.5s ease;
