@@ -88,7 +88,7 @@ table{
     width: 90%;
     max-width: 990px;
     margin: 0 auto;     /* centrar el elemento de bloque*/
-    padding: 40px 0;    /* Separación entre secciones*//*Medido con phot*/
+    padding: 4.0404040404% 0;    /* Separación entre secciones*//*Medido con phot*//*queriamos 40 pixels para 990->(40/990)*100=4.04040404*/
 }
 
 /*Usado para divs que en su interior poseen elementos flotantes para que el div abarque todo
@@ -109,6 +109,8 @@ el elemento y no se produzcan solapamientos*/
 .bg-gray:first-child .wrapper{
     padding-bottom: 0px;
 }
+
+.read-more{display: none;}
 
 /*--------------------------------botones---------------------------------*/
 .btn{
@@ -140,6 +142,9 @@ el elemento y no se produzcan solapamientos*/
 .col-25{width:25%;}
 .col-50{width:50%;}
 .col-75{width:75%;}
+
+/*para que la tabla no se corte si se hace la pag mas pequeña, (para que haga sroll)*/
+.overflow{overflow-x:scroll ;}
 
 .marco{
     background-color:#FFF;
@@ -227,3 +232,81 @@ table tbody td:last-child {
     text-align: right;
 }
 
+
+/*Para tablets*/
+@media screen and (max-width: 768px){
+    body{background-color: #0F0;}
+
+    .marco.col-25{
+        width: 40%;
+    }
+
+    #A2 .col-75{
+        width: 60%;
+    }
+
+    h1, .h1{font-size: 1.6em;
+        text-transform: none;
+    }
+
+    .description p{
+        height: 290;
+    }
+
+    .read-more{
+        display: block;
+    }
+
+    .marco .price{
+        float:none;
+        display: block;
+        text-align: center;
+        margin: 0;
+    }
+
+    .marco .btn-big{
+        float: none;
+        display: block;
+        width: 100%;
+    }
+
+    .list li h4{
+        float: none;
+        width: 100%;
+    }
+    .list li p{
+        float: none;
+        width: 100%;
+    }
+}
+
+
+/*para moviles*/
+@media screen and (max-width: 480px){
+    body{background-color: #FF0;}
+    .wrapper{width: 100%;
+        padding:4%;
+    }
+
+    .breadcrumb{float: left;}
+
+    .navbar-toggle{
+        display: block;
+        float: right;
+    }
+
+.marco.col-25{
+    width: 100%;
+    padding:2%
+}
+.marco.col-75{
+    width: 100%;
+    padding:2%
+}
+.marco.col-50{
+    width: 100%;
+    padding:2%
+}
+img{width: 100%;}
+
+}
