@@ -77,16 +77,88 @@ body {
     to {color: rgba(219,127,8, 0.7);}
 }
 
-.mask{display: none;}
+/*Ocultar lo que debe estar oculto inicialmente*/
+.view .mask {
+   display: none;
+}
 
+
+/*Ampliación de imagen + contenedor al pasar ratón por encima*/
 .view:hover{
+  transform:scale(1.2);
+  transition:all 0.5s ease-in-out 0.1s;
   -webkit-transform:scale(1.2);
-  -webkit-transition:all 1.5s ease-in-out 0.5s;
+  -webkit-transition:all 0.5s ease-in-out 0.1s;
+  -moz-transform:scale(1.2);
+  -moz-transition:all 0.5s ease-in-out 0.1s;
+  -ms-transform:scale(1.2);
+  -ms-transition:all 0.5s ease-in-out 0.1s;
+  -o-transform:scale(1.2);
+  -o-transition:all 0.5s ease-in-out 0.1s;
  }
 
- .view:hover h2{
-
+/*Mostrar elementos interiores con animaciones*/
+ .view:hover .mask h2{
+  display: inline-block;
+  animation: autor 0.5s ease;
+  -webkit-animation: autor 0.5s ease;
+  -moz-animation: autor 0.5s ease;
+  -ms-animation: autor 0.5s ease;
+  -o-animation: autor 0.5s ease;
  }
+@keyframes autor{
+    from {top:-100px;}
+    to {top:0px;}
+}
+@-webkit-keyframes autor{
+    from {top:-100px;}
+    to {top:0px;}
+}
+@-moz-keyframes autor{
+    from {top:-100px;}
+    to {top:0px;}
+}
+@-ms-keyframes autor{
+    from {top:-100px;}
+    to {top:0px;}
+}
+@-o-keyframes autor{
+    from {top:-100px;}
+    to {top:0px;}
+}
+
+
+
+
+
+ .view:hover .mask p{
+  display: inline-block;
+  animation: texto 0.5s ease;
+  -webkit-animation: texto 0.5s ease;
+  -moz-animation: texto 0.5s ease;
+  -ms-animation: texto 0.5s ease;
+  -o-animation: texto 0.5s ease;
+ }
+ @keyframes texto{
+    from {bottom:-100px;}
+    to {bottom:0px;}
+}
+ @-webkit-keyframes texto{
+    from {bottom:-100px;}
+    to {bottom:0px;}
+}
+@-moz-keyframes texto{
+    from {bottom:-100px;}
+    to {bottom:0px;}
+}
+@-ms-keyframes texto{
+    from {bottom:-100px;}
+    to {bottom:0px;}
+}
+ @-o-keyframes texto{
+    from {bottom:-100px;}
+    to {bottom:0px;}
+}
 
 
 
@@ -94,4 +166,91 @@ body {
 
 
 
-/* ANIMACIONES Y TRANSICIONES */
+ .view:hover .mask a{
+  display: inline-block;
+  animation: enlace 1.5s ease;
+  -webkit-animation: enlace 1.5s ease;
+  -moz-animation: enlace 1.5s ease;
+  -ms-animation: enlace 1.5s ease;
+  -o-animation: enlace 1.5s ease;
+ }
+ @keyframes enlace{
+    from {background-color: rgba(0,0,0,0);}
+    1%{color: rgba(0,0,0,0);}
+    50%{color: rgba(0,0,0,0.5);}
+    to {background-color: rgba(0,0,0,1);}
+}
+ @-webkit-keyframes enlace{
+    from {background-color: rgba(0,0,0,0);}
+    1%{color: rgba(0,0,0,0);}
+    50%{color: rgba(0,0,0,0.5);}
+    to {background-color: rgba(0,0,0,1);}
+}
+@-moz-keyframes enlace{
+    from {background-color: rgba(0,0,0,0);}
+    1%{color: rgba(0,0,0,0);}
+    50%{color: rgba(0,0,0,0.5);}
+    to {background-color: rgba(0,0,0,1);}
+}
+@-ms-keyframes enlace{
+    from {background-color: rgba(0,0,0,0);}
+    1%{color: rgba(0,0,0,0);}
+    50%{color: rgba(0,0,0,0.5);}
+    to {background-color: rgba(0,0,0,1);}
+}
+@-o-keyframes enlace{
+    from {background-color: rgba(0,0,0,0);}
+    1%{color: rgba(0,0,0,0);}
+    50%{color: rgba(0,0,0,0.5);}
+    to {background-color: rgba(0,0,0,1);}
+}
+
+
+
+
+
+
+ .view:hover .mask {
+  display: inline-block;
+  animation: fondo 1.5s ease;
+  -webkit-animation: fondo 1.5s ease;
+  -moz-animation: fondo 1.5s ease;
+  -ms-animation: fondo 1.5s ease;
+  -o-animation: fondo 1.5s ease;
+ }
+ @keyframes fondo{
+    from {background-color: rgba(0,0,0,0);}
+    1%{color: rgba(219,127,8, 0.1);}
+    50%{color: rgba(219,127,8, 0.4);}
+    to {background-color: rgba(219,127,8, 0.7);}
+}
+ @-webkit-keyframes fondo{
+    from {background-color: rgba(0,0,0,0);}
+    1%{color: rgba(219,127,8, 0.1);}
+    50%{color: rgba(219,127,8, 0.4);}
+    to {background-color: rgba(219,127,8, 0.7);}
+}
+ @-moz-keyframes fondo{
+    from {background-color: rgba(0,0,0,0);}
+    1%{color: rgba(219,127,8, 0.1);}
+    50%{color: rgba(219,127,8, 0.4);}
+    to {background-color: rgba(219,127,8, 0.7);}
+}
+@-ms-keyframes fondo{
+    from {background-color: rgba(0,0,0,0);}
+    1%{color: rgba(219,127,8, 0.1);}
+    50%{color: rgba(219,127,8, 0.4);}
+    to {background-color: rgba(219,127,8, 0.7);}
+}
+@-o-keyframes fondo{
+    from {background-color: rgba(0,0,0,0);}
+    1%{color: rgba(219,127,8, 0.1);}
+    50%{color: rgba(219,127,8, 0.4);}
+    to {background-color: rgba(219,127,8, 0.7);}
+}
+
+
+
+
+
+
