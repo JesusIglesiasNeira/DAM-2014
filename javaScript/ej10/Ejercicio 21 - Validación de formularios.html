@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Ejercicio 21 - Validación de formularios</title>
+
+    <style type="text/css">
+    body {font-family: arial, helvetica;}
+    form {
+        width: 600px;
+        margin: 20px auto 0 auto;
+    }
+    label {
+        float: left;
+        width: 200px;
+        font-weight: bold;
+    }
+    label[for="registro_condiciones"] {
+        float: none;
+    }
+    input[type="text"],
+    input[type="password"],
+    textarea {
+        width: 360px;
+    }
+    input[type="checkbox"] {
+        margin-left: 200px;
+    }
+    input[type="submit"] {
+        margin: 20px 0 0 200px;
+        display: block;
+    }
+    </style>
+</head>
+
+<body>
+    <form action="servidor.php" method="POST" id="registro">
+        <fieldset>
+            <legend>Registro</legend>
+            <label for="registro_nombre">Nombre:</label>
+            <input name="nombre" id="registro_nombre" type="text" data-validator="required">
+            <label for="registro_apellidos">Apellido:</label>
+            <input name="apellido" id="registro_apellido" type="text" data-validator="required">
+            <label for="registro_email">Email:</label>
+            <input name="email" id="registro_email" type="text" data-validator="email">
+            <label for="registro_password">Password:</label>
+            <input name="password" id="registro_password" type="password" data-validator="password">
+            <label for="registro_comentarios">Comentarios:</label>
+            <textarea name="comentarios" id="registro_comentarios" rows="10" data-validator="min" data-length="50"></textarea>
+            <input name="condiciones" id="registro_condiciones" value="1" type="checkbox">
+            <label for="registro_condiciones" data-validator="required">Acepto las condiciones del servicio.</label>
+            <input value="Enviar" type="submit">
+        </fieldset>
+    </form>
+    <script type="text/javascript" src="js/validador.js"></script>
+    <script type="text/javascript" src="js/code.js"></script>
+
+</body></html>
