@@ -7,9 +7,9 @@
 
 window.onLoad= (function(){
     var datos = $("input");
-    var areas = $("textarea");
+    var areas = document.getElementsByTagName("textarea");
 
-    var validadores ={};
+    var validadores =[];
 
 
     var validar = function(evt){
@@ -37,7 +37,28 @@ window.onLoad= (function(){
         evt.preventDefault();
         var correcto = false;
         for (var k = validadores.length-1; k>=0; k--){
-            console.log (validadores[k]);
+            if (validadores[k][0].dataset.validator == "required"){
+                validadores[k][1]=validador.required(validadores[k][0].value);
+            }
+             else if (validadores[k][0].dataset.validator == "email"){
+                validadores[k][1]=validador.email(validadores[k][0].value);
+
+            }
+            else if (validadores[k][0].dataset.validator == "password"){
+                validadores[k][1]=validador.password(validadores[k][0].value);
+            }
+            else if (validadores[k][0].dataset.validator == "min"){
+                validadores[k][1]=validador.min(validadores[k][0].value);
+            }
+            else if (validadores[k][0].name === "condiciones"){
+                validadores[k][1]=validadores[k][0].checked;
+            }
+        }
+
+        for ( k = validadores.length-1; k>=0; k--){
+            if (validadores[k][1] === false){
+                 console.log ("Compruebe el campo "+validadores[k][0].name);
+            }
         }
 
 
@@ -46,24 +67,21 @@ window.onLoad= (function(){
     };
 
 
-    for (var i = datos.length-1; i>=0; i--){
+    for (var i = 0; i<= datos.length-1; i++){
 
         if (datos[i].type == "submit"){
             datos[i].addEventListener("click",  enviarForm);
         }
         else{
             datos[i].addEventListener("blur",  validar);
-            console.log(datos[i].name);
-            validadores[i].estado = false;
-            validadores[i].nombre = datos[i].name;
+            validadores[i]=[datos[i],false];
         }
     }
 
-    for ( i = areas.length-1; i>=0; i--){
-        areas[i].addEventListener("blur",  validar);
-        validadores[i].estado = false;
-        validadores[i].nombre = areas[i].name;
-    }
+    for ( var j = areas.length-1; j>=0; j--){
+        areas[j].addEventListener("blur",  validar);
+        var taman =validadores.length;
+        validadores[validadores.length] = [areas[j],false];
 
-    console.log(validadores);
+    }
 })();
