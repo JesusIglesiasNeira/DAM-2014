@@ -5,83 +5,59 @@
         return(elems.length === 1) ? elems[0] : elems;
     };
 
-window.onLoad= (function(){
-    var datos = $("input");
-    var areas = document.getElementsByTagName("textarea");
-
+window.onload= function(){
+    var datos = $("[data-validator]");
+    var form  = $('#registro');
     var validadores =[];
 
 
+    var avisos = function(elemento, estado){
+        if (!estado){
+            //Si no es correcto mostrar mesaje y pintar fondo rojo
+            mostrarMensajes.mostrarError(elemento);
+            coloreador.pintarError(elemento);
+        }else{
+            //si es correcto pintar fontdo blanco
+            coloreador.pintarCorrecto(elemento);
+        }
+
+    };
+    //Validar los campos
     var validar = function(evt){
-
-
-        if (this.dataset.validator == "required"){
-             console.log(validador.required(this.value));
-        }
-        else if (this.dataset.validator == "email"){
-            console.log(validador.email(this.value));
-
-        }
-        else if (this.dataset.validator == "password"){
-            console.log(validador.password(this.value));
-
-        }
-        else if (this.dataset.validator == "min"){
-            console.log(validador.min(this.value));
-        }
-
+        var val = (evt.type === 'blur')? this.dataset.validator : 'check';
+        var val2 = (evt.type === 'blur')? this.value : this;
+        var resultado = validador[val](val2);
+        console.log(validador[val](val2));
+        avisos(this, resultado);
     };
 
+    var validar_elementos = function(elemento){
+        var val = (evt.type === 'blur')? this.dataset.validator : 'check';
+        var val2 = (evt.type === 'blur')? this.value : this;
+        var resultado = validador[val](val2);
+        console.log(validador[val](val2));
+        avisos(this, resultado);
+    };
 
-    var enviarForm= function(evt){
+    //Comprobar que todos los campos son correctos
+    var enviarForm = function(evt){
         evt.preventDefault();
-        var correcto = false;
-        for (var k = validadores.length-1; k>=0; k--){
-            if (validadores[k][0].dataset.validator == "required"){
-                validadores[k][1]=validador.required(validadores[k][0].value);
-            }
-             else if (validadores[k][0].dataset.validator == "email"){
-                validadores[k][1]=validador.email(validadores[k][0].value);
+        var correcto = true;
 
-            }
-            else if (validadores[k][0].dataset.validator == "password"){
-                validadores[k][1]=validador.password(validadores[k][0].value);
-            }
-            else if (validadores[k][0].dataset.validator == "min"){
-                validadores[k][1]=validador.min(validadores[k][0].value);
-            }
-            else if (validadores[k][0].name === "condiciones"){
-                validadores[k][1]=validadores[k][0].checked;
-            }
+        for (var indice in datos){
+            correcto = correcto && validar(datos[indice]);
         }
 
-        for ( k = validadores.length-1; k>=0; k--){
-            if (validadores[k][1] === false){
-                 console.log ("Compruebe el campo "+validadores[k][0].name);
-            }
-        }
-
-
-
-
+        console.log("Formulario correcto: " + correcto);
     };
 
-
+    //Asignar los escuchadores de eventos
     for (var i = 0; i<= datos.length-1; i++){
+        var e = (datos[i].type == "checkbox") ? 'click' : 'blur';
 
-        if (datos[i].type == "submit"){
-            datos[i].addEventListener("click",  enviarForm);
-        }
-        else{
-            datos[i].addEventListener("blur",  validar);
-            validadores[i]=[datos[i],false];
-        }
-    }
-
-    for ( var j = areas.length-1; j>=0; j--){
-        areas[j].addEventListener("blur",  validar);
-        var taman =validadores.length;
-        validadores[validadores.length] = [areas[j],false];
+        datos[i].addEventListener(e, validar);
 
     }
-})();
+    form.addEventListener('submit', enviarForm);
+
+};

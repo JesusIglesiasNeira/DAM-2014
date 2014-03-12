@@ -30,6 +30,8 @@
         display: block;
     }
     </style>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
 <body>
@@ -37,7 +39,7 @@
         <fieldset>
             <legend>Registro</legend>
             <label for="registro_nombre">Nombre:</label>
-            <input name="nombre" id="registro_nombre" type="text" data-validator="required">
+            <input name="nombre" type="text" data-validator="required">
             <label for="registro_apellidos">Apellido:</label>
             <input name="apellido" id="registro_apellido" type="text" data-validator="required">
             <label for="registro_email">Email:</label>
@@ -46,12 +48,15 @@
             <input name="password" id="registro_password" type="password" data-validator="password">
             <label for="registro_comentarios">Comentarios:</label>
             <textarea name="comentarios" id="registro_comentarios" rows="10" data-validator="min" data-length="50"></textarea>
-            <input name="condiciones" id="registro_condiciones" value="1" type="checkbox">
-            <label for="registro_condiciones" data-validator="required">Acepto las condiciones del servicio.</label>
+            <input name="condiciones" id="registro_condiciones" value="1" type="checkbox" data-validator="required">
+            <label for="registro_condiciones" >Acepto las condiciones del servicio.</label>
             <input value="Enviar" type="submit">
         </fieldset>
     </form>
     <script type="text/javascript" src="js/validador.js"></script>
+    <script type="text/javascript" src="js/mostrarMensajes.js"></script>
+    <script type="text/javascript" src="js/coloreador.js"></script>
     <script type="text/javascript" src="js/code.js"></script>
+
 
 </body></html>

@@ -26,11 +26,16 @@ var validador = (function(){
         return entrada.length <= 50;
     };
 
+    var validaChecked = function(entrada){
+        return entrada.checked;
+    };
+
     return {
         required : validaRequired,
         email : validaEmail,
         password : validaPassword,
-        min : validaArea
+        min : validaArea,
+        check : validaChecked
     };
 
 
