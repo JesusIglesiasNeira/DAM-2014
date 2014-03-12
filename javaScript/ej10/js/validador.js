@@ -9,7 +9,7 @@
 var validador = (function(){
 
     var validaRequired = function(entrada){
-        var exp = /^((\w+)(\s*)(\w+))*$/;
+        var exp = /^((\w+)(\s*)(\w+))+$/;
         return exp.test(entrada);
     };
     var validaEmail = function(entrada){
