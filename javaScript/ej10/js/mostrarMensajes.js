@@ -1,7 +1,7 @@
 ﻿var mostrarMensajes = (function(){
 
     var mensajeError = function(elemento){
-        console.log("El campo " + elemento.id + " es erroneo");
+        console.log("El campo " + elemento.name + " es erroneo");
 
     };
 
