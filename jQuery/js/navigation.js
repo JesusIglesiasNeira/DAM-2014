@@ -1,4 +1,15 @@
 $(function(){
+
     var $menu=$('.nav li');
-    $menu.slideToggle(300,function(){});
+    console.log($menu);
+
+ var desplegar = function(e){
+        var $this = $(this);
+
+    };
+
+    $(document).on('hover', desplegar);
+
+
+
 });
