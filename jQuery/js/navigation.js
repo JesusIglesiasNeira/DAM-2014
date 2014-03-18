@@ -1,14 +1,18 @@
 $(function(){
 
-    var $menu=$('.nav li');
-    console.log($menu);
-
- var desplegar = function(e){
+/*$(document).ready(function(){
+    $('#nav li').hover(function(){
         var $this = $(this);
+        $this.addClass('hover').find('ul').show();
 
-    };
+    },$this.removeClass('hover').find('ul').hide();
 
-    $(document).on('hover', desplegar);
+    )
+
+})
+
+.css({'cursor':'pointer'})*/
+
 
 
 

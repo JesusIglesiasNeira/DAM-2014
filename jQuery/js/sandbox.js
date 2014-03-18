@@ -40,9 +40,9 @@ $(function(){
 
 
     //filas impares del cuerpo de la tabla
-    var $imp = $('tbody tr:odd').css('background-color', 'gray');
-    console.log($imp);
-    console.log(" ");
+    //var $imp = $('tbody tr:odd').css('background-color', 'gray');
+    //console.log($imp);
+    //console.log(" ");
 
 
 
