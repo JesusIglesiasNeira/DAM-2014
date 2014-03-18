@@ -3,45 +3,63 @@
 
 
     ///////////////////////////////////////////////////////
-    var validaRequired = function(entrada){
-        var exp = /^((\w+)(\s*)(\w+))+$/;
-        return exp.test(entrada);
-    };
-    var validaEmail = function(entrada){
-        var email = /^(\w+)((\.|_|-)(\w+))*@(\w+)(\.\w{2,})+$/;
-        return email.test(entrada);
+    var avisos = function(elemento, estado){
+        if (!estado){
+            //Si no es correcto mostrar mesaje y pintar fondo rojo
+            mostrarMensajes.mostrarError(elemento);
+            coloreador.pintarError(elemento);
+        }else{
+            //si es correcto pintar fontdo blanco
+            coloreador.pintarCorrecto(elemento);
+        }
+
     };
 
-    var validaPassword = function(entrada){
-        var pwd = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-        return pwd.test(entrada);
-    };
+    //Validar los campos
+    var validar = function(evt){
+        evt.preventDefault();
+        var resultado;
+        if (this.type == 'checkbox'){
+            resultado = this.checked;
+        }
+        else{
+        resultado = validador[this.dataset.validator](this.value);
+        console.log(validador[this.dataset.validator](this.value));
+        }
 
-    var validaArea = function(entrada){
-        return entrada.length <= 50;
+        avisos(this, resultado);
     };
+    //validar elementos al hacer commit
+     var validar_elementos = function(elemento){
+            var val = this.dataset.validator;
+            var val2 = this.value;
+            var resultado = validador[val](val2);
+            avisos(this, resultado);
+            return resultado;
+        };
 
-    var validaChecked = function(entrada){
-        return entrada.checked;
+    //Comprobar que todos los campos son correctos
+    var enviarForm = function(evt){
+        evt.preventDefault();
+        var correcto = true;
+        var datos = $("[data-validator]");
+        for (var indice= 0; indice <= datos.length-1; indice++){
+            var corcheck = (datos[indice].dataset.validator == "required" && datos[indice].type == "checkbox")? datos[indice].checked : validar_elementos.call(datos[indice]);
+            correcto = correcto && corcheck;
+            if (!corcheck && datos[indice].type == "checkbox"){
+                avisos(datos[indice], correcto);
+            }
+        }
+
+        console.log("Formulario correcto: " + correcto);
     };
     //////////////////////////////////////////////////////////
 
 
         return this.filter('form').each(function(){
             var $this = $(this);
-            var $inputs = $this.find('input');
-
-            var $required = $this.find('[data-validator = required]');
-            console.log($this);
-            $(document).on('blur', '[data-validator = "required"]',validaRequired);
-            $(document).on('blur', '[data-validator = email]',validaEmail);
-            $(document).on('blur', '[data-validator = password]',validaPassword);
-            $(document).on('blur', '[data-validator = min]',validaArea);
-            $(document).on('blur', '[data-validator = password]',validaChecked);
-
-
-
-
+            $(document).on('blur', 'input',validar);
+            $(document).on('submit',enviarForm);
 
 
         });
