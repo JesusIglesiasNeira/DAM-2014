@@ -1,16 +1,27 @@
 (function($){
-    $.fn.extensionValidador= function(options){
+
+    var validOptions = {};
+
+    $.fn.extensionValidador = function(options) {
+
+        validOptions = $.extend({}, $.fn.extensionValidador.defaults, options);
+
+        return this.filter('form').each(function(){
+            var $this = $(this);
+
+            $this.on('submit', enviarForm);
+            $this.on('blur', ':input[data-validator]', validar);
+        });
+    };
 
     ///////////////////////////////////////////////////////
-    var defaults ={
+    $.fn.extensionValidador.defaults ={
         mensajeErrorFormulario : 'Formulario incorrecto',
         mensajeExito : 'Formulario correcto',
         mensajeErrorCampo: 'El siguiente campo es erroneo:'
-
-
     };
 
-    var validOptions = $.extend({}, defaults, options);
+
     ///////////////////////////////////////////////////////
     var avisos = function(elemento, estado){
         if (!estado){
@@ -48,7 +59,6 @@
 
     //Comprobar que todos los campos son correctos al hacer submit
     var enviarForm = function(evt){
-        evt.preventDefault();
         var correcto = true;
         var $this = $(this);
         var datos =  $this.find(":input[data-validator]");
@@ -59,26 +69,16 @@
                 avisos(datos[indice], correcto);
             }
         }
-        var escribir = (correcto) ? validOptions.mensajeExito : validOptions.mensajeErrorFormulario;
-        console.log(escribir);
+        if (correcto){
+            console.log( validOptions.mensajeExito);
+        }
+        else{
+            evt.preventDefault();
+            console.log( validOptions.mensajeErrorFormulario);
+        }
     };
     //////////////////////////////////////////////////////////
 
-
-
-
-
-
-
-
-        return this.filter('form').each(function(){
-            var $this = $(this);
-            $this.on('blur', ':input[data-validator]',validar);
-            $this.on('submit', enviarForm);
-
-
-        });
-    };
 })(jQuery);
 
 
