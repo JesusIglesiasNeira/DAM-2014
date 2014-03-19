@@ -1,12 +1,22 @@
 (function($){
-    $.fn.extensionValidador= function(){
+    $.fn.extensionValidador= function(options){
+
+    ///////////////////////////////////////////////////////
+    var defaults ={
+        mensajeErrorFormulario : 'Formulario incorrecto',
+        mensajeExito : 'Formulario correcto',
+        mensajeErrorCampo: 'El siguiente campo es erroneo:'
 
 
+    };
+
+    var validOptions = $.extend({}, defaults, options);
     ///////////////////////////////////////////////////////
     var avisos = function(elemento, estado){
         if (!estado){
             //Si no es correcto mostrar mesaje y pintar fondo rojo
-            mostrarMensajes.mostrarError(elemento);
+            //mostrarMensajes.mostrarError(elemento);
+            console.log(validOptions.mensajeErrorCampo + elemento.name);
             coloreador.pintarError(elemento);
         }else{
             //si es correcto pintar fontdo blanco
@@ -24,7 +34,6 @@
             }
             else{
             resultado = validador[this.dataset.validator](this.value);
-            console.log(validador[this.dataset.validator](this.value));
             }
             avisos(this, resultado);
     };
@@ -50,8 +59,8 @@
                 avisos(datos[indice], correcto);
             }
         }
-
-        console.log("Formulario correcto: " + correcto);
+        var escribir = (correcto) ? validOptions.mensajeExito : validOptions.mensajeErrorFormulario;
+        console.log(escribir);
     };
     //////////////////////////////////////////////////////////
 
@@ -74,5 +83,8 @@
 
 
 
-$('form').extensionValidador();
+/*$('form').extensionValidador({'mensajeErrorFormulario':'Formulario no completado/incorrecto',
+   'mensajeErrorCampo':'Compruebe el campo '
+
+});*/
 
