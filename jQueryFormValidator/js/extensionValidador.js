@@ -18,18 +18,17 @@
     //Validar los campos
     var validar = function(evt){
         evt.preventDefault();
-        var resultado;
-        if (this.type == 'checkbox'){
-            resultado = this.checked;
-        }
-        else{
-        resultado = validador[this.dataset.validator](this.value);
-        console.log(validador[this.dataset.validator](this.value));
-        }
-
-        avisos(this, resultado);
+            var resultado;
+            if (this.type == 'checkbox'){
+                resultado = this.checked;
+            }
+            else{
+            resultado = validador[this.dataset.validator](this.value);
+            console.log(validador[this.dataset.validator](this.value));
+            }
+            avisos(this, resultado);
     };
-    //validar elementos al hacer commit
+    //validar elementos al hacer submit
      var validar_elementos = function(elemento){
             var val = this.dataset.validator;
             var val2 = this.value;
@@ -38,11 +37,12 @@
             return resultado;
         };
 
-    //Comprobar que todos los campos son correctos
+    //Comprobar que todos los campos son correctos al hacer submit
     var enviarForm = function(evt){
         evt.preventDefault();
         var correcto = true;
-        var datos = $("[data-validator]");
+        var $this = $(this);
+        var datos =  $this.find(":input[data-validator]");
         for (var indice= 0; indice <= datos.length-1; indice++){
             var corcheck = (datos[indice].dataset.validator == "required" && datos[indice].type == "checkbox")? datos[indice].checked : validar_elementos.call(datos[indice]);
             correcto = correcto && corcheck;
@@ -56,14 +56,19 @@
     //////////////////////////////////////////////////////////
 
 
+
+
+
+
+
+
         return this.filter('form').each(function(){
             var $this = $(this);
-            $(document).on('blur', 'input',validar);
-            $(document).on('submit',enviarForm);
+            $this.on('blur', ':input[data-validator]',validar);
+            $this.on('submit', enviarForm);
 
 
         });
-
     };
 })(jQuery);
 
