@@ -15,7 +15,7 @@
     };
 
     ///////////////////////////////////////////////////////
-    $.fn.extensionValidador.defaults ={
+    $.fn.extensionValidador.defaults ={//No se pone en una var para poder ver desde fuera las opciones por defecto
         mensajeErrorFormulario : 'Formulario incorrecto',
         mensajeExito : 'Formulario correcto',
         mensajeErrorCampo: 'El siguiente campo es erroneo:'

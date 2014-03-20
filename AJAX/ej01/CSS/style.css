@@ -1,0 +1,19 @@
+body { font: 13px Arial, Helvetica, sans-serif; }
+h2 { margin-bottom: 0; font-size: 1.2em; }
+#recurso, #enviar { padding: .3em; font-size: 1.2em; }
+#principal { float: left; width: 70%; }
+#secundario { float: right; width: 25%; }
+#contenidos, #estados, #cabeceras, #codigo {
+    border: 2px solid #CCC;
+    background: #FAFAFA;
+    padding: 1em;
+    white-space: pre;
+}
+#contenidos {
+    min-height: 400px;
+    max-height: 600px;
+    overflow: scroll;
+}
+#estados { min-height: 200px; }
+#cabeceras { min-height: 200px; }
+#codigo { min-height: 100px; font-size: 1.5em; }
