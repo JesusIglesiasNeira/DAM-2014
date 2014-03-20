@@ -48,6 +48,7 @@ $(document).ready(function(){
                 mostrarContenido(data);
                 mostrsarEstados('Recibido');
                 mostrarCodigoServ(jqXHR.statusText,jqXHR.status);
+                var aaa = jqXHR.getAllResponseHeaders();
                 mostrarCabHTTP(jqXHR.getAllResponseHeaders());
 
             },

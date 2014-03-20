@@ -2,10 +2,14 @@ $(document).ready(function(){
     'use sctrict';
 
      var $tick = $('#ticker');
+     $tick.data({
+        'activo' : true,
+        'noticias' : [],
+        'noticiaActual': 0
+    });
      var $deten = $('#detener');
      var $ant = $('#anterior');
      var $sig = $('#siguiente');
-     var $noticias=[];
      var $pidiendo = true;
      var $intervalID;
 
@@ -13,19 +17,11 @@ $(document).ready(function(){
       var mostrarContenido = function(datos){
             var fech= new Date();
             var horas = fech.getHours()+':'+fech.getMinutes()+':'+fech.getSeconds();
-            $tick.text(horas+' '+datos);
-            guardarDatos($tick.text());
+            //$tick.text(horas+' '+datos);
+            $tick.text(horas);
+            $tick.data('noticias').push($tick.text());
+            $tick.data('noticiaActual',  $tick.data('noticiaActual')+1);
         };
-
-        var guardarDatos = function(noticia){
-            if ($.inArray(noticia, $noticias) == -1){
-               $noticias.push(noticia);
-            }
-        };
-
-
-
-
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -34,46 +30,54 @@ $(document).ready(function(){
         var $this=$(this);
         $.ajax({
             url : '../servidor/generaContenidos.php',
-            dataType: 'text',
+
             cache: false,
             success : function(data, textStatus,jqXHR){
-                //var $ff = jqXHR.getResponseHeader();
                 mostrarContenido(data);
-
-                //mostrsarEstados('Recibido');
-                //mostrarCodigoServ(jqXHR.statusText,jqXHR.status);
-                //mostrarCabHTTP(jqXHR.getAllResponseHeaders());
-
             },
             error : function(jqXHR, textStatus, errorThrow){
                 console.log(errorThrow);
-                 //mostrsarEstados('Erroneo');
-                 //mostrarCodigoServ(jqXHR.statusText,jqXHR.status);
             }
         });
-
     };
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
     var mostrarAnterior= function(e){
-        stopPlayRequest();
-        var indice = $.inArray($tick.text(), $noticias);
-        $tick.text($noticias[indice-1]);
+        clearInterval($intervalID);
+        $pidiendo= false;
+        var actual = $tick.data('noticiaActual');
+        if(actual > 0){
+            $tick.data('noticiaActual', --actual);
+            $tick.text($tick.data('noticias')[ $tick.data('noticiaActual')]);
+        }
      };
+
+
      var mostrarSiguiente= function(e){
-        stopPlayRequest();
-        var indice = $.inArray($tick.text(), $noticias);
-        $tick.text($noticias[indice+1]);
+        clearInterval($intervalID);
+        $pidiendo= false;
+        var actual = $tick.data('noticiaActual');
+        if(actual < $tick.data('noticias').length-1){
+            $tick.data('noticiaActual', ++actual);
+            $tick.text($tick.data('noticias')[$tick.data('noticiaActual')]);
+
+        }
      };
+
+
 
      var stopPlayRequest = function(e){
         if ($pidiendo){
-            clearInterval($intervalID);
             $pidiendo= false;
+            clearInterval($intervalID);
+
         }
-        /*else if (e.target == '#detener'){
-            $intervalID = setInterval(peticion,1000);
+        else{
             $pidiendo= true;
-        }*/
+            $intervalID = setInterval(peticion,1000);
+        }
      };
 
 
@@ -81,9 +85,9 @@ $(document).ready(function(){
     $intervalID = setInterval(peticion,1000);
 
 
-    $(document).on('click',$deten, stopPlayRequest);
-    $(document).on('click',$ant, mostrarAnterior);
-    $(document).on('click',$sig, mostrarSiguiente);
+    $(document).on('click','#detener', stopPlayRequest);
+    $(document).on('click','#anterior', mostrarAnterior);
+    $(document).on('click','#siguiente', mostrarSiguiente);
 
 
 
