@@ -14,14 +14,15 @@ $(document).ready(function(){
      var $intervalID;
 
 
-      var mostrarContenido = function(datos){
+
+    var mostrarContenido = function(datos){
             var fech= new Date();
             var horas = fech.getHours()+':'+fech.getMinutes()+':'+fech.getSeconds();
-            //$tick.text(horas+' '+datos);
-            $tick.text(horas);
+            $tick.text(horas+' '+datos);
             $tick.data('noticias').push($tick.text());
             $tick.data('noticiaActual',  $tick.data('noticiaActual')+1);
         };
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -49,8 +50,8 @@ $(document).ready(function(){
         $pidiendo= false;
         var actual = $tick.data('noticiaActual');
         if(actual > 0){
-            $tick.data('noticiaActual', --actual);
-            $tick.text($tick.data('noticias')[ $tick.data('noticiaActual')]);
+            $tick.data('noticiaActual', actual-1);
+            $tick.text($tick.data('noticias')[ $tick.data('noticiaActual')-1]);
         }
      };
 
@@ -60,9 +61,8 @@ $(document).ready(function(){
         $pidiendo= false;
         var actual = $tick.data('noticiaActual');
         if(actual < $tick.data('noticias').length-1){
-            $tick.data('noticiaActual', ++actual);
+            $tick.data('noticiaActual', actual+1);
             $tick.text($tick.data('noticias')[$tick.data('noticiaActual')]);
-
         }
      };
 
