@@ -21,8 +21,14 @@ $(document).ready(function(){
             $tick.text(horas+' '+datos);
             $tick.data('noticias').push($tick.text());
             $tick.data('noticiaActual',  $tick.data('noticiaActual')+1);
+            $tick.css('background-color', 'yellow');
+            setTimeout(limpiarFondo, 300);
         };
 
+
+    var limpiarFondo = function(){
+        $tick.css('background-color', '#fff');
+    };
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
