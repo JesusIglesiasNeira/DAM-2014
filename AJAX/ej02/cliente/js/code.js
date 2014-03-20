@@ -37,7 +37,7 @@ $(document).ready(function(){
         var $this=$(this);
         $.ajax({
             url : '../servidor/generaContenidos.php',
-
+            dataType: 'text',
             cache: false,
             success : function(data, textStatus,jqXHR){
                 mostrarContenido(data);
