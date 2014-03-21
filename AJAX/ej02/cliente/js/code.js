@@ -3,7 +3,6 @@ $(document).ready(function(){
 
      var $tick = $('#ticker');
      $tick.data({
-        'activo' : true,
         'noticias' : [],
         'noticiaActual': 0
     });

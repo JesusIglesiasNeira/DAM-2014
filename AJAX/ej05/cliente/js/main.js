@@ -1,8 +1,28 @@
 $(document).ready(function(){
     'use sctrict';
     var $nombre = $('#login').val();
+    var $disponibilidad = $('#disponibilidad');
 
+var mostrarDisponibilidad = function(datos){
+    if (datos.disponible && datos.disponible == 'si'){
+        $disponibilidad.text('Disponible');
+    }
+    else if (datos.disponible && datos.disponible == 'no'){
+        crearList(datos.alternativas);
+        //$disponibilidad.text('No Disponible, alternativas: '+datos.alternativas);
+    }
 
+};
+
+var crearList = function(datos){
+    var elemli= '' ;
+    for (var i = 0; i<=datos.length-1; i++){
+        elemli = elemli +'<li>'+datos[i]+'</li>';
+    }
+    elemli = '<ul>'+elemli+'</ul>';
+     $disponibilidad.text('No Disponible, alternativas: ');
+     $disponibilidad.append(elemli);
+};
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -10,11 +30,12 @@ $(document).ready(function(){
         var $this=$(this);
         $.ajax({
             url : '../servidor/compruebaDisponibilidadJSON.php',
-            //data : $nombre,
+            data : $nombre,
+            type: 'POST',
             dataType: 'JSON',
             cache: false,
             success : function(data, textStatus,jqXHR){
-                console.log(data);
+                mostrarDisponibilidad(data);
             },
             error : function(jqXHR, textStatus, errorThrow){
                 console.log(errorThrow);
