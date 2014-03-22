@@ -4,10 +4,10 @@ $(document).ready(function(){
     var $disponibilidad = $('#disponibilidad');
 
 var mostrarDisponibilidad = function(datos){
-    if (datos.disponible && datos.disponible == 'si'){
+    if (datos.disponible && datos.disponible === 'si'){
         $disponibilidad.text('Disponible');
     }
-    else if (datos.disponible && datos.disponible == 'no'){
+    else if (datos.disponible && datos.disponible === 'no'){
         crearList(datos.alternativas);
         //$disponibilidad.text('No Disponible, alternativas: '+datos.alternativas);
     }
@@ -30,7 +30,7 @@ var crearList = function(datos){
         var $this=$(this);
         $.ajax({
             url : '../servidor/compruebaDisponibilidadJSON.php',
-            data :  $nombre,
+            data :  {login :$nombre},
             type: 'POST',
             dataType: 'JSON',
             cache: false,
