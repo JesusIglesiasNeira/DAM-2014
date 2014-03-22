@@ -1,71 +1,62 @@
 $(document).ready(function(){
     'use sctrict';
     var $formulario = $('#form1');
-    var $enviar = $('#enviar');
     var $disponibilidad = $('#disponibilidad');
 
 var mostrarProvincias = function(datos){
-    var desplega= '' ;
-    var str = "";
-    for (var i = 01; i<=52; i++){
-        if (i < 10){
-            str='0'+ i.toString();
-        }else{
-            str= i.toString();
-        }
-        desplega = desplega +'<option value="'+datos[str]+'" class="seleccionables">'+datos[str]+'</option>';
+    var desplega= '<option value="SeleccioneP" class="noseleccionable">Seleccione Provincia...</option>' ;
+    for(var cp in datos) {
+        desplega = desplega +'<option value="'+cp+'" id="'+cp+'">'+datos[cp]+'</option>';
     }
-    desplega = '<select name="provincias" form="form1">'+desplega+'</select>';
+    desplega = '<select name="provincias" form="form1" id="provincias">'+desplega+'</select>';
     $formulario.append(desplega);
-    $(document).on('click', '.seleccionables',cargarMunicipios);
+    $(document).on('change', '#provincias',cargarMunicipios);
+};
+
+var mostrarMunicipios = function(municipios){
+    $('#municipios').remove();
+    var desplega= '<option value="SeleccioneM" class="noseleccionable">Seleccione Municipio...</option>' ;
+    for(var cp in municipios) {
+        desplega = desplega +'<option value="'+municipios[cp]+'" class="seleccionables">'+municipios[cp]+'</option>';
+    }
+    desplega = '<select name="municipios" form="form1" id="municipios">'+desplega+'</select>';
+    $formulario.append(desplega);
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-     $(document).on('click', '#enviar', function(e){
-        var $this=$(this);
-        $.ajax({
-            url : '../servidor/cargaProvinciasJSON.php',
-            dataType: 'JSON',
-            cache: false,
-            success : function(data, textStatus,jqXHR){
-                mostrarProvincias(data);
-            },
-            error : function(jqXHR, textStatus, errorThrow){
-                console.log(errorThrow);
-            }
-        });
-    });
 
 
       var cargarMunicipios = function(e){
-        var $this=$(this);
-        console.log($this);
-        $.ajax({
-            url : '../servidor/cargaMunicipiosJSON.php',
-            //data : $nombre,
-            type: 'POST',
-            dataType: 'JSON',
-            cache: false,
-            success : function(data, textStatus,jqXHR){
-                mostrarDisponibilidad(data);
-            },
-            error : function(jqXHR, textStatus, errorThrow){
-                console.log(errorThrow);
-            }
-        });
+        if (this.value !='SeleccioneP'){
+            $.ajax({
+                url : '../servidor/cargaMunicipiosJSON.php',
+                type : 'POST',
+                data : { provincia : this.value },
+                dataType : 'json',
+                cache : false,
+                success : mostrarMunicipios,
+                error : function(jqXHR, textStatus, errorThrow){
+                    console.log(errorThrow);
+                }
+            });
+        }
+        else{$('#municipios').remove();}
     };
+
+//Se cargan las provincias al cargar la pagina
+    $.ajax({
+        url : '../servidor/cargaProvinciasJSON.php',
+        dataType: 'json',
+        cache: false,
+        success : mostrarProvincias,
+         error : function(jqXHR, textStatus, errorThrow){
+            console.log(errorThrow);
+        }
+    });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-/*<select name="carlist" form="carform">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select>*/
 
 
 });
