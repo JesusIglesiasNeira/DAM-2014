@@ -7,7 +7,7 @@ $numeroAleatorio = rand(0, 10);
 // Simular un falso retardo por la red y el servidor
 sleep($numeroAleatorio % 2);
 
-$disponible = ($numeroAleatorio % 2 == 0)? "si" : "no";
+$disponible = ($numeroAleatorio % 2 == 1)? "si" : "no";
 if($disponible == "no") {
 	$alternativasAutomaticas[] = $login.$login;
 	$alternativasAutomaticas[] = "123".$login;

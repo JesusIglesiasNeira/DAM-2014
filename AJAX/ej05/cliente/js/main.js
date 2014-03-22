@@ -30,7 +30,7 @@ var crearList = function(datos){
         var $this=$(this);
         $.ajax({
             url : '../servidor/compruebaDisponibilidadJSON.php',
-            data : $nombre,
+            data :  $nombre,
             type: 'POST',
             dataType: 'JSON',
             cache: false,
