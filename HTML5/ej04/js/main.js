@@ -7,7 +7,8 @@
     for (var i = 0; i<= $tipos.length-1; i++){
         $nominput= $tipos[i].attributes[0].value;
         var $moder= "Modernizr.inputtypes."+$nominput;
-        if ($moder) {
+        console.log($moder);
+        if ($moder.value) {
              $carga.push($nominput);
         } else {
             $nocarga.push($nominput);
