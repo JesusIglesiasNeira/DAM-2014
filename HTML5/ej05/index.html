@@ -5,7 +5,10 @@
   <title>Mi Form HTML5</title>
   <meta charset="utf-8"/>
   <link rel="stylesheet" href="css/css3.css"/>
+  <link rel="stylesheet" href="css/color-polyfill.css"/>
     <script src="libs/vendor/modernizr.custom.80841.js"></script>
+    <script src="libs/vendor/jquery-1.11.0.js"></script>
+    <script src="libs/vendor/color-polyfill.js"></script>
 </head>
 
 <body>
@@ -58,9 +61,11 @@
 
         <p>meter:</p>
         <meter value="0" min= "0" max="17" high="14"></meter>
+        <p>Progress:</p>
+        <progress max="100"></progress>
 
 
-        <input type="submit">
+        <!--<input type="submit">-->
     </form>
     <ul id="datos"></ul>
   </section>
@@ -72,7 +77,7 @@
   <footer>
     <p>Creado por Jesus Iglesias Neira</p>
   </footer>
-  <script src="libs/vendor/jquery-1.11.0.js"></script>
+
   <script src="js/main.js"></script>
 </body>
 </html>

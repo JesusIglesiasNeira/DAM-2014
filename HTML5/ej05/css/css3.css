@@ -1,0 +1,18 @@
+﻿
+
+input, p{
+    margin : 1px;
+}
+
+button{
+    display: block;
+    margin : 50px;
+    width: 100px;
+    height: 50px;
+}
+
+footer{
+    margin : 50px;
+}
+
+
