@@ -5,9 +5,14 @@
     margin-left: 5%;
     margin-right: 5%;
     width: 80%;
-    display: inline-block;
+    max-width: 800px;
+    display: block;
 }
-
+#progreso{
+    display: block;
+    width: 100%;
+    position: relative;
+}
 
 
 #reproductor video {
@@ -15,13 +20,6 @@
     margin-right: 5%;
     display: block;
     width: 80%;
+    max-width: 800px;
 }
 
-#progreso{
-    margin-top: -20px;
-    margin-bottom: 5px;
-    margin-left: 10%;
-    margin-right: 5%;
-    display: block;
-    width: 80%;
-}
