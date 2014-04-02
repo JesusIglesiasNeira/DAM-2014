@@ -32,6 +32,8 @@ console.log(Modernizr);
     $ul.append('<li>Codec: placeholder ----  Valor: ' + Modernizr.input.placeholder +'</li>');
     $ul.append('<li>Progress: </li>');
     $ul.append('<li>Codec: Progress ----  Valor: ' + Modernizr.progress +'</li>');
+    $ul.append('<li>Geolocation: </li>');
+    $ul.append('<li>Codec: geolocation ----  Valor: ' + Modernizr.geolocation +'</li>');
 
 
     Modernizr.load({
