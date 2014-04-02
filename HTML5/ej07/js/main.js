@@ -61,6 +61,7 @@
     $(document).on('click','#anterior',anterior);
     $(document).on('click','#siguiente',siguiente);
     $(document).on('click','#pantcompleta',full);
-    $(document).on('click','#barra',volumen);
+    $(document).on('change','#barra',volumen);
+    $(document).on('load',volumen);
     $('#miVideo').on('timeupdate',progr);
 });

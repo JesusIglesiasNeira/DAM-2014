@@ -1,4 +1,27 @@
-﻿.prog, progress{
+﻿
+
+#botones {
+    margin-bottom: 5px;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 80%;
+    display: inline-block;
+}
+
+
+
+#reproductor video {
+    margin-left: 5%;
+    margin-right: 5%;
     display: block;
-    width:50%;
+    width: 80%;
+}
+
+#progreso{
+    margin-top: -20px;
+    margin-bottom: 5px;
+    margin-left: 10%;
+    margin-right: 5%;
+    display: block;
+    width: 80%;
 }
