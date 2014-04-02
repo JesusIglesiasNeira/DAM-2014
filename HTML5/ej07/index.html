@@ -2,20 +2,37 @@
 <!DOCTYPE html>
   <html lang="en">
 <head>
-  <title>Mi Form HTML5</title>
+  <title>Reproductor de video</title>
   <meta charset="utf-8"/>
+  <link rel="stylesheet" href="css/css3.css"/>
 </head>
 
 <body>
   <header>
-    <h1>Data attributes</h1>
+    <h1>Reproductor de video</h1>
   </header>
-  <section>
-    <ul>
-      <li class="user" data-name="Arkaitz Garro" data-city="Donostia" data-lang="es" data-food="Txuleta">Arkaitz Garro</li>
-      <li class="user" data-name="John Doe" data-city="Boston" data-lang="en" data-food="Bacon">John Doe</li>
-      <li class="user" data-name="Yosu" data-city="Tokyo" data-lang="jp" data-food="Sushi" data-delete="true">Yosu</li>
-    </ul>
+  <section id="reproductor">
+    <video id='miVideo'>
+         <source src="videos/El nombre del viento.webm" type='video/webm'/>
+         <source src="videos/El nombre del viento.mp4" type='video/mp4'/>
+    </video>
+    <nav>
+        <form id="botones">
+          <div class='prog'>
+            <progress id='progreso' max="1" min="0" value=0></progress>
+          </div>
+          <button type="button" id="reproducir">Start</button>
+          <button type="button" id="pausar">Pause</button>
+          <button type="button" id="stop">Stop</button>
+          <button type="button" id="reteocede10">Retroceder 10s</button>
+          <button type="button" id="avanza10">Avanzar 10s</button>
+          <button type="button" id="anterior">Anterior</button>
+          <button type="button" id="siguiente">Siguiente</button>
+          <button type="button" id="pantcompleta">Full Screen</button>
+          <input id="barra" type="range" value="10" min= "0" max="100" step="5">
+        </form>
+    </nav>
+
   </section>
 
 

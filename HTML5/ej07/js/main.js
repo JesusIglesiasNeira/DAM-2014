@@ -1,26 +1,66 @@
-﻿(function(){
+﻿$(document).ready(function(){
     "use strict";
 
-    var $lis = $('li');
-    for(var i= 0; i<=$lis.length-1;i++){
-        //establecer atrib lang a es_ES
-        $lis[i].dataset.lang = "es_ES";
-        //sacar por consola los atributos de las etiquetas
-        console.log("name:");
-        console.log($lis[i].dataset.name);
-        console.log("city:");
-        console.log($lis[i].dataset.city);
-        console.log("lang:");
-        console.log($lis[i].dataset.lang);
-        console.log("food:");
-        console.log($lis[i].dataset.food);
-        console.log("delete:");
-        console.log($lis[i].dataset.delete);
-        console.log("");
-        //eliminar las que tienen delete = true
-        if($lis[i].dataset.delete){
-           $lis[i].remove();
-        }
+    var myVideo=document.getElementById("miVideo");
+    var myvar=$('#barra').value;
 
-    }
-})();
+
+    var iniciar =function (){
+        myVideo.play();
+    };
+    var pausar =function (){
+        myVideo.pause();
+    };
+    var parar =function (){
+        myVideo.currentTime = 0;
+    };
+    var avanz10 =function (){
+        myVideo.currentTime = myVideo.currentTime+10;
+    };
+    var retr10 =function (){
+        if (myVideo.currentTime >= 10){
+            myVideo.currentTime = myVideo.currentTime-10;
+        }
+        else{
+            myVideo.currentTime = 0;
+        }
+    };
+    var anterior =function (){
+
+    };
+    var siguiente =function (){
+
+    };
+    var full =function (){
+        if (myVideo.requestFullScreen){myVideo.requestFullScreen();}
+        else if (myVideo.webkitRequestFullScreen){myVideo.webkitRequestFullScreen();}
+        else if (myVideo.mozRequestFullScreen){myVideo.mozRequestFullScreen();}
+        //myVideo.webkitEnterFullscreen();
+    };
+    var volumen = function(){
+      myvar=$('#barra');
+      console.log(myvar[0].value);
+      var volumen = parseInt(myvar[0].value)/100;
+      myVideo.volume = volumen;
+    };
+    var progr = function(){
+        var progres = $('#progreso')[0].value;
+        var duracion = myVideo.duration;
+        var recorrido = parseInt(myVideo.currentTime)/parseInt(duracion);
+        $('#progreso')[0].value=recorrido;
+    };
+
+
+
+
+    $(document).on('click','#reproducir',iniciar);
+    $(document).on('click','#pausar',pausar);
+    $(document).on('click','#stop',parar);
+    $(document).on('click','#avanza10',avanz10);
+    $(document).on('click','#reteocede10',retr10);
+    $(document).on('click','#anterior',anterior);
+    $(document).on('click','#siguiente',siguiente);
+    $(document).on('click','#pantcompleta',full);
+    $(document).on('click','#barra',volumen);
+    $('#miVideo').on('timeupdate',progr);
+});
