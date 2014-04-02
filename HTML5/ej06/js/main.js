@@ -5,7 +5,8 @@
     //var lis = document.getElementsByTagName('li');
     for(var i= 0; i<=lis.length-1;i++){
         //establecer atrib lang a es_ES
-        lis[i].dataset.lang = "es_ES";
+        $(lis[i]).data('lang','es_ES');
+        //lis[i].dataset.lang = "es_ES";
 
         //sacar por consola los atributos de las etiquetas
         console.log("name:");
