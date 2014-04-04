@@ -24,7 +24,7 @@
         }
     }
     window.addEventListener('storage',handleStorage,false);
-    window.attachEvent('onstorage',handleStorage);
+    window.atachEvent('onstorage',handleStorage);
 
 
 })();
