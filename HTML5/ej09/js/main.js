@@ -17,6 +17,7 @@
         var text = $('#texto').val();
         var user = name[0]+name[0]+name[0]+name[0];
         var id = 'aa';
+        var tweets = [{id:"",user:"",date:"",text:""}];
     };
 
 /*
