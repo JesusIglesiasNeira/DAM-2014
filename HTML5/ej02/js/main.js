@@ -1,8 +1,7 @@
 ﻿(function(){
     "use strict";
+    //Necesario para poder elditar por cualquier usuario
     $("#editable").designMode= 'on';
-
-
 
     var ponerNegrita = function(){
         document.execCommand("bold",false,null);
