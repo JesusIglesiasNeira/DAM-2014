@@ -13,55 +13,50 @@
     <h1>Mi Form HTML5</h1>
   </header>
   <section>
-    <form id="formulario" action="post">
-        <p>Autofocus, placeholder, required y autocomplete:</p>
-        <input type="text" autofocus="true" required="true"  autocomplete="true"/>
-         <p>Password:</p>
-        <input type="password" id="pw" pattern = "([0-9](.{6,})[A-Z])"/>
-        <p>email:</p>
-        <input type="email" autocomplete="true">
-        <p>url:</p>
-        <input type="url">
-        <p>date:</p>
-        <input type="date">
-        <p>time:</p>
-        <input type="time">
-        <p>datetime:</p>
-        <input type="datetime">
-        <p>month:</p>
-        <input type="month">
-        <p>week:</p>
-        <input type="week">
-        <p>number:</p>
-        <input type="number">
-        <p>range:</p>
-        <input type="range">
-        <p>tel:</p>
-        <input type="tel">
-        <p>search:</p>
-        <input type="search">
-        <p>color:</p>
-        <input type="color">
-        <p>Datalist Provincias:</p>
-        <input id="prov" type="text" list="provincias">
-        <datalist id="provincias">
-         <option label="Gu" value="Guipuzcoa"></option>
-         <option label="Al" value="Alava"></option>
-         <option label="Vit" value="Vitoria"></option>
-        </datalist>
-        <p>Caja de texto que solo pueda contener numeros entre 1 y 10:</p>
-        <input type="number" name="cantidad" min="1" max="10">
-        <p>Selección de ficheros:</p>
-        <input type="file" multiple="true">
-        <p>Completado</p>
-        <input type="range" value="0" min= "0" max="17" step="1">
-
-        <p>meter:</p>
-        <meter value="0" min= "0" max="17" high="14"></meter>
-
-
-        <input type="submit">
-    </form>
+  <form id="formulario" action="post">
+      <p>Autofocus, placeholder, required y autocomplete:</p>
+      <input type="text" autofocus="true" required="true"  autocomplete="true"/>
+       <p>Password:</p>
+      <input type="password" id="pw" pattern = "([0-9](.{6,})[A-Z])" required="true"/>
+      <p>email:</p>
+      <input type="email" autocomplete="true" required="true">
+      <p>url:</p>
+      <input type="url" required="true">
+      <p>date:</p>
+      <input type="date" required="true">
+      <p>time:</p>
+      <input type="time" required="true">
+      <p>datetime:</p>
+      <input type="datetime" required="true">
+      <p>month:</p>
+      <input type="month" required="true">
+      <p>week:</p>
+      <input type="week" required="true">
+      <p>number:</p>
+      <input type="number" required="true">
+      <p>range:</p>
+      <input type="range">
+      <p>tel:</p>
+      <input type="tel" required="true">
+      <p>search:</p>
+      <input type="search" required="true">
+      <p>color:</p>
+      <input type="color" required="true">
+      <p>Datalist Provincias:</p>
+      <input id="prov" type="text" list="provincias" required="true">
+      <datalist id="provincias">
+       <option label="Gu" value="Guipuzcoa"></option>
+       <option label="Al" value="Alava"></option>
+       <option label="Vit" value="Vitoria"></option>
+      </datalist>
+      <p>Caja de texto que solo pueda contener numeros entre 1 y 10:</p>
+      <input type="number" name="cantidad" min="1" max="10" required="true">
+      <p>Selección de ficheros:</p>
+      <input type="file" multiple="true">
+      <p>Completado:</p>
+      <meter value="0" min= "0" max="17" high="14"></meter>
+      <button type="submit">Enviar</button>
+  </form>
     <ul id="datos"></ul>
   </section>
 
