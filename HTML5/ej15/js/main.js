@@ -12,19 +12,64 @@
     };
 
     var addtweet= function(){
-        var name = $('#name').val();
+        var nomb = $('#name').val();
         var fecha = $('#fecha').val();
-        var text = $('#texto').val();
-        var user = name[0]+name[0]+name[0]+name[0];
-        var id = 'aa';
-        var tweets = [{id:"",user:"",date:"",text:""}];
+        var texto = $('#texto').val();
+        var usu = nomb[0]+nomb[1]+nomb[2]+nomb[0];
+        var now = new Date();
+        var idus = nomb[0]+now.getTime().toString()+texto[0]+nomb[0];
+        var tweets = [{id:idus,user:usu, date:fecha,text:texto}];
+        var usuarios= [{user:usu, name:nomb}];
+        guardaUsers(usuarios);
+        guardaTweets(tweets);
+    };
+    var deletetweet= function(){
+        var idtweet =  $('#elimin').val();
+        if (idtweet){
+            db.transaction(function (tx) { //CADA TWEET EN UNA TRANSACCION → Procesa todas
+                tx.executeSql('DELETE FROM tweets WHERE id='+"'"+idtweet+"'");
+            });
+        }
+        else{alert('Introduzca un id de tweet válido');}
     };
 
-/*
+    var updatetweet = function(){
+        var idtweet =  $('#actualid').val();
+        var texto = $('#actualtext').val();
+        if (idtweet){
+            db.transaction(function (tx) {
+                tx.executeSql("UPDATE tweets SET text= '"+texto+"'"+" WHERE id = '"+idtweet+"'");
+            });
+        }
+        else{alert('Introduzca un id de tweet válido');}
+    };
+
+    var obtentweetposterior = function(){
+        var fecha =  $('#fechapost').val();
+        var $ul = $('#tweetfecha');
+        if (fecha){
+            db.transaction(function (tx) {
+                tx.executeSql("SELECT date,text,users.name AS usu FROM tweets INNER JOIN users ON tweets.user = users.user  AND tweets.date >= '"+fecha+"'",[],
+                    function callback(tx, results) {
+                    var len = results.rows.length, i;
+                        for (i = 0; i < len; i++) {
+                            $ul.append('<li>'+
+                                " Usuario: "+results.rows.item(i).usu+
+                                " Texto: "+results.rows.item(i).text+
+                                " Fecha: "+results.rows.item(i).date+
+                                '</li>');
+                        }
+                    },
+                function errorCallback(tx, error) {
+                    console.log(error.message);
+                }
+                );
+            });
+        }
+        else{alert('Introduzca un id de tweet válido');}
+    };
 
 
-
-*/
 
     //insertar en la BBDD cada tweet
     var guardaTweets = function(tweets){
@@ -103,6 +148,9 @@
 
     $(document).on('click','#borra',borrarTablas);
     $(document).on('click','#addtweet',addtweet);
+    $(document).on('click','#deletetweet',deletetweet);
+    $(document).on('click','#updatetweet',updatetweet);
+    $(document).on('click','#fechatweet',obtentweetposterior);
 })();
 
 
