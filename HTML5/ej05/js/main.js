@@ -12,7 +12,7 @@
 
 
     //Sacar por pantalla que inputs reconoce el navegador
-console.log(Modernizr);
+    console.log(Modernizr);
     var $ul = $('#datos');
     $ul.empty();
     $ul.append('<li>TIPOS: </li>');
