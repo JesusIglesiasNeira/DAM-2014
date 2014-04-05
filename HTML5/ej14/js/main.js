@@ -4,13 +4,13 @@
 
 
 
-    //Funcion que gurada en storage el contenido del campo texto
+    //Funcion que gurada en storage el contenido (store) del campo texto
     var guardar = function(){
-        sessionStorage.setItem('contenido', $('#texto').val());
-        localStorage.setItem('contenido', $('#texto').val());
+        sessionStorage.setItem('store', $('#texto').val());
+        localStorage.setItem('store', $('#texto').val());
     };
 
-    $('#texto').val(localStorage.getItem('contenido'));
+    $('#texto').val(localStorage.getItem('store'));
 
     $(document).on('keyup','#texto',guardar);
 
@@ -20,7 +20,7 @@
              $('#texto').val("");
         }
         else{
-             $('#texto').val(localStorage.getItem('contenido'));
+             $('#texto').val(localStorage.getItem('store'));
         }
     }
     window.addEventListener('storage',handleStorage,false);
