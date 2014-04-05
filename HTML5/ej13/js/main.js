@@ -26,9 +26,9 @@ $(document).ready(function() {
             map: map,
             title: "¡Usted está aquí!"
         });
-        $('#status')[0].textContent="latitud: "+position.coords.latitude+" Longitud: "+position.coords.longitude+
-            " Precision "+position.coords.accuracy+" altitud: "+position.coords.altitude+" Precision "+
-            position.coords.altitudeAccuracy;
+        $('#status')[0].textContent="latitud:"+position.coords.latitude+" Longitud:"+position.coords.longitude+
+            " Precision:"+position.coords.accuracy+" altitud:"+position.coords.altitude+" Precision:"+
+            position.coords.altitudeAccuracy+" heading:"+position.coords.heading+" speed:"+position.coords.speed;
 
     }
     function cambiarEstado(position){
@@ -46,7 +46,7 @@ $(document).ready(function() {
         navigator.geolocation.watchPosition(cambiarEstado,error,{
             enableHighAccuracy: true,
             timeout: 20000,
-            maximumAge: 0});
+            maximumAge: 100});
     }
     else $('#status')[0].textContent="Su navegador no soporta geolocalizacion";
 });
