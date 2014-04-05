@@ -14,3 +14,6 @@ button{
 footer{
     margin : 50px;
 }
+meter{
+    width: 150px;
+}

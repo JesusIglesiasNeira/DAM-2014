@@ -16,50 +16,48 @@
         <p>Autofocus, placeholder, required y autocomplete:</p>
         <input type="text" autofocus="true" required="true"  autocomplete="true"/>
          <p>Password:</p>
-        <input type="password" id="pw" pattern = "([0-9](.{6,})[A-Z])"/>
+        <input type="password" id="pw" pattern = "([0-9](.{6,})[A-Z])" required="true"/>
         <p>email:</p>
-        <input type="email" autocomplete="true">
+        <input type="email" autocomplete="true" required="true">
         <p>url:</p>
-        <input type="url">
+        <input type="url" required="true">
         <p>date:</p>
-        <input type="date">
+        <input type="date" required="true">
         <p>time:</p>
-        <input type="time">
+        <input type="time" required="true">
         <p>datetime:</p>
-        <input type="datetime">
+        <input type="datetime" required="true">
         <p>month:</p>
-        <input type="month">
+        <input type="month" required="true">
         <p>week:</p>
-        <input type="week">
+        <input type="week" required="true">
         <p>number:</p>
-        <input type="number">
+        <input type="number" required="true">
         <p>range:</p>
         <input type="range">
         <p>tel:</p>
-        <input type="tel">
+        <input type="tel" required="true">
         <p>search:</p>
-        <input type="search">
+        <input type="search" required="true">
         <p>color:</p>
-        <input type="color">
+        <input type="color" required="true">
         <p>Datalist Provincias:</p>
-        <input id="prov" type="text" list="provincias">
+        <input id="prov" type="text" list="provincias" required="true">
         <datalist id="provincias">
          <option label="Gu" value="Guipuzcoa"></option>
          <option label="Al" value="Alava"></option>
          <option label="Vit" value="Vitoria"></option>
         </datalist>
         <p>Caja de texto que solo pueda contener numeros entre 1 y 10:</p>
-        <input type="number" name="cantidad" min="1" max="10">
+        <input type="number" name="cantidad" min="1" max="10" required="true">
         <p>Selección de ficheros:</p>
         <input type="file" multiple="true">
-        <p>Completado</p>
-        <input type="range" value="0" min= "0" max="17" step="1">
 
-        <p>meter:</p>
+        <p>Completado:</p>
         <meter value="0" min= "0" max="17" high="14"></meter>
 
+        <button type="submit">Enviar</button>
 
-        <input type="submit">
     </form>
   </section>
 
