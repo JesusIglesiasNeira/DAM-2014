@@ -4,7 +4,7 @@
 
 
 
-
+    //Funcion que gurada en storage el contenido del campo texto
     var guardar = function(){
         sessionStorage.setItem('contenido', $('#texto').val());
         localStorage.setItem('contenido', $('#texto').val());
