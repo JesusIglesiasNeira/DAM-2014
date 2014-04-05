@@ -12,6 +12,7 @@
         myVideo.pause();
     };
     var parar =function (){
+        myVideo.pause();
         myVideo.currentTime = 0;
     };
     var avanz10 =function (){
@@ -25,12 +26,44 @@
             myVideo.currentTime = 0;
         }
     };
-    var anterior =function (){
 
-    };
     var siguiente =function (){
-
+        var video =0;
+        for (var i=0; i <=  $('#videos')[0].length-1; i++){
+            if ($('#videos')[0][i].selected){
+                if (i<$('#videos')[0].length-1){
+                    $('#videos')[0][video].selected=false;
+                    video=i+1;
+                }
+                //video actual es el ultimo, se reproducira el 1º
+                else{
+                    var ultimo =('#videos')[0].length-1;
+                     $('#videos')[0][ultimo].selected=false;
+                }
+            }
+        }
+        $('#videos')[0][video].selected=true;
+        cambiaVideo();
     };
+
+    var anterior =function (){
+        var video =('#videos')[0].length;
+        for (var i=0; i <=  $('#videos')[0].length-1; i++){
+            if ($('#videos')[0][i].selected){
+                if (i>0){
+                    $('#videos')[0][i].selected=false;
+                    video=i-1;
+                }
+                //video actual es el primero, se reproducira el ultimo
+                else{
+                     $('#videos')[0][0].selected=false;
+                }
+            }
+        }
+        $('#videos')[0][video].selected=true;
+        cambiaVideo();
+    };
+
     var full =function (){
         if (myVideo.requestFullScreen){myVideo.requestFullScreen();}
         else if (myVideo.webkitRequestFullScreen){myVideo.webkitRequestFullScreen();}
@@ -43,11 +76,21 @@
       var volumen = parseInt(myvar[0].value)/100;
       myVideo.volume = volumen;
     };
+    //Actualizar la barra de progreso
     var progr = function(){
         var progres = $('#progreso')[0].value;
         var duracion = myVideo.duration;
         var recorrido = parseInt(myVideo.currentTime)/parseInt(duracion);
-        $('#progreso')[0].value=recorrido;
+        $('#progreso')[0].value=recorrido || 0;
+    };
+
+    var cambiaVideo = function(){
+        parar();
+        var vidselecc = $('#videos')[0].selectedOptions[0].value;
+        $('#mp4')[0].src="videos/"+vidselecc+".mp4";
+        $('#webm')[0].src="videos/"+vidselecc+".webm";
+         document.getElementById("miVideo").load();
+
     };
 
 
@@ -64,4 +107,5 @@
     $(document).on('change','#barra',volumen);
     $(document).on('load',volumen);
     $('#miVideo').on('timeupdate',progr);
+    $(document).on('change','#videos',cambiaVideo);
 });

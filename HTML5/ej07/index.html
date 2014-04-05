@@ -13,8 +13,9 @@
   </header>
   <section id="reproductor">
     <video id='miVideo'>
-         <source src="videos/El nombre del viento.webm" type='video/webm' codec='VP8'/>
-         <source src="videos/El nombre del viento.mp4" type='video/mp4' codec='H264'/>
+         <source src="videos/El nombre del viento.webm" type='video/webm' codec='VP8' id='webm'/>
+         <source src="videos/El nombre del viento.mp4" type='video/mp4' codec='H264' id='mp4'/>
+         Tu navegador no soporta este <code>video</code>.
     </video>
     <nav>
         <form id="botones">
@@ -30,6 +31,11 @@
           <button type="button" id="siguiente">Siguiente</button>
           <button type="button" id="pantcompleta">Full Screen</button>
           <input id="barra" type="range" value="100" min= "0" max="100" step="5">
+          <p>Seleccione video:</p>
+          <select id="videos">
+           <option selected = "selected" value="El nombre del viento">El nombre del viento</option>
+           <option value="2 hamsters">Hamsters</option>
+          </select>
         </form>
     </nav>
 
