@@ -65,7 +65,7 @@
 
 
     //////////////////////////////////////////////////////////////////////////////
-   // Eliminar todos los objetos del almacén  /////////////////////NO FUNCIONAAAAAAAAAA///////////////////////////////////
+   // Eliminar todos los objetos del almacén
     var deleteAllTask = function(){
         var request = indexedDB.open("BDTareas",1);
         var key= $('#indexrem').val();
@@ -102,26 +102,32 @@
             var request = store.delete(key);
         };
     };
+    //////////////////////////////////////////////////////////////////////////////
+   // Eliminar BD
+    var deleteDB = function(){
+        var request = indexedDB.deleteDatabase("BDTareas");
+    };
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////
     //Obtener objetos del almacen:
     var getTask = function(){
+        var $ul = $('#task');
+        $ul.empty();
+        var data = [];
         var request = indexedDB.open("BDTareas",1);
-        var key= $('#indexrem').checked || false;
+        var key= $('#completedget')[0].checked;
         key = key.toString();
         request.onerror = function(e){
             alert('Something failed: ' + event.target.message);
         };
         request.onupgradeneeded = function(event) {
             alert('onUpdateneeded not implemented on deleteTask');
-
         };
         request.onsuccess = function(e) {
             var db = event.target.result;
             var trans = db.transaction(['almacenTareas'], "readwrite");
             //var store = trans.objectStore("almacenTareas").index('completed');
             var store = trans.objectStore("almacenTareas");
-            var data = [];
             //var keyRange = IDBKeyRange.only(key);
             //var req = store.openCursor(keyRange);
             var req = store.openCursor();
@@ -129,11 +135,16 @@
                 var cursor = event.target.result;       //como parametro un objeto de tipo IDBKeyRange
                 if (cursor) {
                     data.push(cursor.value);    // value is the stored object
+                    if (cursor.value.completed.toString() === key){
+                        $ul.append('<li>'+
+                                    " Completed: "+cursor.value.completed+
+                                    " Date: "+cursor.value.date+
+                                    " Description: "+cursor.value.desription+
+                                    " Index: "+cursor.value.index+
+                                    '</li>');
+                    }
                     cursor.continue();   // get the next object
                 }
-                else {//Objects are in data[ ]
-                }
-            console.log(data);
             };
         };
     };
@@ -148,7 +159,7 @@
     $(document).on('click','#updatetask',addupdatetask);
     $(document).on('click','#getTask',getTask);
     $(document).on('click','#create',creaBD);
-    $(document).on('click','#delete',deleteAllTask);
+    $(document).on('click','#delete',deleteDB);
 
 })();
 
