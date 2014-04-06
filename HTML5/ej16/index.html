@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+  <html lang="en">
+<head>
+  <title>Mi IndexeDB</title>
+  <link rel="stylesheet" href="css/css3.css">
+</head>
+
+<body>
+  <header>
+    <h1>Mi IndexeDB</h1>
+  </header>
+    <div>
+      <p>Index</p>
+      <input type="text" id="index"/>
+      <p>Description</p>
+      <input type="text" id="description"/>
+      <p>Completed:</p>
+      <input type="checkbox" name="completed" id="completed" value="1">
+      <p>Date</p>
+      <input type="date" id="date"/>
+      <button id='addtask'>Add Task</button>
+      <button id='updatetask'>Update Task</button>
+    </div>
+
+    <div>
+      <p>Index of task:</p>
+      <input type="text" id="indexrem"/>
+      <button id='deletetask'>Remove Task</button>
+    </div>
+
+    <div>
+      <p>Get Task:</p>
+      <p>Completed?</p>
+      <input type="checkbox" name="completedget" id="completedget" value="1">
+      <button id='getTask'>Get Task</button>
+      <ul id="task"></ul>
+    </div>
+
+      <button id='borra'>Delete store</button>
+      <button id='create'>Create database</button>
+      <button id='delete'>Delete database</button>
+
+
+
+
+
+  <footer>
+    <p>Creado por Jesus Iglesias Neira</p>
+  </footer>
+<script src="libs/jquery-1.11.0.js"></script>
+ <script src="js/main.js"></script>
+</body>
+</html>
