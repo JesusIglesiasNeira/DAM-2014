@@ -1,5 +1,7 @@
-﻿$(document).ready(function(){
+$(document).ready(function(){
     "use strict";
+
+    /////////////////////////////////////////////////////////////////////////////
     //Comprobaciones previas a abrir BD:
     window.indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB;
     if ('webkitIndexedDB' in window) {
@@ -7,6 +9,7 @@
         window.IDBKeyRange = window.webkitIDBKeyRange;
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////
     //Abrir BD (si no existe se crea)(las llamadas son asincronas) y Crear almacén:
     var creaBD = function(){
         var db = null, version = '0.1';
@@ -33,6 +36,7 @@
             var db = event.target.result;   //modifiquen la estructura de la base de datos
             // Create object store
         };
+        window.indexedDB.close(MiDB);
     };
 
     /////////////////////////////////////////////////////////////
@@ -64,16 +68,28 @@
         var store = transaction.objectStore('miAlmacen');
         //1ºopc)var request = store.get(key); //Obtiene 1 elemento. Si no existe el obj devuelve null
         var data = [ ];
-        var request = store.openCursor();//Es recomendable utilizar el metodo “openCursor()” para que si el objeto no existe, el
-        // var singleKeyRange = IDBKeyRange.only("Belly Dance Bruce - Final Strike"); //valor del resultado sea null
+        var request = store.openCursor();//Es recomendable utilizar el metodo “openCursor()” para que si el objeto no existe, el valor del resultado sea null
+        // var singleKeyRange = IDBKeyRange.only("Belly Dance Bruce - Final Strike");
         // var request = store.openCursor(singleKeyRange);  //El  metodo “openCursor” tambien permitira obtener todos los
         request.onsuccess = function (event) {      //objetos de un almacen, en lugar de un unico objeto, pasando
             var cursor = event.target.result;       //como parametro un objeto de tipo IDBKeyRange
             if (cursor) {
                 data.push(cursor.value);    // value is the stored object
                 cursor.continue();   // get the next object
-            } else {//Objects are in data[ ]}
-        }
+            } else {//Objects are in data[ ]
+            }
+        };
+    };
+
+
+//////////////////////////////////////////////////////////////////////////////
+   // Eliminar objetos del almacén
+    var eliminar = function(){
+        var myIDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || { READ_WRITE: 'readwrite' };
+        var transaction = db.transaction(['blockbusters'], myIDBTransaction.READ_WRITE);
+        var store = transaction.objectStore('blockbusters');
+        var request = store.delete(key);
+        request = store.clear(); //eliminar todos los objetos de un almacen
     };
 
 });
