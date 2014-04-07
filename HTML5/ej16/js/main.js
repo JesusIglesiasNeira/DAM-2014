@@ -4,46 +4,56 @@
 
     /////////////////////////////////////////////////////////////////////////////
     //Comprobaciones previas a abrir BD:
-    window.indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB;
+    window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+    window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
+
     if ('webkitIndexedDB' in window) {
         window.IDBTransaction = window.webkitIDBTransaction;
         window.IDBKeyRange = window.webkitIDBKeyRange;
     }
 
     var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.msIndexedDB;
+    var version = 1;
     //Abrir la BBDD e insertar un almacen con 2 objetos
     var creaBD = function(){
-        var request = indexedDB.open("BDTareas",1);
+        var versionnueva =parseInt($('#version').val());
+        if(versionnueva){
+            version=versionnueva;
+        }
         var task=[
-            {index:"1", date:"2010-10-08", completed:false, description:"Recoger la basura"},
-            {index:"2", date:"2010-10-12", completed:true, description:"Limpiar el POLVO"}];
+            {index:"1", date:"2010-10-08", completed:"false", description:"Recoger la basura"},
+            {index:"2", date:"2010-10-12", completed:"true", description:"Limpiar el POLVO"}];
 
+        var request = indexedDB.open("BDTareas",version);
+        request.onsuccess = function(e) {
+            console.log("life is good:" + e) ;
+        };
         request.onerror = function(e){
             alert('Something failed: ' + event.target.message);
         };
         request.onupgradeneeded = function(event) {
             console.log("UPDATING") ;
             var db = event.target.result;
-            var objectStore = db.createObjectStore("almacenTareas",{keyPath:"index"});
-            objectStore.createIndex("completed","completed",{unique:false});
-            //objectStore.createIndex("completed","index",{unique:true});
+                if(db.objectStoreNames.contains('almacenTareas')){//comprobar y borrar si existe una version anterior
+                    db.deleteObjectStore('almacenTareas');
+                }
+                var objectStore = db.createObjectStore("almacenTareas",{keyPath:"index"});
+                objectStore.createIndex("completed","completed",{unique:false});
+                for(var i in task){
+                    objectStore.add(task[i]);
+                }
+        };
 
-            for(var i in task){
-                objectStore.add(task[i]);
-            }
-        };
-        request.onsuccess = function(e) {
-            console.log("life is good:" + e) ;
-        };
     };
 
 
     /////////////////////////////////////////////////////////////
     //Añadir objetos al almacen:
     var addupdatetask = function(){
-        var request = indexedDB.open("BDTareas",1);
+        var request = indexedDB.open("BDTareas",version);
         var task=[
-            {index:$('#index').val(), date:$('#date').val(), completed:$('#completed')[0].checked,
+            {index:$('#index').val(), date:$('#date').val(), completed:$('#completed')[0].checked.toString(),
             description:$('#description').val()}];
         request.onerror = function(e){
             alert('Something failed: ' + event.target.message);
@@ -67,7 +77,7 @@
     //////////////////////////////////////////////////////////////////////////////
    // Eliminar todos los objetos del almacén
     var deleteAllTask = function(){
-        var request = indexedDB.open("BDTareas",1);
+        var request = indexedDB.open("BDTareas",version);
         var key= $('#indexrem').val();
         request.onerror = function(e){
             alert('Something failed: ' + event.target.message);
@@ -78,7 +88,7 @@
         };
         request.onsuccess = function(e) {
             var db = event.target.result;
-            var trans = db.transaction(['almacenTareas'], "readwrite");
+            var trans = db.transaction(['almacenTareas'], "read");
             var store = trans.objectStore("almacenTareas");
             request = store.clear(); //eliminar todos los objetos de un almacen
         };
@@ -86,7 +96,7 @@
     //////////////////////////////////////////////////////////////////////////////
    // Eliminar objeto del almacén
     var deleteTask = function(){
-        var request = indexedDB.open("BDTareas",1);
+        var request = indexedDB.open("BDTareas",version);
         var key= $('#indexrem').val();
         request.onerror = function(e){
             alert('Something failed: ' + event.target.message);
@@ -114,7 +124,7 @@
         var $ul = $('#task');
         $ul.empty();
         var data = [];
-        var request = indexedDB.open("BDTareas",1);
+        var request = indexedDB.open("BDTareas",version);
         var key= $('#completedget')[0].checked;
         key = key.toString();
         request.onerror = function(e){
@@ -126,11 +136,9 @@
         request.onsuccess = function(e) {
             var db = event.target.result;
             var trans = db.transaction(['almacenTareas'], "readwrite");
-            //var store = trans.objectStore("almacenTareas").index('completed');
             var store = trans.objectStore("almacenTareas");
-            //var keyRange = IDBKeyRange.only(key);
-            //var req = store.openCursor(keyRange);
-            var req = store.openCursor();
+            var index = store.index("completed");  //hacer la busqueda por el indice completed
+            var req = index.openCursor();
             req.onsuccess = function (event) {      //objetos de un almacen, en lugar de un unico objeto, pasando
                 var cursor = event.target.result;       //como parametro un objeto de tipo IDBKeyRange
                 if (cursor) {
@@ -146,6 +154,7 @@
                     cursor.continue();   // get the next object
                 }
             };
+
         };
     };
 
