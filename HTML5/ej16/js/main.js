@@ -12,15 +12,12 @@
         window.IDBTransaction = window.webkitIDBTransaction;
         window.IDBKeyRange = window.webkitIDBKeyRange;
     }
-
     var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.msIndexedDB;
-    var version = 1;
+
+    var version = 1
+    ;
     //Abrir la BBDD e insertar un almacen con 2 objetos
     var creaBD = function(){
-        var versionnueva =parseInt($('#version').val());
-        if(versionnueva){
-            version=versionnueva;
-        }
         var task=[
             {index:"1", date:"2010-10-08", completed:"false", description:"Recoger la basura"},
             {index:"2", date:"2010-10-12", completed:"true", description:"Limpiar el POLVO"}];
@@ -35,14 +32,15 @@
         request.onupgradeneeded = function(event) {
             console.log("UPDATING") ;
             var db = event.target.result;
-                if(db.objectStoreNames.contains('almacenTareas')){//comprobar y borrar si existe una version anterior
-                    db.deleteObjectStore('almacenTareas');
-                }
-                var objectStore = db.createObjectStore("almacenTareas",{keyPath:"index"});
-                objectStore.createIndex("completed","completed",{unique:false});
-                for(var i in task){
-                    objectStore.add(task[i]);
-                }
+            //comprobar y borrar si existe una version anterior del almacen
+            if(db.objectStoreNames.contains('almacenTareas')){
+                db.deleteObjectStore('almacenTareas');
+            }
+            var objectStore = db.createObjectStore("almacenTareas",{keyPath:"index"});
+            objectStore.createIndex("completed","completed",{unique:false});
+            for(var i in task){
+                objectStore.add(task[i]);
+            }
         };
 
     };
