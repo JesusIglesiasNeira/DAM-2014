@@ -142,9 +142,11 @@
 
     //Crear y definir la BBDD
     var db = openDatabase('tweetdb', '1.0', 'All my tweets', 2 * 1024 * 1024);
-    db.transaction(createTable);
-    getUser();
-    getTweets();
+    if(db){
+        db.transaction(createTable);
+        getUser();
+        getTweets();
+    }
 
     $(document).on('click','#borra',borrarTablas);
     $(document).on('click','#addtweet',addtweet);
