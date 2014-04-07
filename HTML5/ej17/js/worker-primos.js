@@ -2,6 +2,7 @@
     var num = parseInt(e.data.num);
 
     //rec(num);
+
     var primo = true;
     if (num && num == 1){
         postMessage(num);
