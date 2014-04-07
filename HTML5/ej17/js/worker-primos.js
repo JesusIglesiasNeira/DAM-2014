@@ -1,8 +1,8 @@
 ﻿this.addEventListener('message', function(e) {
     var num = parseInt(e.data.num);
 
-    rec(num);
-    /*var primo = true;
+    //rec(num);
+    var primo = true;
     if (num && num == 1){
         postMessage(num);
     }
@@ -21,12 +21,12 @@
             }
             if (primo){postMessage(n);}
         }
-    }*/
+    }
 
 }, false);
 
-
-var nums =[];
+//Modo función recursiva nº debe ser menor de 20000
+/*var nums =[];
     var rec = function(num){
         if (num>3){
             rec(num-1);
@@ -53,5 +53,5 @@ var nums =[];
         }else if (num===1){
             postMessage(1);
         }
-    };
+    };*/
 
