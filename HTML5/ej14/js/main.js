@@ -23,6 +23,7 @@
              $('#texto').val(localStorage.getItem('store'));
         }
     }
+    //Escuchar eventos
     window.addEventListener('storage',handleStorage,false);
     window.atachEvent('onstorage',handleStorage);
 
