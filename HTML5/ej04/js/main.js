@@ -16,7 +16,7 @@
      $('input').on('blur', actualizaMetter);
 
 
-    //Sacar por pantalla que inputs reconoce el navegador
+    //Sacar por consola que inputs reconoce el navegador
     console.log(Modernizr);
     var $ul = $('#datos');
     $ul.empty();
