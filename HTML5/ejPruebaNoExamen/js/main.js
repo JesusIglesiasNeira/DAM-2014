@@ -186,7 +186,7 @@
 ////////////////////////////////////////Lógica del juego////////////////////////////////////////////////////
     var comprobaracierto= function(){
         var intento = "option1";
-        if(this.id=="fig"){
+        if(this.id=="fig2"){
             intento = "option2";
         }
 

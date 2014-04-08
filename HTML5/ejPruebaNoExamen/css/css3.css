@@ -1,10 +1,14 @@
-﻿
+﻿body{
+    width: 80%;
+}
+
 input{
     background-color: #AAA;
 }
 
-figure ,article, #datopc1, #datopc2{
-    display:inline;
+figure ,img {
+    display:inline-block;
+
 }
 
 
