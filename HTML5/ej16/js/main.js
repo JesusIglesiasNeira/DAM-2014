@@ -23,10 +23,10 @@
             {index:"2", date:"2010-10-12", completed:"true", description:"Limpiar el POLVO"}];
 
         var request = indexedDB.open("BDTareas",version);
-        request.onsuccess = function(e) {
+        request.onsuccess = function(event) {
             console.log("life is good:" + e) ;
         };
-        request.onerror = function(e){
+        request.onerror = function(event){
             alert('Something failed: ' + event.target.message);
         };
         request.onupgradeneeded = function(event) {
@@ -53,14 +53,14 @@
         var task=[
             {index:$('#index').val(), date:$('#date').val(), completed:$('#completed')[0].checked.toString(),
             description:$('#description').val()}];
-        request.onerror = function(e){
+        request.onerror = function(event){
             alert('Something failed: ' + event.target.message);
         };
         request.onupgradeneeded = function(event) {
             alert('onUpdateneeded not implemented on addupdatetask');
 
         };
-        request.onsuccess = function(e) {
+        request.onsuccess = function(event) {
             var db = event.target.result;
             var trans = db.transaction(['almacenTareas'], "readwrite");
             var store = trans.objectStore("almacenTareas");
@@ -77,14 +77,14 @@
     var deleteAllTask = function(){
         var request = indexedDB.open("BDTareas",version);
         var key= $('#indexrem').val();
-        request.onerror = function(e){
+        request.onerror = function(event){
             alert('Something failed: ' + event.target.message);
         };
         request.onupgradeneeded = function(event) {
             alert('onUpdateneeded not implemented on deleteTask');
 
         };
-        request.onsuccess = function(e) {
+        request.onsuccess = function(event) {
             var db = event.target.result;
             var trans = db.transaction(['almacenTareas'], "read");
             var store = trans.objectStore("almacenTareas");
@@ -96,14 +96,14 @@
     var deleteTask = function(){
         var request = indexedDB.open("BDTareas",version);
         var key= $('#indexrem').val();
-        request.onerror = function(e){
+        request.onerror = function(event){
             alert('Something failed: ' + event.target.message);
         };
         request.onupgradeneeded = function(event) {
             alert('onUpdateneeded not implemented on deleteTask');
 
         };
-        request.onsuccess = function(e) {
+        request.onsuccess = function(event) {
             var db = event.target.result;
             var trans = db.transaction(['almacenTareas'], "readwrite");
             var store = trans.objectStore("almacenTareas");
@@ -125,13 +125,13 @@
         var request = indexedDB.open("BDTareas",version);
         var key= $('#completedget')[0].checked;
         key = key.toString();
-        request.onerror = function(e){
+        request.onerror = function(event){
             alert('Something failed: ' + event.target.message);
         };
         request.onupgradeneeded = function(event) {
             alert('onUpdateneeded not implemented on deleteTask');
         };
-        request.onsuccess = function(e) {
+        request.onsuccess = function(event) {
             var db = event.target.result;
             var trans = db.transaction(['almacenTareas'], "readwrite");
             var store = trans.objectStore("almacenTareas");
