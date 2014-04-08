@@ -1,0 +1,128 @@
+{
+	"id" : 1,
+	"date" : "2013/07/12",
+	"hour" : "21:30",
+	"players" : [
+		{
+			"player" : {
+				"name" : "Jane Doe",
+				"age" : 26,
+				"description" : "She is a doctor in a little village...",
+				"photo" : "./images/show/1/player/1/female.png"
+			},
+			"challenges" : [
+				{
+					"selected" : "option1",
+					"place" : {
+						"address" : "Avenida Libertad, 25, Donostia - San Sebastian, España",
+						"latitude" : "43.20",
+						"longitude" : "-1.90",
+						"description" : "Surf Shop",
+						"photo" : "./images/show/1/challenge/1/place.jpg"
+					},
+					"option1" : {
+						"name" : "Red T-Shirt",
+						"photo" : "./images/show/1/challenge/1/option1.jpg",
+						"description" : "Red cotton t-shirt",
+						"price" : "39",
+						"likes" : "21"
+					},
+					"option2" : {
+						"name" : "White T-Shirt",
+                        "photo" : "./images/show/1/challenge/1/option2.jpg",
+						"description" : "White t-shirt",
+                                                "price" : "34",
+                                                "likes" : "28"
+                                        }
+
+				},
+				{
+					"selected" : "option2",
+					"place" : {
+						"address" : "Bulevard, Donostia - San Sebastian, España",
+						"latitude" : "43.20",
+                        "longitude" : "-1.90",
+						"description" : "Travel Shop",
+						"photo" : "./images/show/1/challenge/2/place/place.jpg"
+						},
+					"option1" : {
+						"name" : "Red T-Shirt",
+						"photo" : "./images/show/1/challenge/2/option1.jpg",
+						"description" : "Red cotton t-shirt",
+						"price" : "39",
+						"likes" : "21"
+					},
+					"option2" : {
+						"name" : "White T-Shirt",
+                        "photo" : "./images/show/1/challenge/2/option2.jpg",
+						"description" : "White t-shirt",
+                        "price" : "34",
+                        "likes" : "28"
+                    }
+
+                }
+			]
+		},
+		{
+        	"player" : {
+            	"name" : "John Doe",
+                "age" : 29,
+                "description" : "He is a famous actor in TV show...",
+                "photo" : "./images/show/1/player/2/male.png"
+            },
+            "challenges" : [
+                {
+                    "selected" : "option2",
+                    "place" : {
+                        "address" : "Avenida Libertad, 25, Donostia - San Sebastian, España",
+                        "latitude" : "43.20",
+                        "longitude" : "-1.90",
+                        "description" : "Surf Shop",
+                        "photo" : "./images/show/1/challenge/3/place.jpg"
+                    },
+                    "option1" : {
+						"name" : "Red T-Shirt",
+						"photo" : "./images/show/1/challenge/1/option1.jpg",
+						"description" : "Red cotton t-shirt",
+						"price" : "39",
+						"likes" : "21"
+					},
+					"option2" : {
+						"name" : "White T-Shirt",
+                        "photo" : "./images/show/1/challenge/1/option2.jpg",
+						"description" : "White t-shirt",
+                        "price" : "34",
+                        "likes" : "28"
+                    }
+
+                },
+				{
+                    "selected" : "option1",
+                    "place" : {
+                        "address" : "Bulevard, Donostia - San Sebastian, España",
+                        "latitude" : "43.20",
+                        "longitude" : "-1.90",
+                        "description" : "Travel Shop",
+                        "photo" : "./images/show/1/challenge/4/place/place.jpg"
+                    },
+                    "option1" : {
+						"name" : "Red T-Shirt",
+						"photo" : "./images/show/1/challenge/1/option1.jpg",
+						"description" : "Red cotton t-shirt",
+						"price" : "39",
+						"likes" : "21"
+					},
+					"option2" : {
+						"name" : "White T-Shirt",
+                        "photo" : "./images/show/1/challenge/1/option2.jpg",
+						"description" : "White t-shirt",
+                        "price" : "34",
+                        "likes" : "28"
+                    }
+
+                }
+            ]
+		}
+	]
+
+}
