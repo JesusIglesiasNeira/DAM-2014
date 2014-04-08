@@ -104,7 +104,6 @@
             success : function(data){
                 //var lis = json.parse(data);
                 guardaTweets(data);
-                //return lis;
             },
             error : function(jqXHR, textStatus, errorThrow){
                 //alert(errorThrow);
@@ -123,7 +122,6 @@
             success : function(data){
                 //var lis = json.parse(data);
                 guardaUsers(data);
-                //return lis;
             },
             error : function(jqXHR, textStatus, errorThrow){
                 //alert(errorThrow);
