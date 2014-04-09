@@ -1,154 +1,205 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Pagina Pitufos</title>
+        <title>Pagina Gargamel</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+        <link rel="stylesheet" href="themes/Pitutheme.min.css" />
+        <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
 <!-- página uno ////////////////////////////////////////////////////////////////////////////////////////////-->
-        <div data-role="page" id="page1" data-title="Index">
+        <div data-role="page" id="page1" data-title="Index Pitufos">
             <div data-role="header">
-                <h1>Pagina Pitufos</h1>
+            <div data-role="navbar" data-iconpos="bottom" data-theme="b">
+                <ul>
+                    <li><a href="#page2" data-icon="arrow-r" data-theme="b">Info Pitufos</a></li>
+                </ul>
+            </div><!-- /navbar -->
+                <h1>Pagina Gargamel</h1>
+            </div><!-- /header -->
+            <div role="main" class="ui-content">
+                <h2>Página Índice</h2>
+
+            </div><!-- /content -->
+            <div data-role="footer">
+            <!-- Grupo de controles////////////////////////////////////////////////////////////////////////////////-->
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#page1" data-role="button" data-icon="home" data-theme="b">Pagina Gargamel</a>
+                    <a href="#page2" data-role="button" data-theme="b">Info Pitufos</a>
+                    <a href="#page3" data-role="button" data-theme="b">Mapa Pitufos</a>
+                                    </div>
+                <br/>
+                <h4>Created by  <a href="https://github.com/jesusiglesiasneira">Jesus Iglesias</a></h4>
+            </div><!-- /footer -->
+        </div><!-- /page -->
+
+<!-- página dos///////////////////////////////////////////////////////////////////////////////////////////// -->
+        <div data-role="page" id="page2" data-title="Los Pitufos">
+            <div data-role="header">
+                <div data-role="navbar" data-iconpos="bottom" data-theme="b">
+                    <ul>
+                        <li><a href="#page1"  data-icon="arrow-l" data-theme="b">Pagina Gargamel</a></li>
+                        <li><a href="#page3" data-icon="arrow-r" data-theme="b">Mapa de pitufos</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+                <h1>Info Pitufos</h1>
+            </div><!-- /header -->
+            <div role="main" class="ui-content">
+                <h2>Esta página está dedicda a los pitufos, porque es lo primero que se me ha ocurrido</h2>
+             <!-- expandible acordeon ///////////////////////////////////////////////////////////////////////////////-->
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                    <!--denlace externo///////////////////////////////////////////////////////////////////////////////-->
+                        <h3>Historia de los pitufos</h3>
+                        <p>Todo empezó cuando el creador de los cómics, Peyo (Pierre Culliford), fue a almorzar con un compañero dibujante de historietas, el artista belga André Franquin. En medio de la charla, Peyo quiso salar su comida. Pero fue víctima de una gran laguna y no le salía la palabra sal. Entonces, como quien dice pasa el coso, le pidió a su amigo que le pase el "schtroumpf". Franquin respondió: "Aquí está la schtroumpf -. Cuando hayas terminado de schtroumpfar tu plato, puedes schtroumpfla de nuevo". El resto de la comida, los dos bromearon con la palabra "schtroumpf". Así, al principio de la tira en papel, los Pitufos (en inglés Smurfs) era los schtroumpf.</p>
+                        <br/>
+                    </div><div data-role="collapsible">
+                    <!--denlace externo///////////////////////////////////////////////////////////////////////////////-->
+                        <h3>Info sobre los pitufos</h3>
+                        <a href="http://es.wikipedia.org/wiki/Los_Pitufos" data-transition="slide">Enlace externo info de los pitufos</a>
+                    </div>
+                    <div data-role="collapsible">
+                    <!--popUp//////////////////////////////////////////////////////////////////////////////////////////-->
+                        <h3>¿Cuantos pitufos tienes cerca?</h3>
+                        <a href="#popupBasic" data-rel="popup">¿Cuantos pitufos tienes cerca?</a>
+                        <div data-role="popup" id="popupBasic">
+                                <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                                <p>Lo sentimos pero no hay ningun pitufo cerca<p>
+                        </div>
+                    </div>
+                    <div data-role="collapsible">
+                    <!--dialogo///////////////////////////////////////////////////////////////////////////////////////-->
+                        <h3>Mapa del sitio con transicion</h3>
+                        <a href="index.html" data-rel="dialog" data-transition="slide">Open dialog con transicion</a>
+                    </div>
+                    <div data-role="collapsible">
+                    <!--dialogo///////////////////////////////////////////////////////////////////////////////////////-->
+                        <h3>Ejemplo dialogo error</h3>
+                        <a href="navigationExample.html" data-rel="dialog" >Dialogo error</a>
+                    </div>
+                </div>
+            <!-- /panel ///////////////////////////////////////////////////////////////////////////////-->
+                <br/>
+                <div data-role="panel" id="mypanel" data-position="right" data-animate="true" data-transition="slide">
+                    <p>Panel lateral<p>
+                    <ul>
+                        <a href="a.html">Abuelo Pitufo</a><br/>
+                        <a href="b.html">Bromista</a><br/>
+                        <a href="b.html">Cocinero</a><br/>
+                        <a href="b.html">Enamorado</a><br/>
+                        <a href="b.html">Pitufina</a><br/>
+                    </ul>
+                    <button href="#page2" data-rel="close" data-theme="b">Close panel</button>
+                </div>
+                <a href="#mypanel" data-role="button" data-theme="b" data-inline="true">Pitufos mas conocidos</a>
+            <!-- bgrid ///////////////////////////////////////////////////////////////////////////////-->
+                <h3>Capitulos:</h3>
+                <div class="ui-grid-d"  data-theme="b">
+                    <div class="ui-block-a">Capitulo1</div>
+                    <div class="ui-block-b">Capitulo2</div>
+                    <div class="ui-block-c">Capitulo3</div>
+                    <div class="ui-block-d">Capitulo4</div>
+                    <div class="ui-block-e">Capitulo5</div>
+                </div><!-- /grid-b -->
+                <div class="ui-grid-d" data-theme="b">
+                    <div class="ui-block-a">Capitulo6</div>
+                    <div class="ui-block-b">Capitulo7</div>
+                    <div class="ui-block-c">Capitulo8</div>
+                    <div class="ui-block-d">Capitulo9</div>
+                    <div class="ui-block-e">Capitulo10</div>
+                </div><!-- /grid-b -->
+                <div class="ui-grid-d" data-theme="b">
+                    <div class="ui-block-a">Capitulo11</div>
+                    <div class="ui-block-b">Capitulo12</div>
+                    <div class="ui-block-c">Capitulo13</div>
+                    <div class="ui-block-d">Capitulo14</div>
+                    <div class="ui-block-e">Capitulo15</div>
+                </div><!-- /grid-b -->
+                <div class="ui-grid-d" data-theme="b">
+                    <div class="ui-block-a">Capitulo16</div>
+                    <div class="ui-block-b">Capitulo17</div>
+                    <div class="ui-block-c">Capitulo18</div>
+                    <div class="ui-block-d">Capitulo19</div>
+                    <div class="ui-block-e">Capitulo20</div>
+                </div><!-- /grid-b -->
+            </div><!-- /content -->
+
+            <div data-role="footer">
+            <!-- Grupo de controles////////////////////////////////////////////////////////////////////////////////-->
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#page1" data-role="button" data-icon="home" data-theme="b">Pagina Gargamel</a>
+                    <a href="#page2" data-role="button" data-theme="b">Info Pitufos</a>
+                    <a href="#page3" data-role="button" data-theme="b">Mapa Pitufos</a>
+                </div>
+                <br/>
+                 <h4>Created by  <a href="https://github.com/jesusiglesiasneira">Jesus Iglesias</a></h4>
+            </div><!-- /footer -->
+
+        </div><!-- /page -->
+
+<!-- página tres///////////////////////////////////////////////////////////////////////////////////////////// -->
+         <div data-role="page" id="page3" data-title="Mapa Pitufos">
+            <div data-role="header">
+                <!-- barra se navegación ///////////////////////////////////////////////////////////////////////////////-->
+                <div data-role="navbar" data-iconpos="bottom" data-theme="b">
+                    <ul>
+                        <li><a href="#page2" data-icon="arrow-l" data-theme="b">Atras</a></li>
+                    </ul>
+                </div><!-- /navbar -->
+                <h1>Localizacion pitufos</h1>
             </div><!-- /header -->
 
             <div role="main" class="ui-content">
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum</p>
-                <a href="#page2">Page 2</a>
-                <br/>
-                 <a href="navigationExample.html" data-rel="dialog" >Dialogo error</a>
-                <div data-role="panel" id="mypanel" data-position="right">
-                </div><!-- /panel -->
+                <p>Localizacion aproximada:</p>
+                <article id="pitumap">
+
+                </article>
 
 
             </div><!-- /content -->
 
             <div data-role="footer">
-                <h4>Page Footer</h4>
+            <!-- Grupo de controles////////////////////////////////////////////////////////////////////////////////-->
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#page1" data-role="button" data-icon="home" data-theme="b" data-inline="true">Pagina Gargamel</a>
+                    <a href="#page2" data-role="button" data-theme="b" data-inline="true">Info Pitufos</a>
+                    <a href="#page3" data-role="button" data-theme="b" data-inline="true">Mapa Pitufos</a>
+                                    </div>
+                <br/>
+                <h4>Created by  <a href="https://github.com/jesusiglesiasneira">Jesus Iglesias</a></h4>
             </div><!-- /footer -->
 
         </div><!-- /page -->
 
-<!-- página dos///////////////////////////////////////////////////////////////////////////////////////////// -->
-        <div data-role="page" id="page2" data-title="Tienda">
-            <div data-role="header">
-                <h1>Pagina Papa Pitufo</h1>
-                <!-- botones ///////////////////////////////////////////////////////////////////////////////-->
-                <a href="index.html" data-icon="delete">Cancel</a>
-                <h1>Edit Contact</h1>
-                <a href="index.html" data-icon="check">Save</a>
-                <!-- barra se navegación ///////////////////////////////////////////////////////////////////////////////-->
-                <div data-role="navbar" data-iconpos="bottom" data-theme="b">
-                        <ul>
-                            <li><a href="a.html"  data-icon="delete" data-theme="e">One</a></li>
-                            <li><a href="b.html" data-icon="arrow-r">Two</a></li>
-                        </ul>
-                    </div><!-- /navbar -->
-            </div><!-- /header -->
 
-            <div role="main" class="ui-content">
-                <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+    <!-- Mapa////////////////////////////////////////////////////////////////////////////// -->
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    </body>
+</html>
 
 
 
-             <!-- expandible acordeon ///////////////////////////////////////////////////////////////////////////////-->
-                <div data-role="collapsible-set">
-                    <div data-role="collapsible" data-collapsed="false">
-                    <!--denlace externo///////////////////////////////////////////////////////////////////////////////-->
-                        <h3>Enlace externo pag Arkaitz</h3>
-                        <a href="http://www.arkaitzgarro.com/">Enlace externo pag Arkaitz</a>
-                        <br/>
-                    </div>
-                    <div data-role="collapsible">
-                    <!--dialogo///////////////////////////////////////////////////////////////////////////////////////-->
-                        <h3>Open dialog con transicion</h3>
-                        <a href="index.html" data-rel="dialog" data-transition="slide">Open dialog con transicion</a>
-                        <br/>
-                    </div>
-                    <div data-role="collapsible">
-                    <!--popUp//////////////////////////////////////////////////////////////////////////////////////////-->
-                        <h3>Popup</h3>
-                        <a href="#popupBasic" data-rel="popup">Popup</a>
-                        <div data-role="popup" id="popupBasic">
-                                <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-                                <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.<p>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-            <!--denlace externo///////////////////////////////////////////////////////////////////////////////
-                <a href="indexpagindiv.html">Pagindividual</a>
-                <br/>-->
-
-            <!--dialogo///////////////////////////////////////////////////////////////////////////////////////
-                <a href="index.html" data-rel="dialog" data-transition="slide">Open dialog con transicion</a>
-                <br/>-->
-            <!--popUp//////////////////////////////////////////////////////////////////////////////////////////
-                <a href="#popupBasic" data-rel="popup">Popup</a>
-                <div data-role="popup" id="popupBasic">
-                    <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-                    <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.<p>
-                </div>-->
-
-            <!--Volver//////////////////////////////////////////////////////////////////////////////////////////-->
+<!--Volver//////////////////////////////////////////////////////////////////////////////////////////
                 <br/>
                 <a href="#page1">Return</a>
                 <br/>
-                <a href="previous.html" data-rel="back" data-direction=”reverse”>BACK</a>
+                <a href="previous.html" data-rel="back" data-direction=”reverse”>BACK</a>-->
 
-            <!-- /panel ///////////////////////////////////////////////////////////////////////////////-->
-                <br/>
-                <div data-role="panel" id="mypanel" data-position="right" data-icon="start" data-transition="slide">
-                <!-- barra se navegación ///////////////////////////////////////////////////////////////////////////////-->
-                    <div data-role="navbar">
-                        <ul>
-                            <li><a href="a.html">One</a></li>
-                            <li><a href="b.html">Two</a></li>
-                        </ul>
-                    </div><!-- /navbar -->
+<!-- botones ///////////////////////////////////////////////////////////////////////////////
+                <a href="index.html" data-icon="delete">Cancel</a>
+                <a href="index.html" data-icon="check">Save</a>-->
 
-                     <p>Panel lateral<p>
-                     <a href="#page2" data-rel="close">Close panel</a>
-                </div>
-                <a href="#mypanel">Panel</a>
-
-
-
-            <!--Loader estándar//////////////////////////////////////////////////////////////////////////////////////////-->
-                <br/>
-                <button class="show-page-loading-msg" data-textonly="false"
-                    data-textvisible="false" data-msgtext=""
-                    data-inline="true">Icon (default)</button>
-            <!--Loader con contenido HTML//////////////////////////////////////////////////////////////////////////////////////////-->
-                <br/>
-                <button class="show-page-loading-msg" data-theme="b"
-                data-textonly="true" data-textvisible="true"
-                data-msgtext="Custom Loader" data-inline="true"
-                data-html="<span class='ui-bar ui-shadow ui-overlay-d ui-corner-all'>
-                <img src='images/jquery-logo.png'><h2>is loading for you ...</h2></span>"
-                data-iconpos="right">Custom HTML</button>
-
-
-                <!-- bgrid ///////////////////////////////////////////////////////////////////////////////-->
-                <div class="ui-grid-b"  data-theme="e">
-                    <div class="ui-block-a">Block A</div>
-                    <div class="ui-block-b">Block B</div>
-                    <div class="ui-block-c">Block C</div>
-                </div><!-- /grid-b -->
-                <div class="ui-grid-b" data-theme="e">
-                    <div class="ui-block-a">Block A</div>
-                    <div class="ui-block-b">Block B</div>
-                    <div class="ui-block-c">Block C</div>
-                </div><!-- /grid-b -->
-
-
-                 <!-- expandible ///////////////////////////////////////////////////////////////////////////////-->
+<!-- expandible ///////////////////////////////////////////////////////////////////////////////
                 <div data-role="collapsible" data-content-theme="b">
                    <h3>I'm a header</h3>
                    <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
@@ -156,11 +207,11 @@
                       <h3>I'm a header</h3>
                       <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
                    </div>
-                </div>
+                </div>-->
 
 
 
-                 <!-- expandible acordeon ///////////////////////////////////////////////////////////////////////////////-->
+<!-- expandible acordeon ///////////////////////////////////////////////////////////////////////////////
                 <div data-role="collapsible-set">
                     <div data-role="collapsible" data-collapsed="false">
                     <h3>Section 1</h3>
@@ -174,27 +225,20 @@
                     <h3>Section 3</h3>
                     <p>I'm the collapsible set content for section 3.</p>
                     </div>
-                </div>
-
-                <script type="text/javascript">
-                $.mobile.page.prototype.options.domCache = true;
-                console.log($.mobile.navigate);
-                </script>
-            </div><!-- /content -->
-
-            <div data-role="footer">
-                <h4>Page Footer2</h4>
-                <div data-role="controlgroup" data-type="horizontal">
-                    <a href="#page1" data-role="button" data-icon="arrow-l" data-theme="b">Return</a>
-                    <a href="index.html" data-role="button" data-icon="arrow-u" data-theme="c">Up</a>
-                    <a href="index.html" data-role="button" data-icon="arrow-d" data-theme="a">Down</a>
-                </div>
-            </div><!-- /footer -->
-
-        </div><!-- /page -->
-
-    </body>
-</html>
+                </div>-->
 
 
 
+<!--Loader estándar//////////////////////////////////////////////////////////////////////////////////////////
+                <br/>
+                <button class="show-page-loading-msg" data-textonly="false"
+                    data-textvisible="false" data-msgtext=""
+                    data-inline="true">Icon (default)</button>-->
+<!--Loader con contenido HTML//////////////////////////////////////////////////////////////////////////////////////////
+                <br/>
+                <button class="show-page-loading-msg" data-theme="b"
+                data-textonly="true" data-textvisible="true"
+                data-msgtext="Custom Loader" data-inline="true"
+                data-html="<span class='ui-bar ui-shadow ui-overlay-d ui-corner-all'>
+                <img src='images/jquery-logo.png'><h2>is loading for you ...</h2></span>"
+                data-iconpos="right">Custom HTML</button>-->

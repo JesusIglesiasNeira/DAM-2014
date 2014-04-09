@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="OSMTracker for Android™ - http://osmtracker-android.googlecode.com/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd ">
+	<trk>
+		<name><![CDATA[buesti poiana]]></name>
+		<trkseg>
+			<trkpt lat="44.543627" lon="27.171752">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:54:12Z</time>
+			</trkpt>
+			<trkpt lat="44.544224" lon="27.171966">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:54:24Z</time>
+			</trkpt>
+			<trkpt lat="44.544569" lon="27.174199">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:54:47Z</time>
+			</trkpt>
+			<trkpt lat="44.543873" lon="27.179235">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:55:19Z</time>
+			</trkpt>
+			<trkpt lat="44.543499" lon="27.18226">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:55:36Z</time>
+			</trkpt>
+			<trkpt lat="44.542975" lon="27.186927">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:56:02Z</time>
+			</trkpt>
+			<trkpt lat="44.542963" lon="27.191421">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:56:21Z</time>
+			</trkpt>
+			<trkpt lat="44.542867" lon="27.193156">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:56:29Z</time>
+			</trkpt>
+			<trkpt lat="44.542762" lon="27.197262">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:56:48Z</time>
+			</trkpt>
+			<trkpt lat="44.542465" lon="27.203364">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:57:13Z</time>
+			</trkpt>
+			<trkpt lat="44.542075" lon="27.20993">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:57:36Z</time>
+			</trkpt>
+			<trkpt lat="44.541709" lon="27.21645">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:57:59Z</time>
+			</trkpt>
+			<trkpt lat="44.541451" lon="27.220151">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:58:13Z</time>
+			</trkpt>
+			<trkpt lat="44.541346" lon="27.221602">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:58:19Z</time>
+			</trkpt>
+			<trkpt lat="44.541258" lon="27.22276">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:58:25Z</time>
+			</trkpt>
+			<trkpt lat="44.541066" lon="27.224463">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:58:34Z</time>
+			</trkpt>
+			<trkpt lat="44.540882" lon="27.225914">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:58:42Z</time>
+			</trkpt>
+			<trkpt lat="44.53992" lon="27.232142">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:59:08Z</time>
+			</trkpt>
+			<trkpt lat="44.539745" lon="27.236248">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:59:22Z</time>
+			</trkpt>
+			<trkpt lat="44.5396" lon="27.239165">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:59:33Z</time>
+			</trkpt>
+			<trkpt lat="44.539176" lon="27.24464">
+				<ele>0.0</ele>
+				<time>2013-03-19T15:59:51Z</time>
+			</trkpt>
+			<trkpt lat="44.538945" lon="27.247367">
+				<ele>0.0</ele>
+				<time>2013-03-19T16:00:00Z</time>
+			</trkpt>
+			<trkpt lat="44.538595" lon="27.251183">
+				<ele>0.0</ele>
+				<time>2013-03-19T16:00:13Z</time>
+			</trkpt>
+			<trkpt lat="44.538249" lon="27.2548">
+				<ele>0.0</ele>
+				<time>2013-03-19T16:00:24Z</time>
+			</trkpt>
+			<trkpt lat="44.538117" lon="27.256821">
+				<ele>0.0</ele>
+				<time>2013-03-19T16:00:32Z</time>
+			</trkpt>
+			<trkpt lat="44.538093" lon="27.25741">
+				<ele>0.0</ele>
+				<time>2013-03-19T16:00:34Z</time>
+			</trkpt>
+			<trkpt lat="44.538056" lon="27.259008">
+				<ele>0.0</ele>
+				<time>2013-03-19T16:00:39Z</time>
+			</trkpt>
+			<trkpt lat="44.538008" lon="27.260031">
+				<ele>0.0</ele>
+				<time>2013-03-19T16:00:44Z</time>
+			</trkpt>
+		</trkseg>
+	</trk>
+</gpx>
