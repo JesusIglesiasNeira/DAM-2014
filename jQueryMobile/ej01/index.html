@@ -51,22 +51,50 @@
             <div role="main" class="ui-content">
                 <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
 
-            <!--denlace externo///////////////////////////////////////////////////////////////////////////////-->
-                <a href="http://www.arkaitzgarro.com/">Enlace externo pag Arkaitz</a>
-                <br/>
-            <!--denlace externo///////////////////////////////////////////////////////////////////////////////-->
-                <a href="indexpagindiv.html">Pagindividual</a>
-                <br/>
 
-            <!--dialogo///////////////////////////////////////////////////////////////////////////////////////-->
+
+             <!-- expandible acordeon ///////////////////////////////////////////////////////////////////////////////-->
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                    <!--denlace externo///////////////////////////////////////////////////////////////////////////////-->
+                        <h3>Enlace externo pag Arkaitz</h3>
+                        <a href="http://www.arkaitzgarro.com/">Enlace externo pag Arkaitz</a>
+                        <br/>
+                    </div>
+                    <div data-role="collapsible">
+                    <!--dialogo///////////////////////////////////////////////////////////////////////////////////////-->
+                        <h3>Open dialog con transicion</h3>
+                        <a href="index.html" data-rel="dialog" data-transition="slide">Open dialog con transicion</a>
+                        <br/>
+                    </div>
+                    <div data-role="collapsible">
+                    <!--popUp//////////////////////////////////////////////////////////////////////////////////////////-->
+                        <h3>Popup</h3>
+                        <a href="#popupBasic" data-rel="popup">Popup</a>
+                        <div data-role="popup" id="popupBasic">
+                                <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                                <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.<p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            <!--denlace externo///////////////////////////////////////////////////////////////////////////////
+                <a href="indexpagindiv.html">Pagindividual</a>
+                <br/>-->
+
+            <!--dialogo///////////////////////////////////////////////////////////////////////////////////////
                 <a href="index.html" data-rel="dialog" data-transition="slide">Open dialog con transicion</a>
-                <br/>
-            <!--popUp//////////////////////////////////////////////////////////////////////////////////////////-->
+                <br/>-->
+            <!--popUp//////////////////////////////////////////////////////////////////////////////////////////
                 <a href="#popupBasic" data-rel="popup">Popup</a>
                 <div data-role="popup" id="popupBasic">
                     <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
                     <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.<p>
-                </div>
+                </div>-->
 
             <!--Volver//////////////////////////////////////////////////////////////////////////////////////////-->
                 <br/>
@@ -157,7 +185,7 @@
             <div data-role="footer">
                 <h4>Page Footer2</h4>
                 <div data-role="controlgroup" data-type="horizontal">
-                    <a href="index.html" data-role="button" data-icon="plus" data-theme="b">Add</a>
+                    <a href="#page1" data-role="button" data-icon="arrow-l" data-theme="b">Return</a>
                     <a href="index.html" data-role="button" data-icon="arrow-u" data-theme="c">Up</a>
                     <a href="index.html" data-role="button" data-icon="arrow-d" data-theme="a">Down</a>
                 </div>
