@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pagina Pitufos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    </head>
+    <body>
+<!-- página uno ////////////////////////////////////////////////////////////////////////////////////////////-->
+        <div data-role="page" id="page1" data-title="Index">
+            <div data-role="header">
+                <h1>Pagina Pitufos</h1>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum</p>
+                <a href="#page2">Page 2</a>
+                <br/>
+                 <a href="navigationExample.html" data-rel="dialog" >Dialogo error</a>
+                <div data-role="panel" id="mypanel" data-position="right">
+                </div><!-- /panel -->
+
+
+            </div><!-- /content -->
+
+            <div data-role="footer">
+                <h4>Page Footer</h4>
+            </div><!-- /footer -->
+
+        </div><!-- /page -->
+
+<!-- página dos///////////////////////////////////////////////////////////////////////////////////////////// -->
+        <div data-role="page" id="page2" data-title="Tienda">
+            <div data-role="header">
+                <h1>Pagina Papa Pitufo</h1>
+                <!-- botones ///////////////////////////////////////////////////////////////////////////////-->
+                <a href="index.html" data-icon="delete">Cancel</a>
+                <h1>Edit Contact</h1>
+                <a href="index.html" data-icon="check">Save</a>
+                <!-- barra se navegación ///////////////////////////////////////////////////////////////////////////////-->
+                <div data-role="navbar" data-iconpos="bottom" data-theme="b">
+                        <ul>
+                            <li><a href="a.html"  data-icon="delete" data-theme="e">One</a></li>
+                            <li><a href="b.html" data-icon="arrow-r">Two</a></li>
+                        </ul>
+                    </div><!-- /navbar -->
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+
+            <!--denlace externo///////////////////////////////////////////////////////////////////////////////-->
+                <a href="http://www.arkaitzgarro.com/">Enlace externo pag Arkaitz</a>
+                <br/>
+            <!--denlace externo///////////////////////////////////////////////////////////////////////////////-->
+                <a href="indexpagindiv.html">Pagindividual</a>
+                <br/>
+
+            <!--dialogo///////////////////////////////////////////////////////////////////////////////////////-->
+                <a href="index.html" data-rel="dialog" data-transition="slide">Open dialog con transicion</a>
+                <br/>
+            <!--popUp//////////////////////////////////////////////////////////////////////////////////////////-->
+                <a href="#popupBasic" data-rel="popup">Popup</a>
+                <div data-role="popup" id="popupBasic">
+                    <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                    <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.<p>
+                </div>
+
+            <!--Volver//////////////////////////////////////////////////////////////////////////////////////////-->
+                <br/>
+                <a href="#page1">Return</a>
+                <br/>
+                <a href="previous.html" data-rel="back" data-direction=”reverse”>BACK</a>
+
+            <!-- /panel ///////////////////////////////////////////////////////////////////////////////-->
+                <br/>
+                <div data-role="panel" id="mypanel" data-position="right" data-icon="start" data-transition="slide">
+                <!-- barra se navegación ///////////////////////////////////////////////////////////////////////////////-->
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="a.html">One</a></li>
+                            <li><a href="b.html">Two</a></li>
+                        </ul>
+                    </div><!-- /navbar -->
+
+                     <p>Panel lateral<p>
+                     <a href="#page2" data-rel="close">Close panel</a>
+                </div>
+                <a href="#mypanel">Panel</a>
+
+
+
+            <!--Loader estándar//////////////////////////////////////////////////////////////////////////////////////////-->
+                <br/>
+                <button class="show-page-loading-msg" data-textonly="false"
+                    data-textvisible="false" data-msgtext=""
+                    data-inline="true">Icon (default)</button>
+            <!--Loader con contenido HTML//////////////////////////////////////////////////////////////////////////////////////////-->
+                <br/>
+                <button class="show-page-loading-msg" data-theme="b"
+                data-textonly="true" data-textvisible="true"
+                data-msgtext="Custom Loader" data-inline="true"
+                data-html="<span class='ui-bar ui-shadow ui-overlay-d ui-corner-all'>
+                <img src='images/jquery-logo.png'><h2>is loading for you ...</h2></span>"
+                data-iconpos="right">Custom HTML</button>
+
+
+                <!-- bgrid ///////////////////////////////////////////////////////////////////////////////-->
+                <div class="ui-grid-b"  data-theme="e">
+                    <div class="ui-block-a">Block A</div>
+                    <div class="ui-block-b">Block B</div>
+                    <div class="ui-block-c">Block C</div>
+                </div><!-- /grid-b -->
+                <div class="ui-grid-b" data-theme="e">
+                    <div class="ui-block-a">Block A</div>
+                    <div class="ui-block-b">Block B</div>
+                    <div class="ui-block-c">Block C</div>
+                </div><!-- /grid-b -->
+
+
+                 <!-- expandible ///////////////////////////////////////////////////////////////////////////////-->
+                <div data-role="collapsible" data-content-theme="b">
+                   <h3>I'm a header</h3>
+                   <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
+                   <div data-role="collapsible" data-content-theme="b">
+                      <h3>I'm a header</h3>
+                      <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
+                   </div>
+                </div>
+
+
+
+                 <!-- expandible acordeon ///////////////////////////////////////////////////////////////////////////////-->
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                    <h3>Section 1</h3>
+                    <p>I'm the collapsible set content for section 1.</p>
+                    </div>
+                    <div data-role="collapsible">
+                    <h3>Section 2</h3>
+                    <p>I'm the collapsible set content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                    <h3>Section 3</h3>
+                    <p>I'm the collapsible set content for section 3.</p>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                $.mobile.page.prototype.options.domCache = true;
+                console.log($.mobile.navigate);
+                </script>
+            </div><!-- /content -->
+
+            <div data-role="footer">
+                <h4>Page Footer2</h4>
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="index.html" data-role="button" data-icon="plus" data-theme="b">Add</a>
+                    <a href="index.html" data-role="button" data-icon="arrow-u" data-theme="c">Up</a>
+                    <a href="index.html" data-role="button" data-icon="arrow-d" data-theme="a">Down</a>
+                </div>
+            </div><!-- /footer -->
+
+        </div><!-- /page -->
+
+    </body>
+</html>
+
+
+

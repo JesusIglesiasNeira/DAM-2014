@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+</head>
+<body>
+
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>Page Title</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<table margin="0">
+		    <tbody><tr>
+			<th><h3>fade</h3></th>
+			<td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="fade" data-inline="true">dialog</a></td>
+			<td><a href="page-transitions-page.html" data-role="button" data-transition="fade" data-inline="true">page</a></td>
+		    </tr>
+		    <tr>
+			<th><h3>pop</h3></th>
+			<td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="pop" data-inline="true">dialog</a></td>
+			<td><a href="page-transitions-page.html" data-role="button" data-transition="pop" data-inline="true">page</a></td>
+		    </tr>
+		    <tr>
+			<th><h3>flip</h3></th>
+			<td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="flip" data-inline="true">dialog</a></td>
+			<td><a href="page-transitions-page.html" data-role="button" data-transition="flip" data-inline="true">page</a></td>
+		    </tr>
+		    <tr>
+			<th><h3>turn</h3></th>
+			<td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="turn" data-inline="true">dialog</a></td>
+			<td><a href="page-transitions-page.html" data-role="button" data-transition="turn" data-inline="true">page</a></td>
+		    </tr>
+		    <tr>
+			<th><h3>flow</h3></th>
+			<td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="flow" data-inline="true">dialog</a></td>
+			<td><a href="page-transitions-page.html" data-role="button" data-transition="flow" data-inline="true">page</a></td>
+		    </tr>
+		    <tr>
+			<th><h3>slidefade</h3></th>
+			<td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="slidefade" data-inline="true">dialog</a></td>
+			<td><a href="page-transitions-page.html" data-role="button" data-transition="slidefade" data-inline="true">page</a></td>
+		    </tr>
+		    <tr>
+			<th><h3>slide</h3></th>
+			<td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="slide" data-inline="true">dialog</a></td>
+			<td><a href="page-transitions-page.html" data-role="button" data-transition="slide" data-inline="true">page</a></td>
+		    </tr>
+		    <tr>
+			<th><h3>slideup</h3></th>
+			<td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="slideup" data-inline="true">dialog</a></td>
+			<td><a href="page-transitions-page.html" data-role="button" data-transition="slideup" data-inline="true">page</a></td>
+		    </tr>
+		    <tr>
+			<th><h3>slidedown</h3></th>
+			<td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="slidedown" data-inline="true">dialog</a></td>
+			<td><a href="page-transitions-page.html" data-role="button" data-transition="slidedown" data-inline="true">page</a></td>
+		    </tr>
+		    <tr>
+			<th><h3>none</h3></th>
+			<td><a href="page-transitions-dialog.html" data-role="button" data-rel="dialog" data-transition="none" data-inline="true">dialog</a></td>
+			<td><a href="page-transitions-page.html" data-role="button" data-transition="none" data-inline="true">page</a></td>
+		    </tr>
+		</tbody></table>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+<script>
+	$( document ).on( "click", ".show-page-loading-msg", function() {
+	    var $this = $( this ),
+		theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+		msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+		textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+		textonly = !!$this.jqmData( "textonly" );
+		html = $this.jqmData( "html" ) || "";
+	    $.mobile.loading( "show", {
+		    text: msgText,
+		    textVisible: textVisible,
+		    theme: theme,
+		    textonly: textonly,
+		    html: html
+	    });
+	})
+	.on( "click", ".hide-page-loading-msg", function() {
+	    $.mobile.loading( "hide" );
+	});
+</script>
+</body>
+</html>

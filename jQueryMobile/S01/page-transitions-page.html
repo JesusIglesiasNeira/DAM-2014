@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class="ui-mobile"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><!-- base href="http://demos.jquerymobile.com/1.3.2/widgets/transitions/page-transitions-page.html" -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Page</title>
+	<link rel="stylesheet" href="page-transitions-page_files/jquery.css">
+	<link rel="stylesheet" href="page-transitions-page_files/jqm-demos.css">
+	<link rel="shortcut icon" href="http://demos.jquerymobile.com/1.3.2/favicon.ico">
+	<link rel="stylesheet" href="page-transitions-page_files/css.css">
+	<script src="page-transitions-page_files/jquery_002.js"></script>
+	<script src="page-transitions-page_files/index.js"></script>
+	<script src="page-transitions-page_files/jquery.js"></script>
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+
+	<div style="min-height: 971px;" class="ui-page ui-body-c ui-page-active" tabindex="0" data-url="page-success" data-role="page" id="page-success" data-dom-cache="true"><!-- page-->
+		<div role="banner" class="ui-header ui-bar-a" data-role="header" data-theme="a">
+			<h1 aria-level="1" role="heading" class="ui-title">Page</h1>
+		</div><!-- /header -->
+
+		<div role="main" class="ui-content ui-body-d" data-role="content" data-theme="d">
+			<p>That was an animated page transition effect to a page that we added with a <code>data-transition</code> attribute on the link. This uses a different background theme swatch to see how that looks with the transitions.</p>
+			<p>Since it uses CSS animations, this should be hardware accelerated 
+on many devices. To see transitions, 3D transform support is required so
+ if you only saw a fade transition that's the reason.</p>
+
+			<form action="#" method="get">
+				<h2>Here's a few form elements</h2>
+
+				<p>These are here to see if this slows down rendering.</p>
+
+				<div class="ui-field-contain ui-body ui-br" data-role="fieldcontain"><label class="ui-input-text" for="name">Text Input:</label><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-d"><input class="ui-input-text ui-body-d" name="name" id="name" type="text"></div></div>
+
+				<div class="ui-field-contain ui-body ui-br" data-role="fieldcontain"><label class="ui-input-text" for="textarea">Textarea:</label><textarea class="ui-input-text ui-body-d ui-corner-all ui-shadow-inset" cols="40" rows="8" name="textarea" id="textarea"></textarea></div>
+
+				<div class="ui-field-contain ui-body ui-br" data-role="fieldcontain"><label class="ui-slider" id="slider2-label" for="slider2">Flip switch:</label><select class="ui-slider-switch" name="slider2" id="slider2" data-role="slider">
+						<option selected="selected" value="off">Off</option>
+						<option value="on">On</option>
+					</select><div class="ui-slider ui-slider-switch ui-btn-down-d ui-btn-corner-all" role="application"><span style="width: 0%;" role="img" class="ui-slider-label ui-slider-label-a ui-btn-active ui-btn-corner-all">On</span><span style="width: 100%;" role="img" class="ui-slider-label ui-slider-label-b ui-btn-down-d ui-btn-corner-all">Off</span><div class="ui-slider-inneroffset"><a style="left: 0%;" aria-labelledby="slider2-label" title="Off" aria-valuetext="Off" aria-valuenow="off" aria-valuemax="1" aria-valuemin="0" role="slider" data-theme="d" data-wrapperels="span" data-iconshadow="true" data-shadow="true" data-corners="true" class="ui-slider-handle ui-slider-handle-snapping ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all" href="#"><span class="ui-btn-inner"><span class="ui-btn-text"></span></span></a></div></div></div>
+
+				<div class="ui-field-contain ui-body ui-br" data-role="fieldcontain"><label id="slider-label" class="ui-input-text ui-slider" for="slider">Slider:</label><div class="ui-slider"><input class="ui-input-text ui-body-d ui-corner-all ui-shadow-inset ui-slider-input" name="slider" id="slider" value="0" min="0" max="100" data-highlight="true" data-type="range" type="number"><div class="ui-slider-track ui-btn-down-d ui-btn-corner-all" role="application"><div style="width: 0%;" class="ui-slider-bg ui-btn-active ui-btn-corner-all"></div><a style="left: 0%;" aria-labelledby="slider-label" title="0" aria-valuetext="0" aria-valuenow="0" aria-valuemax="100" aria-valuemin="0" role="slider" data-theme="d" data-wrapperels="span" data-iconshadow="true" data-shadow="true" data-corners="true" class="ui-slider-handle ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all" href="#"><span class="ui-btn-inner"><span class="ui-btn-text"></span></span></a></div></div></div>
+
+			</form>
+
+			<a class="ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all ui-btn-inline" data-wrapperels="span" data-iconshadow="true" data-shadow="true" data-corners="true" href="http://demos.jquerymobile.com/1.3.2/widgets/transitions/index.html" data-role="button" data-theme="b" data-rel="back" data-inline="true"><span class="ui-btn-inner"><span class="ui-btn-text">Take me back</span></span></a>
+		</div>
+
+		<div role="contentinfo" class="ui-footer ui-bar-d" data-role="footer" data-theme="d">
+			<div style="margin:5px 10px;"><!-- To add a bit of spacing -->
+			<label for="search" class="ui-hidden-accessible ui-input-text">Search:</label>
+	        <div class="ui-input-search ui-shadow-inset ui-btn-corner-all ui-btn-shadow ui-icon-searchfield ui-body-d"><input class="ui-input-text ui-body-d" name="password" id="search" placeholder="Search..." data-type="search" type="text"><a data-mini="false" data-theme="d" data-iconpos="notext" data-icon="delete" data-wrapperels="span" data-iconshadow="true" data-shadow="true" data-corners="true" href="#" class="ui-input-clear ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-fullsize ui-btn-icon-notext ui-input-clear-hidden" title="clear text"><span class="ui-btn-inner"><span class="ui-btn-text">clear text</span><span class="ui-icon ui-icon-delete ui-icon-shadow">&nbsp;</span></span></a></div>
+			</div>
+		</div><!-- /footer -->
+	</div>
+
+
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span><h1>loading</h1></div></body></html>

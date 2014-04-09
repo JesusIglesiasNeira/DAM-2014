@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+</head>
+<body>
+
+<!-- Start of first page -->
+<div data-role="page" id="foo">
+
+	<div data-role="header">
+		<h1>Foo</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p><a id="method-example" data-role="button">Button</a></p>
+	</div><!-- /content -->
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+<!-- Start of second page -->
+<div data-role="page" id="bar">
+
+	<div data-role="header">
+		<h1>Bar</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>BAR</input>
+	</div><!-- /content -->
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+<script>
+	// Bind to the click of the example link
+	$( "#method-example" ).click(function( event ) {
+		// Append #bar
+		$.mobile.navigate( "#bar", {
+			info: "info about the #bar hash"
+		});
+
+		// Replace #bar with #baz
+		$.mobile.navigate( "#baz" );
+
+		// Log the results of the navigate event
+		$( window ).on( "navigate", function( event, data ) {
+			console.log( "INFO: "+ data.state.info );
+			console.log( "DIRECTION: "+data.state.direction );
+			console.log( "URL: "+data.state.url );
+			console.log( "HASH:"+ data.state.hash );
+		});
+
+		// Go back to pop the state for #bar and log it
+		window.history.back();
+	});
+</script>
+</body>
+</html>

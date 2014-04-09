@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+</head>
+<body>
+
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>Page Title</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<h2>Standard loader</h2>
+		<button class="show-page-loading-msg" data-textonly="false" data-textvisible="false" data-msgtext="" data-inline="true">Icon (default)</button>
+		<button class="show-page-loading-msg" data-textonly="false" data-textvisible="true" data-msgtext="" data-inline="true">Icon + text</button>
+		<button class="show-page-loading-msg" data-textonly="true" data-textvisible="true" data-msgtext="Text only loader" data-inline="true">Text only</button>
+		<button class="hide-page-loading-msg" data-inline="true" data-icon="delete">Hide</button>
+		<h2>Custom HTML</h2>
+		<button class="show-page-loading-msg" data-theme="b" data-textonly="true" data-textvisible="true" data-msgtext="Custom Loader" data-inline="true" 
+			data-html="<span class='ui-bar ui-shadow ui-overlay-d ui-corner-all'><img src='images/jquery-logo.png'><h2>is loading for you ...</h2></span>"
+			data-iconpos="right">Custom HTML</button>
+		<button class="hide-page-loading-msg" data-inline="true" data-icon="delete">Hide</button>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+<script>
+	$( document ).on( "click", ".show-page-loading-msg", function() {
+	    var $this = $( this ),
+		theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+		msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+		textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+		textonly = !!$this.jqmData( "textonly" );
+		html = $this.jqmData( "html" ) || "";
+	    $.mobile.loading( "show", {
+		    text: msgText,
+		    textVisible: textVisible,
+		    theme: theme,
+		    textonly: textonly,
+		    html: html
+	    });
+	})
+	.on( "click", ".hide-page-loading-msg", function() {
+	    $.mobile.loading( "hide" );
+	});
+</script>
+</body>
+</html>

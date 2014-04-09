@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!-- página uno -->
+        <div data-role="page" id="page1" data-title="Page One">
+            <div data-role="header">
+                <h1>Page Title</h1>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <p>Page 1 content goes here.</p>
+                <p>Page 2 <a href="#page2">go</a></p>
+
+                <a href="../S01/3. navigationExample.html" data-rel="dialog" >Open dialog</a>
+                <br/>
+
+                <a href="#popupBasic" data-rel="popup">Open Popup</a>
+                <div data-role="popup" id="popupBasic">
+                    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                    <p>This is a completely basic popup, no options set.<p>
+                </div>
+
+                <div data-role="panel" id="mypanel" data-position="right">
+                    <!-- panel content goes here -->
+                </div><!-- /panel -->
+
+
+            </div><!-- /content -->
+
+            <div data-role="footer">
+                <h4>Page Footer</h4>
+            </div><!-- /footer -->
+
+        </div><!-- /page -->
+
+        <!-- página dos -->
+        <div data-role="page" id="page2" data-title="Page Two">
+            <div data-role="header">
+                <h1>Page Title2 </h1>
+            </div><!-- /header -->
+
+            <div role="main" class="ui-content">
+                <p>Page 2 content goes here.</p>
+                <!--<a href="#page1">Return</a>-->
+                <a href="previous.html" data-rel="back" data-direction=”reverse”>BACK</a>
+            </div><!-- /content -->
+
+            <div data-role="footer">
+                <h4>Page Footer2</h4>
+            </div><!-- /footer -->
+
+        </div><!-- /page -->
+
+    </body>
+</html>
+
+
