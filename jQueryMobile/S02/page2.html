@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+</head>
+<body>
+
+<!-- Start of first page -->
+<div data-role="page" id="page2-view1">
+
+	<header data-role="header" data-position="fixed">
+		<a href="index.html" data-ajax="false" data-role="button" data-icon="home">Home</a>
+		<h1>Second Page - View 1</h1>
+		<a href="#panel" data-role="button" data-icon="grid">Options</a>
+	</header><!-- /header -->
+
+	<section id="panel" data-role="panel" data-display="overlay" data-position="right">
+		<p>This is my panel</p>
+		<p></p>
+		<a href="#index" data-rel="close" data-role="button" data-icon="delete">Close panel</a>
+	</section>
+
+	<div role="main" class="ui-content">
+		<p>I'm first in the source order so I'm shown as the page.</p>
+		<p>View internal page called <a href="#page2-view2" data-transition="slide">page2-view2</a></p>
+	</div><!-- /content -->
+
+	<footer data-role="footer" data-position="fixed">
+	</footer><!-- /footer -->
+</div><!-- /page -->
+
+<!-- Start of second page -->
+<div data-role="page" id="page2-view2">
+
+	<header data-role="header" data-position="fixed">
+		<a href="index.html" data-ajax="false" data-role="button" data-icon="home">Home</a>
+		<h1>Second Page - View 2</h1>
+		<a href="#panel" data-role="button" data-icon="grid">Options</a>
+	</header><!-- /header -->
+
+	<section id="panel" data-role="panel" data-display="overlay" data-position="right">
+		<p>This is my panel</p>
+		<p></p>
+		<a href="#index" data-rel="close" data-role="button" data-icon="delete">Close panel</a>
+	</section>
+
+	<div role="main" class="ui-content">
+		<p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my id is beeing clicked.</p>
+		<p><a href="#page2-view1" data-rel="back" data-direction="reverse" data-role="button" data-icon="back">Back</a></p>
+	</div><!-- /content -->
+
+	<footer data-role="footer" data-position="fixed">
+	</footer><!-- /footer -->
+</div><!-- /page -->
+<script src="js/main.js"></script>
+</body>		
+
+	
+</html>
