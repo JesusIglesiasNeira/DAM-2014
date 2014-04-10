@@ -21,7 +21,7 @@ $(document).ready(function() {
             center: latlng,
             mapTypeControl: false,
             navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-            mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: google.maps.MapTypeId.SATELLITE
         };
         var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
 
