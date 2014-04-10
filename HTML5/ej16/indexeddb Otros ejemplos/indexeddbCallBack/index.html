@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Ejercicio de IndexedDB HTML5</title>
+</head>
+<body>
+	<h1>IndexedDB</h1>
+	<input type="text" id="task" name="task" placeholder="What do you need to do?" />
+	<input type="submit" value="New Task" onclick="addTask(); return false;"/>
+	<input type="button" value="Clean Tasks" onclick="cleanTasks(); return false;"/>
+	<ul id="tasks"></ul>
+    
+	<script src="js/indexeddb.js"></script>
+</body>
+</html>

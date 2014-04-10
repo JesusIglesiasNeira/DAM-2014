@@ -31,6 +31,8 @@ $(document).ready(function() {
             position.coords.altitudeAccuracy+" heading:"+position.coords.heading+" speed:"+position.coords.speed;
 
     }
+
+
     function cambiarEstado(position){
         $('#status')[0].textContent= "Finalizado";
         showMap(position);
