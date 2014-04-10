@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pagina Gargamel</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="themes/Pitutheme.min.css" />
+        <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile.structure-1.4.2.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+<!-- página uno ////////////////////////////////////////////////////////////////////////////////////////////-->
+        <div data-role="page" id="page1" data-title="Formulario Pitufos">
+            <div data-role="header">
+            <div data-role="navbar" data-iconpos="bottom" data-theme="b">
+                <ul>
+                    <li><a href="index.html" data-icon="arrow-l" data-theme="b">Pagina Gargamel</a></li>
+                </ul>
+            </div><!-- /navbar -->
+                <h1>Danos tu opinion</h1>
+            </div><!-- /header -->
+            <div role="main" class="ui-content">
+                <form>
+
+                    <input id="name" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" type="text" value="" name="name" placeholder="Username"></input>
+
+                    <input id="password" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" type="password" value="" name="password" placeholder="Password"></input>
+
+                    <textarea id="textarea-a" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" name="textarea" style="height: 82px;"placeholder="Opinion"></textarea>
+
+                    <div class="containing-element" data-role="fieldcontain">
+                        <label for="flip-min">Que te parece la app?:</label>
+                        <select name="flip-min" id="flip-min" data-role="slider" data-theme="b">
+                            <option value="off">Buena</option>
+                            <option value="on">Mejor</option>
+                        </select>
+                    </div>
+
+                    <div data-role="rangeslider">
+                            <label for="range-1a">Indica tu nivel de satisfacción máximo y mínimo:</label>
+                            <input name="range-1a" id="range-1a" min="0" max="100" value="40" type="range">
+                            <label for="range-1b">Rangeslider:</label>
+                            <input name="range-1b" id="range-1b" min="0" max="100" value="80" type="range">
+                        </div>
+
+
+                    <div data-role="fieldcontain" class="ui-hide-label">
+                    <p>Tu opinion no será tenida en cuenta</p>
+                        <fieldset data-role="controlgroup">
+                           <legend>Agree to the terms:</legend>
+                           <input type="checkbox" name="checkbox-agree" id="checkbox-agree" class="custom" />
+                           <label for="checkbox-agree">Ok</label>
+
+                           <input type="checkbox" name="checkbox-noagree" id="checkbox-noagree" class="custom" />
+                           <label for="checkbox-noagree">Vete a paseo</label>
+
+                           <input type="checkbox" name="checkbox-tres" id="checkbox-tres" class="custom" />
+                           <label for="checkbox-tres">Me llena de orgullo y satisfaccion</label>
+                        </fieldset>
+                    </div>
+
+                    <div role="main" class="ui-content">
+                        <a href="#pagea" data-role="button" data-theme="b" data-inline="true">Ver otras opiniones</a>
+                    </div><!-- /content -->
+                </form>
+
+            </div><!-- /content -->
+            <div data-role="footer" data-position="fixed" >
+            <!-- Grupo de controles////////////////////////////////////////////////////////////////////////////////
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#page1" data-role="button" data-icon="home" data-theme="b">Pagina Gargamel</a>
+                    <a href="#page2" data-role="button" data-theme="b">Info Pitufos</a>
+                    <a href="#page3" data-role="button" data-theme="b">Mapa Pitufos</a>
+                 </div>
+                <h4>Created by  <a href="https://github.com/jesusiglesiasneira">Jesus Iglesias</a></h4>-->
+            </div><!-- /footer -->
+        </div><!-- /page -->
+
+
+<!-- página dos ////////////////////////////////////////////////////////////////////////////////////////////-->
+        <div data-role="page" id="pagea" data-title="Formulario Pitufos">
+            <div data-role="header">
+            <div data-role="navbar" data-iconpos="bottom" data-theme="b">
+                <ul>
+                    <li><a href="index.html" data-icon="arrow-l" data-theme="b">Pagina Gargamel</a></li>
+                </ul>
+            </div><!-- /navbar -->
+                <h1>Danos tu opinion</h1>
+            </div><!-- /header -->
+            <div role="main" class="ui-content">
+
+
+
+
+             <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive">
+              <thead>
+                <tr>
+                  <th data-priority="1">Rank</th>
+                  <th data-priority="persist">Movie Title</th>
+                  <th data-priority="2">Year</th>
+                  <th data-priority="3"><abbr title="Rotten Tomato Rating">Rating</abbr></th>
+                  <th data-priority="4">Reviews</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <td><a href="http://en.wikipedia.org/wiki/Citizen_Kane" data-rel="external">Citizen Kane</a></td>
+                  <td>1941</td>
+                  <td>100%</td>
+                  <td>74</td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td><a href="http://en.wikipedia.org/wiki/Casablanca_(film)" data-rel="external">Casablanca</a></td>
+                  <td>1942</td>
+                  <td>97%</td>
+                  <td>64</td>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <td><a href="http://en.wikipedia.org/wiki/The_Godfather" data-rel="external">The Godfather</a></td>
+                  <td>1972</td>
+                  <td>97%</td>
+                  <td>87</td>
+                </tr>
+                <tr>
+                  <th>4</th>
+                  <td><a href="http://en.wikipedia.org/wiki/Gone_with_the_Wind_(film)" data-rel="external">Gone with the Wind</a></td>
+                  <td>1939</td>
+                  <td>96%</td>
+                  <td>87</td>
+                </tr>
+                <tr>
+                  <th>5</th>
+                  <td><a href="http://en.wikipedia.org/wiki/Lawrence_of_Arabia_(film)" data-rel="external">Lawrence of Arabia</a></td>
+                  <td>1962</td>
+                  <td>94%</td>
+                  <td>87</td>
+                </tr>
+                <tr>
+                  <th>6</th>
+                  <td><a href="http://en.wikipedia.org/wiki/Dr._Strangelove" data-rel="external">Dr. Strangelove Or How I Learned to Stop Worrying and Love the Bomb</a></td>
+                  <td>1964</td>
+                  <td>92%</td>
+                  <td>74</td>
+                </tr>
+                <tr>
+                  <th>7</th>
+                  <td><a href="http://en.wikipedia.org/wiki/The_Graduate" data-rel="external">The Graduate</a></td>
+                  <td>1967</td>
+                  <td>91%</td>
+                  <td>122</td>
+                </tr>
+                <tr>
+                  <th>8</th>
+                  <td><a href="http://en.wikipedia.org/wiki/The_Wizard_of_Oz_(1939_film)" data-rel="external">The Wizard of Oz</a></td>
+                  <td>1939</td>
+                  <td>90%</td>
+                  <td>72</td>
+                </tr>
+                <tr>
+                  <th>9</th>
+                  <td><a href="http://en.wikipedia.org/wiki/Singin%27_in_the_Rain" data-rel="external">Singin' in the Rain</a></td>
+                  <td>1952</td>
+                  <td>89%</td>
+                  <td>85</td>
+                </tr>
+                <tr>
+                  <th>10</th>
+                  <td class="title"><a href="http://en.wikipedia.org/wiki/Inception" data-rel="external">Inception</a></td>
+                  <td>2010</td>
+                  <td>84%</td>
+                  <td>78</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+
+            </div><!-- /content -->
+            <div data-role="footer" data-position="fixed">
+            <!-- Grupo de controles////////////////////////////////////////////////////////////////////////////////-->
+                <div data-role="controlgroup" data-type="horizontal">
+                    <a href="#page1" data-role="button" data-icon="home" data-theme="b">Pagina Gargamel</a>
+                    <a href="#page2" data-role="button" data-theme="b">Info Pitufos</a>
+                    <a href="#page3" data-role="button" data-theme="b">Mapa Pitufos</a>
+                 </div>
+                <h4>Created by  <a href="https://github.com/jesusiglesiasneira">Jesus Iglesias</a></h4>
+            </div><!-- /footer -->
+        </div><!-- /page -->
+
+
+    <!-- Mapa////////////////////////////////////////////////////////////////////////////// -->
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+    </body>
+</html>
+
+
+
+<!--Volver//////////////////////////////////////////////////////////////////////////////////////////
+                <br/>
+                <a href="#page1">Return</a>
+                <br/>
+                <a href="previous.html" data-rel="back" data-direction=”reverse”>BACK</a>-->
+
+<!-- botones ///////////////////////////////////////////////////////////////////////////////
+                <a href="index.html" data-icon="delete">Cancel</a>
+                <a href="index.html" data-icon="check">Save</a>-->
+
+<!-- expandible ///////////////////////////////////////////////////////////////////////////////
+                <div data-role="collapsible" data-content-theme="b">
+                   <h3>I'm a header</h3>
+                   <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
+                   <div data-role="collapsible" data-content-theme="b">
+                      <h3>I'm a header</h3>
+                      <p>I'm the collapsible content. By default I'm closed, but you can click the header to open me.</p>
+                   </div>
+                </div>-->
+
+
+
+<!-- expandible acordeon ///////////////////////////////////////////////////////////////////////////////
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible" data-collapsed="false">
+                    <h3>Section 1</h3>
+                    <p>I'm the collapsible set content for section 1.</p>
+                    </div>
+                    <div data-role="collapsible">
+                    <h3>Section 2</h3>
+                    <p>I'm the collapsible set content for section 2.</p>
+                    </div>
+                    <div data-role="collapsible">
+                    <h3>Section 3</h3>
+                    <p>I'm the collapsible set content for section 3.</p>
+                    </div>
+                </div>-->
+
+
+
+<!--Loader estándar//////////////////////////////////////////////////////////////////////////////////////////
+                <br/>
+                <button class="show-page-loading-msg" data-textonly="false"
+                    data-textvisible="false" data-msgtext=""
+                    data-inline="true">Icon (default)</button>-->
+<!--Loader con contenido HTML//////////////////////////////////////////////////////////////////////////////////////////
+                <br/>
+                <button class="show-page-loading-msg" data-theme="b"
+                data-textonly="true" data-textvisible="true"
+                data-msgtext="Custom Loader" data-inline="true"
+                data-html="<span class='ui-bar ui-shadow ui-overlay-d ui-corner-all'>
+                <img src='images/jquery-logo.png'><h2>is loading for you ...</h2></span>"
+                data-iconpos="right">Custom HTML</button>-->

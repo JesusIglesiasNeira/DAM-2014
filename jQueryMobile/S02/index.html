@@ -15,10 +15,10 @@
 
 	<header data-role="header" data-position="fixed">
 		<h1>First Page</h1>
-		<a href="#panel" data-role="button" data-icon="grid" class="ui-btn-right">Options</a>
+		<a href="#panel" data-role="button" data-icon="grid" class="ui-btn-right" data-iconpos="notext">Options</a>
 	</header><!-- /header -->
 
-	<section id="panel" data-role="panel" data-display="overlay" data-position="right">
+	<section id="panel" data-role="panel" data-display="overlay" data-position="right"> <!--data-display="reveal" ó data-display="push"-->
 		<p>This is my panel</p>
 		<p></p>
 		<a href="#index" data-rel="close" data-role="button" data-icon="delete">Close panel</a>
@@ -29,19 +29,19 @@
 		<p>This is a link to second page in a different document (data-ajax= false): <a href="page2.html" data-ajax="false">Page 2</a> </p>
 		<p>data-ajax="false" doesn't execute transitions</p>
 		<p>This is a popup <a href="#mypopup" data-rel="popup" data-trastition="pop">Open info</a></p>
-		
+
 		<div id="mypopup"data-role="popup">
 			<div data-role="collapsible-set">
 				<div data-role="collapsible">
 				<h3>Section 1</h3>
 				<p>I'm the collapsible set content for section 1.</p>
 				</div>
-				
+
 				<div data-role="collapsible" data-collapsed="false">
 				<h3>Section 2</h3>
 				<p>I'm the collapsible set content for section 2.</p>
 				</div>
-	
+
 			</div>
 		</div>
 	</div><!-- /content -->
