@@ -1,0 +1,16 @@
+		Chrome 34.0	Firefox28.0	IExplorer11	Android 4.2
+text		OK		OK		OK		OK
+search		OK		OK		OK		OK
+tel		OK		OK		OK		OK
+url		OK		OK		OK		OK
+email		OK		OK		OK		OK
+datetime	KO		KO		KO		OK
+date		OK		KO		KO		OK
+month		OK		KO		KO		KO
+week		OK		KO		KO		KO
+time		OK		KO		KO		OK
+datetime-local	OK		KO		KO		OK
+number		OK		KO		OK		OK
+range		OK		OK		OK		OK
+color		OK		KO		KO		OK
+datalist	OK		KO		OK		KO
