@@ -36,9 +36,16 @@
     $ul.append('<li>Codec: geolocation ----  Valor: ' + Modernizr.geolocation +'</li>');
 
 
+    /*Modernizr.load({
+        test:Modernizr.input.date,
+        nope:'libs/vendor/shared/js/html5Forms.js'
+    });
+
+
+
     Modernizr.load({
         test:Modernizr.input.color,
-        nope:'libs/vendor/color-polyfill.js'
-    });
+        nope:'libs/vendor/shared/js/html5Forms.js'
+    });*/
 })();
 

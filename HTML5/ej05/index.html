@@ -2,13 +2,19 @@
 <!DOCTYPE html>
   <html lang="en">
 <head>
-  <title>Mi Form HTML5</title>
+  <title>Mi Form HTML5 con Polyfills</title>
   <meta charset="utf-8"/>
   <link rel="stylesheet" href="css/css3.css"/>
-  <link rel="stylesheet" href="css/color-polyfill.css"/>
-    <script src="libs/vendor/modernizr.custom.80841.js"></script>
-    <script src="libs/vendor/jquery-1.11.0.js"></script>
-    <script src="libs/vendor/color-polyfill.js"></script>
+  <!-- This CSS file is not necessary to use html5Widgets -->
+  <link type="text/css" rel="stylesheet" href="libs/vendor/shared/css/useragentmanExample.css">
+  <!--Modernizr q venía cn el polyfill si se usa otro no funciona-->
+  <script type="text/javascript" src="libs/vendor/shared/js/modernizr.com/Modernizr-2.5.3.forms.js"></script>
+  <!--Polifill para formularios con datetime ...-->
+  <script type="text/javascript" src="libs/vendor/shared/js/html5Forms.js" data-webforms2-support="date" data-webforms2-force-js-validation="true" data-lang="es"></script>
+  <!--<script src="libs/vendor/modernizr.custom.80841.js"></script>-->
+  <script src="libs/vendor/jquery-1.11.0.js"></script>
+  <!--Usado con el polifill anterior de formularios -->
+  <script src="libs/vendor/JSColor-master/jscolor.js"></script>
 </head>
 
 <body>
