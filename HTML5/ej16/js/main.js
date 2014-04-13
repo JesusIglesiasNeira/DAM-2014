@@ -20,11 +20,14 @@
     var creaBD = function(){
         var task=[
             {index:"1", date:"2010-10-08", completed:"false", description:"Recoger la basura"},
-            {index:"2", date:"2010-10-12", completed:"true", description:"Limpiar el POLVO"}];
+            {index:"2", date:"2010-10-12", completed:"true", description:"Limpiar el polvo"},
+            {index:"3", date:"2010-08-12", completed:"true", description:"Limpiar baños"},
+            {index:"4", date:"2012-10-19", completed:"false", description:"Regar plantas"},
+            {index:"5", date:"2012-12-19", completed:"false", description:"Descansar"}];
 
         var request = indexedDB.open("BDTareas",version);
         request.onsuccess = function(event) {
-            console.log("life is good:" + e) ;
+            console.log("life is good:" + event) ;
         };
         request.onerror = function(event){
             alert('Something failed: ' + event.target.message);
@@ -143,11 +146,11 @@
                     data.push(cursor.value);    // value is the stored object
                     if (cursor.value.completed.toString() === key){
                         $ul.append('<li>'+
-                                    " Completed: "+cursor.value.completed+
-                                    " Date: "+cursor.value.date+
-                                    " Description: "+cursor.value.desription+
-                                    " Index: "+cursor.value.index+
-                                    '</li>');
+                            " <strong>Completed: </strong>"+cursor.value.completed+
+                            " <strong>Date: </strong>"+cursor.value.date+
+                            " <strong>Description: </strong>"+cursor.value.description+
+                            " <strong>Index: </strong>"+cursor.value.index+
+                            '</li>');
                     }
                     cursor.continue();   // get the next object
                 }
