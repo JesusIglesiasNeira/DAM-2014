@@ -1,8 +1,6 @@
 $(document).ready(function() {
     // Calcular posición
 
-
-
     function showMap(position) {
         var mapcanvas = document.createElement('div');
         mapcanvas.id = 'mapcanvas';
