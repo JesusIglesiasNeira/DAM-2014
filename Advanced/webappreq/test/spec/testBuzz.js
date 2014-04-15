@@ -29,6 +29,7 @@
                 assert.isFalse(mod.writeBuzz(8), 'false');
                 assert.isFalse(mod.writeBuzz(11), 'false');
                 assert.isFalse(mod.writeBuzz(), 'false');
+                assert.isFalse(mod.writeBuzz('a'), 'false');
             });
         });
 

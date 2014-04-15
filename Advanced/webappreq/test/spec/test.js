@@ -61,7 +61,7 @@
         });
 
         describe('test metodo', function () {
-            it('fizzuzz(6)should return 1 2 Fizz 4 Buzz Fizz 7', function () {
+            it('fizzuzz(7)should return 1 2 Fizz 4 Buzz Fizz 7', function () {
                 var resp = mod.fb(7);
                 assert.equal(resp, '1 2 Fizz 4 Buzz Fizz 7');
                 assert.typeOf(resp, 'string');
@@ -76,8 +76,23 @@
             });
         });
         describe('test metodo', function () {
+            it('fizzuzz(30)should return 1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz 16 17 Fizz 19 Buzz Fizz 22 23 Fizz Buzz 26 Fizz 28 29 FizzBuzz', function () {
+                var resp = mod.fb(30);
+                assert.equal(resp, '1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz 16 17 Fizz 19 Buzz Fizz 22 23 Fizz Buzz 26 Fizz 28 29 FizzBuzz');
+                assert.typeOf(resp, 'string');
+            });
+        });
+        describe('test metodo', function () {
             it('fizzuzz()should return ""', function () {
-            	var resp = mod.fb();
+                var resp = mod.fb();
+                assert.equal(resp, '');
+                assert.typeOf(resp, 'string');
+                assert.lengthOf(resp, 0);
+            });
+        });
+        describe('test metodo', function () {
+            it('fizzuzz(a)should return ""', function () {
+            	var resp = mod.fb('a');
             	assert.equal(resp, '');
             	assert.typeOf(resp, 'string');
                 assert.lengthOf(resp, 0);

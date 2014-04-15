@@ -31,6 +31,7 @@
                 assert.isFalse(mod.writeFizz(10), 'false');
                 assert.isFalse(mod.writeFizz(11), 'false');
                 assert.isFalse(mod.writeFizz(), 'false');
+                assert.isFalse(mod.writeFizz('a'), 'false');
             });
         });
 
