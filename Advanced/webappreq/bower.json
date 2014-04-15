@@ -1,0 +1,11 @@
+{
+  "name": "requirejs",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "modernizr": "~2.7.2",
+    "requirejs": "~2.1.8",
+    "jquery": "~2.1.0"
+  },
+  "devDependencies": {}
+}
