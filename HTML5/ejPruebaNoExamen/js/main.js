@@ -1,5 +1,9 @@
-﻿(function(){
-    "use strict";
+﻿var App = App||{};
+App.main = (function(){
+    'use strict';
+    //Inicializar la BBDD donde se almacenará el programa
+    App.programaIDB.initDB();
+
     var jugadores = 0;
     var juegoActual = 0;
     var player = 0;
@@ -9,18 +13,18 @@
     $('#volv').hide();
 
 
-    //funcion que obtiene los tweets e inseta en la tabla creada los datos de cada tweet
+    //funcion que obtiene el programa y llama a la función que lo almacena
     var getprograma =function () {
-        var tweets = $.ajax({
+        var programa = $.ajax({
             url : 'servidor/show.json',
             type : 'POST',
-            //data : { user : usuario },
             dataType : 'JSON',
             cache : false,
             success : function(data){
                 //var lis = JSON.stringify(data);
                 console.log("Programa obtenido ok");
-                almacenaprograma(JSON.stringify(data));
+                //almacenaprograma(JSON.stringify(data));
+                almacenaprograma(data);
             },
             error : function(jqXHR, textStatus, errorThrow){
                 alert("No se pudo cargar el programa, vuelva a intentarlo");
@@ -29,15 +33,16 @@
         });
     };
 
-    //Guardar el programa descargado con webStorage
+    //Guardar el programa descargado, con IndexedDB
     var almacenaprograma = function(prog){
-        localStorage.setItem('programa', prog);
+        App.programaIDB.add(prog,prog.id);
 
     };
 
     //Función que carga el programa del almacenamiento local y muestra el 1ºjuego
-    var obtenerprograma= function(){
-        var programa = JSON.parse(localStorage.getItem('programa'));
+    var obtenjuego = function(prog){
+        var programa = prog.programa;
+
         var fechaprog= programa.date;
         var horaprog= programa.hour;
         var idprog= programa.id;
@@ -45,7 +50,7 @@
         $datosprog.empty();
         $datosprog.append("<p> Fecha: "+fechaprog+" Hora: "+horaprog+"</p>");
         for (var i in programa.players){
-            console.log(programa.players[i]);
+            console.log("Jugadores: "+programa.players[i]);
             jugadores = jugadores+1;
             //Se muestra por defecto los datos y el 1º juego del 1ºjugador
             if (jugadores === 1){
@@ -211,8 +216,7 @@
 
 
 
-    $(document).on('click','#obtenerPrograma',getprograma);
-    $(document).on('click','#obtjuego',obtenerprograma);
+    $(document).on('click','#obtjuego',App.programaIDB.get);
     $(document).on('click','#muestrasig',mostrarsiguientejuego);
     $(document).on('click','#fig1',guardarseleccionada);
     $(document).on('click','#fig2',guardarseleccionada);
@@ -222,4 +226,21 @@
     $(document).on('click','#volv',mostrarpantjuego);
     $(document).on('click','#fig1',comprobaracierto);
     $(document).on('click','#fig2',comprobaracierto);
+
+
+
+    return{
+            getprograma : getprograma,
+            obtenjuego : obtenjuego,
+            almacenaprograma : almacenaprograma,
+            mostrarDatosPlayer : mostrarDatosPlayer,
+            mostrarjuego : mostrarjuego,
+            mostrarsiguientejuego : mostrarsiguientejuego,
+            mostrarmapa : mostrarmapa,
+            showMap : showMap,
+            mostrarpantformulario : mostrarpantformulario,
+            mostrarpantjuego : mostrarpantjuego,
+            comprobaracierto : comprobaracierto,
+            guardarseleccionada : guardarseleccionada
+        };
 })();

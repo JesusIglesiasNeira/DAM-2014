@@ -1,0 +1,3 @@
+﻿$(function(){
+    App.main.getprograma();
+});
