@@ -4,15 +4,11 @@
 
     /////////////////////////////////////////////////////////////////////////////
     //Comprobaciones previas a abrir BD:
-    window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+    if(!('indexedDB' in window)) {
+         window.indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.oIndexedDB || window.msIndexedDB;
+     }
     window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
     window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
-
-    if ('webkitIndexedDB' in window) {
-        window.IDBTransaction = window.webkitIDBTransaction;
-        window.IDBKeyRange = window.webkitIDBKeyRange;
-    }
-    var indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.msIndexedDB;
 
     var version = 1
     ;
