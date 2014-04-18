@@ -10,9 +10,7 @@ App.ajax = (function(){
             dataType : 'JSON',
             cache : false,
             success : function(data){
-                //var lis = JSON.stringify(data);
                 console.log("Programa obtenido ok");
-                //almacenaprograma(JSON.stringify(data));
                 App.main.almacenaprograma(data);
             },
             error : function(jqXHR, textStatus, errorThrow){

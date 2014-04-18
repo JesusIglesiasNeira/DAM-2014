@@ -2,15 +2,6 @@
 App.main = (function(){
     'use strict';
 
-    //var progr = "";
-    //var juegoActual = 0;
-    //var player = 0;
-    //var coordslat="";
-    //var coordslong="";
-    //var direccion = "";
-    //var direccionphoto = "";
-    //var solucion = "";
-
 
     //Función que se encarga de pedir que se guarde con IndexedDB el programa descargado y que comiencen a ostrarse los datos
     var almacenaprograma = function(prog){
@@ -20,7 +11,6 @@ App.main = (function(){
 
     //Función que recoge los datos del programa y pide que se muestre el 1ºjuego y los datos del 1º jugador
     var cargarInicial= function(prog){
-        //$('#vistaPrograma').data('lang','es_ES');
 
         var dtavbles =  $('#vistaPrograma');
         var programa = prog;
@@ -40,15 +30,7 @@ App.main = (function(){
         dtavbles.data('direccionphoto',programa.players[player].challenges[0].place.photo);
         dtavbles.data('solucion',programa.players[player].challenges[0].selected);
         dtavbles.data('juegoActual',0);
-        console.log(dtavbles.data());
-
-
-        /*coordslat= programa.players[player].challenges[0].place.latitude;
-        coordslong= programa.players[player].challenges[0].place.longitude;
-        direccion= programa.players[player].challenges[0].place.adress;
-        direccionphoto= programa.players[player].challenges[0].place.photo;
-        solucion= programa.players[player].challenges[0].selected;
-        progr= programa.id;*/
+        //Pedir que se muestren los datos del jugador y el juego
         App.ui.mostrarDatosPlayer(programa.players[player]);
         App.ui.mostrarjuego(programa.players[player].challenges[0]);
     };
@@ -67,18 +49,11 @@ App.main = (function(){
             $('#vistaPrograma').data('direccion',juego.place.adress);
             $('#vistaPrograma').data('direccionphoto',juego.place.photo);
             $('#vistaPrograma').data('solucion',juego.selected);
-
-
-            /*coordslat = juego.place.latitude;
-            coordslong = juego.place.longitude;
-            direccion = juego.place.adress;
-            direccionphoto= juego.place.photo;
-            solucion= juego.selected;
-            progr= programa.id;*/
-
+            //Pedir que se muestre el siguiente juego
             App.ui.mostrarjuego(juego);
         }
         else{
+            //A falta de algo mejor anunciar con alert
             alert('No hay mas juegos para este jugador, pulse el boton "Siguiente jugador", u obtenga más programas');
         }
     };
@@ -133,7 +108,6 @@ App.main = (function(){
             document.querySelector('#map').appendChild(phototienda);
             document.querySelector('#map').appendChild(direccTienda);
         }
-
     };
 
 
@@ -190,7 +164,7 @@ App.main = (function(){
         else{alert("Buen Intento");}
         guardarseleccionada(acierto);
     };
-    //Función que guarda la opción elegida y muestra el siguiente juego si lo hubiese//////////////////////////////////////////////////////////////////
+    //Función que guarda la opción elegida y muestra el siguiente juego si lo hubiese////////////////
     var guardarseleccionada = function(acierto){
         var juegoActual =  parseInt($('#vistaPrograma').data('juegoActual'));
         var player = parseInt($('#vistaPrograma').data('player'));
@@ -198,6 +172,7 @@ App.main = (function(){
         var almac = {"programa":progr,"jugador":player,"juego":juegoActual,"acertado":acierto.toString()};
         App.resultStorage.almacenaResult(almac);
     };
+    ///////////////////////////////Fin Lógica del juego////////////////////////////////////////////////////////
 
 
     var guardaFormulario = function(){

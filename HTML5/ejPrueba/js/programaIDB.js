@@ -2,13 +2,10 @@ var App = App||{};
 App.programaIDB = (function(){
     'use strict';
     var version = 1;
+
     if(!('indexedDB' in window)) {
          window.indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.oIndexedDB || window.msIndexedDB;
      }
-
-
-    /*window.indexedDB = window.indexedDB || window.mozIndexedDB ||
-                    window.webkitIndexedDB || window.msIndexedDB;*/
 
     window.IDBTransaction = window.IDBTransaction || window.mozIDBTransaction ||
                     window.webkitIDBTransaction || window.msIDBTransaction;
@@ -21,6 +18,7 @@ App.programaIDB = (function(){
         console.log(e);
     }
 
+    //Func que abre la BD.
     function openProg () {
         var request = indexedDB.open("programa", version);
         request.onupgradeneeded = function(e) {
@@ -34,6 +32,7 @@ App.programaIDB = (function(){
         };
     }
 
+    //Función que añade un objeto programa a la BD.
     function addProg (prog, id) {
         var request = indexedDB.open("programa", version);
         request.onerror = onerror;
@@ -56,6 +55,7 @@ App.programaIDB = (function(){
 
     }
 
+    //Función que obtiene un objeto programa de la BD
     function getProg(todo) {
         var request = indexedDB.open("programa", version);
         request.onerror = onerror;
@@ -80,11 +80,10 @@ App.programaIDB = (function(){
         };
     }
 
+    //Funcion que inicializa la BD
     function initDB() {
         openProg();
     }
-
-    //window.addEventListener("DOMContentLoaded", initDB, false);
 
 
      return{
