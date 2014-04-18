@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+danosDOCTYPE html>
 <html>
     <head>
         <title>Pagina Gargamel</title>
@@ -25,16 +25,16 @@
             </div><!-- /header -->
             <div role="main" class="ui-content">
                 <h2>Página Índice</h2>
-                <a href="index2.html" data-role="button" data-theme="b" data-inline="true">Danos tu opinion</a>
-
-
-
+                <a data-ajax="false" href="index2.html"  data-role="button" data-theme="b" data-inline="true">Danos tu opinion</a>
+                <div>
+                    <img src = "img/ggmel.jpg" width=220px alt = "Gargamel" />
+                </div>
 
             </div><!-- /content -->
             <div data-role="footer" data-position="fixed">
             <!-- Grupo de controles////////////////////////////////////////////////////////////////////////////////-->
                 <div data-role="controlgroup" data-type="horizontal">
-                    <a href="#page1" data-role="button" data-icon="home" data-theme="b">Pagina Gargamel</a>
+                    <a href="index.html" data-role="button" data-icon="home" data-theme="b">Pagina Gargamel</a>
                     <a href="#page2" data-role="button" data-theme="b">Info Pitufos</a>
                     <a href="#page3" data-role="button" data-theme="b">Mapa Pitufos</a>
                                     </div>
@@ -47,7 +47,7 @@
             <div data-role="header">
                 <div data-role="navbar" data-iconpos="bottom" data-theme="b">
                     <ul>
-                        <li><a href="#page1"  data-icon="arrow-l" data-theme="b">Pagina Gargamel</a></li>
+                        <li><a href="index.html"  data-icon="arrow-l" data-theme="b">Pagina Gargamel</a></li>
                         <li><a href="#page3" data-icon="arrow-r" data-theme="b">Mapa de pitufos</a></li>
                     </ul>
                 </div><!-- /navbar -->
@@ -58,11 +58,11 @@
              <!-- expandible acordeon ///////////////////////////////////////////////////////////////////////////////-->
                 <div data-role="collapsible-set">
                     <div data-role="collapsible" data-collapsed="false">
-                    <!--denlace externo///////////////////////////////////////////////////////////////////////////////-->
                         <h3>Historia de los pitufos</h3>
                         <p>Todo empezó cuando el creador de los cómics, Peyo (Pierre Culliford), fue a almorzar con un compañero dibujante de historietas, el artista belga André Franquin. En medio de la charla, Peyo quiso salar su comida. Pero fue víctima de una gran laguna y no le salía la palabra sal. Entonces, como quien dice pasa el coso, le pidió a su amigo que le pase el "schtroumpf". Franquin respondió: "Aquí está la schtroumpf -. Cuando hayas terminado de schtroumpfar tu plato, puedes schtroumpfla de nuevo". El resto de la comida, los dos bromearon con la palabra "schtroumpf". Así, al principio de la tira en papel, los Pitufos (en inglés Smurfs) era los schtroumpf.</p>
                         <br/>
-                    </div><div data-role="collapsible">
+                    </div>
+                    <div data-role="collapsible">
                     <!--denlace externo///////////////////////////////////////////////////////////////////////////////-->
                         <h3>Info sobre los pitufos</h3>
                         <a href="http://es.wikipedia.org/wiki/Los_Pitufos" data-transition="slide">Enlace externo info de los pitufos</a>
@@ -79,7 +79,7 @@
                     <div data-role="collapsible">
                     <!--dialogo///////////////////////////////////////////////////////////////////////////////////////-->
                         <h3>Mapa del sitio con transicion</h3>
-                        <a href="index.html" data-rel="dialog" data-transition="slide">Open dialog con transicion</a>
+                        <a href="#page4" data-rel="dialog" data-transition="slide">Open dialog con transicion</a>
                     </div>
                     <div data-role="collapsible">
                     <!--dialogo///////////////////////////////////////////////////////////////////////////////////////-->
@@ -92,17 +92,37 @@
                 <div data-role="panel" id="mypanel" data-position="right" data-display="overlay" data-animate="true" data-transition="slide">
                     <p>Panel lateral<p>
                     <ul>
-                        <a href="a.html">Abuelo Pitufo</a><br/>
-                        <a href="b.html">Bromista</a><br/>
-                        <a href="b.html">Cocinero</a><br/>
-                        <a href="b.html">Enamorado</a><br/>
-                        <a href="b.html">Pitufina</a><br/>
+                        <a href="#popupBasic1" data-rel="popup">Papa Pitufo</a><br/>
+                        <div data-role="popup" id="popupBasic1">
+                                <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                                <img src = "img/ppituf.jpg" width=90px alt = "Papa Pitufo" />
+                        </div>
+                        <a href="#popupBasic2" data-rel="popup">Bromista</a><br/>
+                        <div data-role="popup" id="popupBasic2">
+                                <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                                <img src = "img/bpitufo.jpg" width=90px alt = "Pitufo Bromista" />
+                        </div>
+                        <a href="#popupBasic3" data-rel="popup">Cocinero</a><br/>
+                        <div data-role="popup" id="popupBasic3">
+                                <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                                <img src = "img/cpitufo.jpg" width=90px alt = "Pitufo Cocinero" />
+                        </div>
+                        <a href="#popupBasic4" data-rel="popup">Enamorado</a><br/>
+                        <div data-role="popup" id="popupBasic4">
+                                <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                                <img src = "img/epitufo.jpg" width=90px alt = "Pitufo Enamorado" />
+                        </div>
+                        <a href="#popupBasic5" data-rel="popup">Pitufina</a><br/>
+                        <div data-role="popup" id="popupBasic5">
+                                <a href="#" data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                                <img src = "img/pitufina.jpg" width=90px alt = "Pitufina" />
+                        </div>
                     </ul>
                     <button href="#page2" data-rel="close" data-theme="b">Close panel</button>
                 </div>
                 <a href="#mypanel" data-role="button" data-theme="b" data-inline="true">Pitufos mas conocidos</a>
             <!-- bgrid ///////////////////////////////////////////////////////////////////////////////-->
-                <h3>Capitulos:</h3>
+                <h3>Capitulos:(Ejemplo grid)</h3>
                 <div class="ui-grid-d"  data-theme="b">
                     <div class="ui-block-a">Capitulo1</div>
                     <div class="ui-block-b">Capitulo2</div>
@@ -133,10 +153,35 @@
                 </div><!-- /grid-b -->
             </div><!-- /content -->
 
+            <!-- Listview Basico -->
+                <ul data-role="listview">
+                    <li><a href="navigationExample.html" data-rel="dialog" >
+                            <div>Pitufos(Sin implementar)</div>
+                            <span class="ui-li-count ui-btn-corner-all">4</span>
+                        </a>
+                    </li>
+                    <li><a href="navigationExample.html" data-rel="dialog" >
+                            <div>Pitufas(Sin implementar)</div>
+                            <span class="ui-li-count ui-btn-corner-all">1</span>
+                        </a>
+                    </li>
+                    <li><a href="navigationExample.html" data-rel="dialog" >
+                            <div>Malos(Sin implementar)</div>
+                            <span class="ui-li-count ui-btn-corner-all">2</span>
+                        </a>
+                    </li>
+                </ul>
+
+
+
+
+
+
+
             <div data-role="footer" data-position="fixed">
             <!-- Grupo de controles////////////////////////////////////////////////////////////////////////////////-->
                 <div data-role="controlgroup" data-type="horizontal">
-                    <a href="#page1" data-role="button" data-icon="home" data-theme="b">Pagina Gargamel</a>
+                    <a href="index.html" data-role="button" data-icon="home" data-theme="b">Pagina Gargamel</a>
                     <a href="#page2" data-role="button" data-theme="b">Info Pitufos</a>
                     <a href="#page3" data-role="button" data-theme="b">Mapa Pitufos</a>
                 </div>
@@ -169,7 +214,7 @@
             <div data-role="footer" data-position="fixed">
             <!-- Grupo de controles////////////////////////////////////////////////////////////////////////////////-->
                 <div data-role="controlgroup" data-type="horizontal">
-                    <a href="#page1" data-role="button" data-icon="home" data-theme="b" data-inline="true">Pagina Gargamel</a>
+                    <a href="index.html" data-role="button" data-icon="home" data-theme="b" data-inline="true">Pagina Gargamel</a>
                     <a href="#page2" data-role="button" data-theme="b" data-inline="true">Info Pitufos</a>
                     <a href="#page3" data-role="button" data-theme="b" data-inline="true">Mapa Pitufos</a>
                                     </div>
@@ -177,7 +222,26 @@
             </div><!-- /footer -->
 
         </div><!-- /page -->
+        <div data-role="page" id="page4" data-title="Mapa del Sitio">
+            <div data-role="header">
+                <h1>Pagina Gargamel</h1>
+            </div><!-- /header -->
+            <div role="main" class="ui-content">
+                <h2>Mapa del Sitio</h2>
+                <ul>
+                    <a href="index.html">Pagina Gargamel</a><br/>
+                    <a href="#page2">Los Pitufos</a><br/>
+                    <a href="#page3">Mapa Pitufos</a><br/>
+                    <a href="index2.html">Danos tu Opinion</a><br/>
+                </ul>
 
+
+
+            </div><!-- /content -->
+            <div data-role="footer" data-position="fixed">
+            <h4>Created by  <a href="https://github.com/jesusiglesiasneira">Jesus Iglesias</a></h4>
+            </div><!-- /footer -->
+        </div><!-- /page -->
 
     <!-- Mapa////////////////////////////////////////////////////////////////////////////// -->
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
