@@ -49,15 +49,15 @@
 						"name" : "Red T-Shirt",
 						"photo" : "./images/show/1/challenge/2/option1.jpg",
 						"description" : "Red cotton t-shirt",
-						"price" : "39",
-						"likes" : "21"
+						"price" : "60",
+						"likes" : "18"
 					},
 					"option2" : {
 						"name" : "White T-Shirt",
                         "photo" : "./images/show/1/challenge/2/option2.jpg",
 						"description" : "White t-shirt",
-                        "price" : "34",
-                        "likes" : "28"
+                        "price" : "2000",
+                        "likes" : "0"
                     }
 
                 }
@@ -82,17 +82,17 @@
                     },
                     "option1" : {
 						"name" : "Red T-Shirt",
-						"photo" : "./images/show/1/challenge/1/option1.jpg",
+						"photo" : "./images/show/1/challenge/3/option1.jpg",
 						"description" : "Red cotton t-shirt",
-						"price" : "39",
-						"likes" : "21"
+						"price" : "15",
+						"likes" : "180"
 					},
 					"option2" : {
 						"name" : "White T-Shirt",
-                        "photo" : "./images/show/1/challenge/1/option2.jpg",
+                        "photo" : "./images/show/1/challenge/3/option2.jpg",
 						"description" : "White t-shirt",
-                        "price" : "34",
-                        "likes" : "28"
+                        "price" : "22",
+                        "likes" : "31"
                     }
 
                 },
@@ -107,17 +107,17 @@
                     },
                     "option1" : {
 						"name" : "Red T-Shirt",
-						"photo" : "./images/show/1/challenge/1/option1.jpg",
+						"photo" : "./images/show/1/challenge/4/option1.jpg",
 						"description" : "Red cotton t-shirt",
-						"price" : "39",
-						"likes" : "21"
+						"price" : "44",
+						"likes" : "8"
 					},
 					"option2" : {
 						"name" : "White T-Shirt",
-                        "photo" : "./images/show/1/challenge/1/option2.jpg",
+                        "photo" : "./images/show/1/challenge/4/option2.jpg",
 						"description" : "White t-shirt",
-                        "price" : "34",
-                        "likes" : "28"
+                        "price" : "18000",
+                        "likes" : "-7"
                     }
 
                 }

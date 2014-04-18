@@ -1,125 +1,117 @@
 ﻿var App = App||{};
 App.main = (function(){
     'use strict';
-    //Inicializar la BBDD donde se almacenará el programa
-    App.programaIDB.initDB();
 
-    var jugadores = 0;
-    var juegoActual = 0;
-    var player = 0;
-    var coordslat="";
-    var coordslong="";
-    $('#form').hide();
-    $('#volv').hide();
+    //var progr = "";
+    //var juegoActual = 0;
+    //var player = 0;
+    //var coordslat="";
+    //var coordslong="";
+    //var direccion = "";
+    //var direccionphoto = "";
+    //var solucion = "";
 
 
-    //funcion que obtiene el programa y llama a la función que lo almacena
-    var getprograma =function () {
-        var programa = $.ajax({
-            url : 'servidor/show.json',
-            type : 'POST',
-            dataType : 'JSON',
-            cache : false,
-            success : function(data){
-                //var lis = JSON.stringify(data);
-                console.log("Programa obtenido ok");
-                //almacenaprograma(JSON.stringify(data));
-                almacenaprograma(data);
-            },
-            error : function(jqXHR, textStatus, errorThrow){
-                alert("No se pudo cargar el programa, vuelva a intentarlo");
-                console.log(errorThrow);
-            }
-        });
-    };
-
-    //Guardar el programa descargado, con IndexedDB
+    //Función que se encarga de pedir que se guarde con IndexedDB el programa descargado y que comiencen a ostrarse los datos
     var almacenaprograma = function(prog){
-        App.programaIDB.add(prog,prog.id);
-
+        App.programaIDB.addProg(prog,prog.id);
+        cargarInicial(prog);
     };
 
-    //Función que carga el programa del almacenamiento local y muestra el 1ºjuego
-    var obtenjuego = function(prog){
-        var programa = prog.programa;
+    //Función que recoge los datos del programa y pide que se muestre el 1ºjuego y los datos del 1º jugador
+    var cargarInicial= function(prog){
+        //$('#vistaPrograma').data('lang','es_ES');
 
+        var dtavbles =  $('#vistaPrograma');
+        var programa = prog;
         var fechaprog= programa.date;
         var horaprog= programa.hour;
         var idprog= programa.id;
         var $datosprog = $('#datosprog');
+        var player = parseInt(dtavbles.data('player'));
         $datosprog.empty();
         $datosprog.append("<p> Fecha: "+fechaprog+" Hora: "+horaprog+"</p>");
-        for (var i in programa.players){
-            console.log("Jugadores: "+programa.players[i]);
-            jugadores = jugadores+1;
-            //Se muestra por defecto los datos y el 1º juego del 1ºjugador
-            if (jugadores === 1){
-                coordslat= programa.players[i].challenges[0].place.latitude;
-                coordslong= programa.players[i].challenges[0].place.longitude;
-                mostrarDatosPlayer(programa.players[i]);
-                mostrarjuego(programa.players[i].challenges[0]);
-
-            }
-        }
+        console.log("Jugadores: "+programa.players[player].player.name);
+        //Se muestra por defecto los datos y el 1º juego del 1ºjugador
+        dtavbles.data('progr' , programa.id);
+        dtavbles.data('coordslat',programa.players[player].challenges[0].place.latitude);
+        dtavbles.data('coordslong',programa.players[player].challenges[0].place.longitude);
+        dtavbles.data('direccion',programa.players[player].challenges[0].place.adress);
+        dtavbles.data('direccionphoto',programa.players[player].challenges[0].place.photo);
+        dtavbles.data('solucion',programa.players[player].challenges[0].selected);
+        dtavbles.data('juegoActual',0);
+        console.log(dtavbles.data());
 
 
+        /*coordslat= programa.players[player].challenges[0].place.latitude;
+        coordslong= programa.players[player].challenges[0].place.longitude;
+        direccion= programa.players[player].challenges[0].place.adress;
+        direccionphoto= programa.players[player].challenges[0].place.photo;
+        solucion= programa.players[player].challenges[0].selected;
+        progr= programa.id;*/
+        App.ui.mostrarDatosPlayer(programa.players[player]);
+        App.ui.mostrarjuego(programa.players[player].challenges[0]);
     };
 
-    //funcion que muestra los datos del jugador actual
-    var mostrarDatosPlayer= function(jugador){
-        var edad = jugador.player.age;
-        var description = jugador.player.description;
-        var name= jugador.player.name;
-        var photo= jugador.player.photo;
-        var $datosprog = $('#datosprog');
-        $datosprog.append("<figure> <img src="+photo+"  alt="+description+"></figure>");
-        $datosprog.append("<p> Nombre: "+name+" Edad: "+edad+" Descripcion: "+description+"</p>");
-    };
-
-    //funcion que muestra el juego actual
-    var mostrarjuego= function(opciones){
-         $('#fig1').remove();
-         $('#fig2').remove();
-         $('#datopc1').remove();
-         $('#datopc2').remove();
-         $('#muestraTiendaOpc1').remove();
-         $('#muestraTiendaOpc2').remove();
-         $('#mapcanvas').hide();
-        var $opc1 = $('#opc1');
-        var photo= opciones.option1.photo;
-        var description= opciones.option1.description;
-        var name= opciones.option1.name;
-        var likes= opciones.option1.likes;
-        var price= opciones.option1.price;
-        $opc1.append("<figure id='fig1'> <img src="+photo+" alt="+description+"></figure>");
-        $opc1.append("<p id='datopc1'> Nombre: "+name+", Descripcion: "+description+", Likes: "+likes+", Precio: "+price+"</p>");
-        $opc1.append("<button id='muestraTiendaOpc1'>Mostrar tienda</button>");
-
-        var $opc2 = $('#opc2');
-        var photo2= opciones.option2.photo;
-        var description2= opciones.option2.description;
-        var name2= opciones.option2.name;
-        var likes2= opciones.option2.likes;
-        var price2= opciones.option2.price;
-        $opc2.append("<figure id='fig2'> <img src="+photo2+" alt="+description2+"></figure>");
-        $opc2.append("<p id='datopc2'> Nombre: "+name2+", Descripcion: "+description2+", Likes: "+likes2+", Precio: "+price2+"</p>");
-        $opc2.append("<button id='muestraTiendaOpc2'>Mostrar tienda</button>");
-    };
-
-    //funcion que muestra el juego actual
-    var mostrarsiguientejuego= function(){
-        var programa = JSON.parse(localStorage.getItem('programa'));
-        juegoActual = juegoActual+ 1;
+    //Función que recoge los datos del programa y en función del jugador y juego actual decide que juego mostrar
+    var sigJuego = function(prog){
+        var programa = prog.programa;
+        var player = parseInt($('#vistaPrograma').data('player'));
+        var juegoActual = parseInt($('#vistaPrograma').data('juegoActual'))+ 1;
+        $('#vistaPrograma').data('juegoActual',juegoActual);
         var juego = programa.players[player].challenges[juegoActual];
         if (juego){
-            coordslat= juego.place.latitude;
-            coordslong= juego.place.longitude;
-            mostrarjuego(juego);
+            $('#vistaPrograma').data('progr',programa.id);
+            $('#vistaPrograma').data('coordslat',juego.place.latitude);
+            $('#vistaPrograma').data('coordslong',juego.place.longitude);
+            $('#vistaPrograma').data('direccion',juego.place.adress);
+            $('#vistaPrograma').data('direccionphoto',juego.place.photo);
+            $('#vistaPrograma').data('solucion',juego.selected);
+
+
+            /*coordslat = juego.place.latitude;
+            coordslong = juego.place.longitude;
+            direccion = juego.place.adress;
+            direccionphoto= juego.place.photo;
+            solucion= juego.selected;
+            progr= programa.id;*/
+
+            App.ui.mostrarjuego(juego);
         }
         else{
-            alert('No hay mas juegos para este jugador');
+            alert('No hay mas juegos para este jugador, pulse el boton "Siguiente jugador", u obtenga más programas');
         }
     };
+
+
+    //funcion que pide el siguiente juego al actual
+    var mostrarsiguientejuego= function(){
+         App.programaIDB.getProg("sigJuego");
+    };
+
+
+    //Función que recoge los datos del programa y en función del jugador y juego actual decide que juego mostrar
+    var sigJugador = function(prog){
+        var player =  parseInt($('#vistaPrograma').data('player'));
+        if (player != 1){
+            player +=1;
+            var juegoActual = 0;
+            $('#vistaPrograma').data('juegoActual',juegoActual);
+            $('#vistaPrograma').data('player',player);
+            cargarInicial(prog.programa);
+        }
+        else{
+            alert ('No hay más jugadores para este programa. Por favor descargue otro programa.');
+        }
+    };
+
+
+    //funcion que pide el siguiente juego al actual
+    var mostrarsiguientejugador= function(){
+         App.programaIDB.getProg("sigJugador");
+    };
+
+
 
     ///////////////////////////////////Geolocalizacion/////////////////////////////////////
     //Función que muestra un mapa con la localización de la tienda
@@ -131,7 +123,16 @@ App.main = (function(){
                 timeout: 20000,
                 maximumAge: 0});
         }
-        else alert("Su navegador no soporta geolocalizacion");
+        else {
+            //Si no se soporta geolocalizacion se muestra una imagen de la tienda y su direccion
+            var direccion = $('#vistaPrograma').data('direccion');
+            var direccionphoto = $('#vistaPrograma').data('direccionphoto');
+            console.log("Su navegador no soporta geolocalizacion");
+            var direccTienda = "<p> Direccion: "+direccion+"</p>";
+            var phototienda = "<figure> <img src="+direccionphoto+" alt="+direccion+"></figure>";
+            document.querySelector('#map').appendChild(phototienda);
+            document.querySelector('#map').appendChild(direccTienda);
+        }
 
     };
 
@@ -142,8 +143,10 @@ App.main = (function(){
         mapcanvas.id = 'mapcanvas';
         mapcanvas.style.height = '400px';
         mapcanvas.style.width = '560px';
+        var coordslat = $('#vistaPrograma').data('coordslat');
+        var coordslong = $('#vistaPrograma').data('coordslong');
 
-        document.querySelector('article').appendChild(mapcanvas);
+        document.querySelector('#map').appendChild(mapcanvas);
 
         var latlngt = new google.maps.LatLng(coordslat,coordslong );
         var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -172,74 +175,60 @@ App.main = (function(){
         console.log("Error detectado: "+position);
     });
     ///////////////////////////////////FinGeolocalizacion ////////////////////////////////////////////////
-    ///////////////////////////////////Mostrar pantllas juego o formulario////////////////////////////////
-    var mostrarpantformulario= function(){
-        $('#principal').hide();
-        $('#rellenaform').hide();
-        $('#form').show();
-        $('#volv').show();
-    };
-
-    var mostrarpantjuego= function(){
-        $('#form').hide();
-        $('#volv').hide();
-        $('#principal').show();
-        $('#rellenaform').show();
-    };
-
-
-////////////////////////////////////////Lógica del juego////////////////////////////////////////////////////
+    ////////////////////////////////////////Lógica del juego////////////////////////////////////////////////////
     var comprobaracierto= function(){
         var intento = "option1";
+        var acierto = false;
+        var solucion = $('#vistaPrograma').data('solucion');
         if(this.id=="fig2"){
             intento = "option2";
         }
-
-        var programa = JSON.parse(localStorage.getItem('programa'));
-        var juego = programa.players[player].challenges[juegoActual];
-        var solucion= juego.selected;
         if (solucion === intento){
             alert("El resultado es el correcto");
+            acierto= true;
         }
-        else{alert("El resultado es el incorrecto");}
+        else{alert("Buen Intento");}
+        guardarseleccionada(acierto);
+    };
+    //Función que guarda la opción elegida y muestra el siguiente juego si lo hubiese//////////////////////////////////////////////////////////////////
+    var guardarseleccionada = function(acierto){
+        var juegoActual =  parseInt($('#vistaPrograma').data('juegoActual'));
+        var player = parseInt($('#vistaPrograma').data('player'));
+        var progr = parseInt($('#vistaPrograma').data('progr'));
+        var almac = {"programa":progr,"jugador":player,"juego":juegoActual,"acertado":acierto.toString()};
+        App.resultStorage.almacenaResult(almac);
+    };
+
+
+    var guardaFormulario = function(){
+        var aa= $('#nom');
+        var nom= $('#nom').val();
+        var email= $('#email').val();
+        var date= $('#date').val();
+        var op= $('#op').val();
+
+        var opinion = {"Nombre":nom,"email":email,"fecha":date,"opinion":op};
+        App.resultStorage.almacenaForm(opinion);
     };
 
 
 
 
-    //Función que guarda la opción elegida y muestra el siguiente juego si lo hubiese
-    var guardarseleccionada = function(){
-
-    };
-
-
-
-
-
-    $(document).on('click','#obtjuego',App.programaIDB.get);
     $(document).on('click','#muestrasig',mostrarsiguientejuego);
-    $(document).on('click','#fig1',guardarseleccionada);
-    $(document).on('click','#fig2',guardarseleccionada);
     $(document).on('click','#muestraTiendaOpc1',mostrarmapa);
     $(document).on('click','#muestraTiendaOpc2',mostrarmapa);
-    $(document).on('click','#rellenaform',mostrarpantformulario);
-    $(document).on('click','#volv',mostrarpantjuego);
     $(document).on('click','#fig1',comprobaracierto);
     $(document).on('click','#fig2',comprobaracierto);
-
+    $(document).on('click','#guardaForm',guardaFormulario);
+    $(document).on('click','#muestrasigplayer',mostrarsiguientejugador);
 
 
     return{
-            getprograma : getprograma,
-            obtenjuego : obtenjuego,
             almacenaprograma : almacenaprograma,
-            mostrarDatosPlayer : mostrarDatosPlayer,
-            mostrarjuego : mostrarjuego,
-            mostrarsiguientejuego : mostrarsiguientejuego,
+            sigJuego : sigJuego,
+            sigJugador : sigJugador,
             mostrarmapa : mostrarmapa,
             showMap : showMap,
-            mostrarpantformulario : mostrarpantformulario,
-            mostrarpantjuego : mostrarpantjuego,
             comprobaracierto : comprobaracierto,
             guardarseleccionada : guardarseleccionada
         };

@@ -1,13 +1,13 @@
 
 <!DOCTYPE html>
-<!--<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">-->
   <html lang="en">
   <head>
   <title>Mi juego de ropa</title>
   <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"-->
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/css3.css">
   <script src="libs/modernizr.custom.80841.js"></script>
   </head>
@@ -16,44 +16,56 @@
   <!--Seccion de cabecera-->
     <header>
         <h1>Mi juego de ropa</h1>
-    <nav>
-      <button id="obtjuego">Obtener Juego</button>
-      <button id="muestrasig">Mostrar Siguiente Juego</button>
-      <button id="rellenaform">Danos tu opinion</button>
-      <button id="volv">Volver</button>
-
-    </nav>
     </header>
 
-  <!--Seccion de juego-->
-  <section id="principal">
-    <section id="datosprog"></section>
-
-    <article id="opc1"></article>
-    <article id="opc2"></article>
-  </section>
-
-  <section id="form">
-    <p>Nombre:</p>
-    <input type="text" autofocus="true" required="true"  autocomplete="true"/>
-     <p>Password:</p>
-    <input type="password" id="pw" pattern = "([0-9](.{6,})[A-Z])" required="true"/>
-    <p>email:</p>
-    <input type="email" autocomplete="true" required="true">
-    <p>date:</p>
-    <input type="date" required="true">
-    <p>Opinion:</p>
-    <input type="textarea" autofocus="true" required="true"  autocomplete="true"/>
-
-  </section>
+    <div id='vistaPrograma' data-player="0">
+      <ul id='menu' class='nav nav-tabs'>
+          <li id='Juegos' class='active'><a href="#panelGames" data-toggle="tab">Juegos</a></li>
+          <li id='opinion'><a href="#panelForm" data-toggle="tab">Danos tu Opinion</a></li>
+      </ul>
+      <div id="panel" class="tab-content">
+          <div class="tab-pane fade in active" id="panelGames">
+              <h1>Juegos</h1>
+              <button id="muestrasig">Mostrar Siguiente Juego</button>
+              <button id="muestrasigplayer">Mostrar Siguiente Jugador</button>
+              <!--Seccion de juego-->
+              <section id="principal">
+                <section id="datosprog"></section>
+                <article id="opc1"></article>
+                <article id="opc2"></article>
+                <article id="map"></article>
+              </section>
+          </div>
+          <div class="tab-pane fade" id="panelForm">
+              <h1>Opinion</h1>
+              <section id="form">
+                  <p>Nombre:</p>
+                  <input type="text" id="nom" autofocus="true" required="true"  autocomplete="true"/>
+                   <p>Password:</p>
+                  <input type="password" id="pw" pattern = "([0-9](.{6,})[A-Z])" required="true"/>
+                  <p>email:</p>
+                  <input type="email" id='email' autocomplete="true" required="true">
+                  <p>date:</p>
+                  <input type="date" id='date' required="true">
+                  <p>Opinion:</p>
+                  <textarea rows="5" cols="40" id="op" required="true"  autocomplete="true"></textarea>
+                </section>
+                 <button id="guardaForm">Enviar Opinion</button>
+          </div>
+      </div>
+  </div>
 
   <footer>
     <p>Creado por Jesus Iglesias Neira</p>
   </footer>
-  <script>window.jQuery || document.write('<script src="libs/jquery-1.9.1.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="libs/jquery-2.1.0.min.js"><\/script>')</script>
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+  <script type="text/javascript" src="libs/bootstrap.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/programaIDB.js"></script>
+  <script src="js/resultStorage.js"></script>
+  <script src="js/ajax.js"></script>
+  <script src="js/ui.js"></script>
   <script src="js/main.js"></script>
   <script src="js/init.js"></script>
 </body>
