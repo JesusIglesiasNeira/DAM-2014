@@ -83,6 +83,16 @@
                 });
             });
         });
+        describe('#getTweets', function () {
+            it('Get all tweets', function (done) {
+                DB.getTweets(
+                    function(tweets){
+                            var lista = tweets.length;
+                            assert.equal(lista, 100);
+                            done();
+                        }, function(err){throw err;});
+            });
+        });
 
         describe('#updateTweet', function () {
             it('Update existing tweet', function (done) {

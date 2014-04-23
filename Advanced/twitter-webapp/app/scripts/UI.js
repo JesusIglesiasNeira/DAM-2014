@@ -10,7 +10,6 @@
         $list.html(html);
         //$list.append(html);
         succes();
-
     };
 
     return{
