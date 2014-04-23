@@ -40,7 +40,7 @@
         });
 
 
-        describe('#ShowTweetsFromTweeter', function () {
+        describe('#ShowTweetsFromTwiter', function () {
             it('Show one tweet from Twitter ', function (done) {
                 var tweets =[];
                 var tweet ={
