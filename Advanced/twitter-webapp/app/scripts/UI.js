@@ -8,6 +8,7 @@
         var template = handlebars.compile(list);
         var html= template({tweets:tweets});
         $list.html(html);
+        //$list.append(html);
         succes();
 
     };
