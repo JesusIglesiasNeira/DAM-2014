@@ -1,7 +1,8 @@
-﻿define('Controller',['Data','Service'],function(DB, srv){
+﻿define('Controller',['Data','Service', 'UI'],function(DB, srv, ui){
     'use strict';
+    console.log('Controller module started');
 
-    var processtweets = function(data){
+    var processtweets = function(data, success, err){
         var tweets =[];
         var tweet ={
             id:'',
@@ -17,24 +18,21 @@
                 tweet.text = data.statuses[i].text;
                 tweet.usr = data.statuses[i].user.name;
                 tweet.date = new Date(data.statuses[i].created_at).getTime();
-
                 tweets.push(tweet);
             }
-            DB.addTweets(tweets,
-                function(){console.log('conseguido');},//success
-                function(){console.log('no conseguido');} //error
-
-                );
+            DB.addTweets(tweets,success,err);
         }
 
     };
 
-    var error = function(){
-
+    var error = function(e){
+        throw e;
     };
 
-    var getTweetsFromTwitter = function(){
-        srv.getTweets({}, processtweets, error);
+    var getTweetsFromTwitter = function(success, err){
+        srv.getTweets({}, function(data){
+            processtweets(data,success,err);
+        }, error);
     };
 
     return{

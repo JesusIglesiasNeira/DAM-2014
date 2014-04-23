@@ -35,14 +35,16 @@
 
 
         describe('#getTweetsFromTweeter', function () {
-            it('Get all tweets from Twiter ', function (done) {
-                ctrl.getTweetsFromTwitter();
+            it('Get all tweets from Twitter ', function (done) {
+                ctrl.getTweetsFromTwitter(
+                    function(){
+                        assert.isTrue(DB.addTweets.calledOnce,'setTweets not called');
+                        done();
+                    },
+                    function(e){throw e;}//error
+                );
                 assert.isTrue(srv.getTweets.calledOnce,'getTweets not called');
-                assert.isTrue(DB.addTweets.calledOnce,'setTweets not called');
-
             });
         });
-
-
     });
 })();

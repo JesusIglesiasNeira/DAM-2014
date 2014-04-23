@@ -15,12 +15,19 @@ define('Data', ['ydn-db'], function(ydn) {
 
     var addTweets = function(tweets, success, error) {
         var req = db.add({name: tweetTable, keyPath: keyPath}, tweets);
+        console.log('Tweets insertados:'+tweets.length);
         req.done(success);
         req.fail(error);
     };
 
     var getTweet = function(id, success, error) {
         var req = db.get(tweetTable, id);
+        req.done(success);
+        req.fail(error);
+    };
+
+    var getTweets = function(success, error) {
+        var req = db.values(tweetTable);
         req.done(success);
         req.fail(error);
     };
@@ -59,6 +66,7 @@ define('Data', ['ydn-db'], function(ydn) {
         addTweet : addTweet,
         addTweets : addTweets,
         getTweet : getTweet,
+        getTweets : getTweets,
         updateTweet : updateTweet,
         removeTweet : removeTweet,
         clear : clear
