@@ -9,7 +9,11 @@ define('Data', ['ydn-db'], function(ydn) {
 
     var addTweet = function(tweet, success, error) {
         var req = db.add({name: tweetTable, keyPath: keyPath}, tweet);
-        req.done(success);
+
+        req.done(function(){
+            throwEvents();
+            success();
+        });
         req.fail(error);
     };
 
@@ -60,6 +64,12 @@ define('Data', ['ydn-db'], function(ydn) {
         var req = db.clear(tweetTable);
         req.done(success);
         req.fail(error);
+    };
+
+    var throwEvents = function(){
+        var event = new Event('datachange');
+        document.dispatchEvent(event);
+
     };
 
     return {

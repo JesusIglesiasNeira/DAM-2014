@@ -9,7 +9,9 @@
         var html= template({tweets:tweets});
         $list.html(html);
         //$list.append(html);
-        succes();
+        if (succes){
+            succes();
+        }
     };
 
     return{

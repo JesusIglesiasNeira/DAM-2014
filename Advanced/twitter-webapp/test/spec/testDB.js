@@ -56,7 +56,7 @@
                     {id:'22222', text:'Mocha testing v3'}
                 ];
 
-                DB.addTweet(tweets, function(keys){
+                DB.addTweets(tweets, function(keys){
                     assert.equal(2, keys.length);
                     done();
                 }, function(err){

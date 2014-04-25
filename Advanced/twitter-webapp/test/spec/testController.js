@@ -24,14 +24,17 @@
                 DB = Data;
                 sinon.spy(srv,'getTweets');
                 sinon.spy(DB,'addTweets');
+                sinon.spy(ctrl, 'showLatestTweets');
                 done();
             });
         });
 
-        /*afterEach(function(done){
-            $.ajax.restore();
+        afterEach(function(done){
+            ctrl.showLatestTweets.restore();
+            srv.getTweets.restore();
+            DB.addTweets.restore();
             done();
-        });*/
+        });
 
 
         describe('#getTweetsFromTweeter', function () {
@@ -44,6 +47,23 @@
                     function(e){throw e;}//error
                 );
                 assert.isTrue(srv.getTweets.calledOnce,'getTweets not called');
+            });
+        });
+
+        describe('#showLatestTweets', function () {
+            it('showLatestTweets called', function (done) {
+                var errTimeOut = setTimeout(function(){
+                    assert(false, 'Event never fired');
+                    done();
+                },1000);
+
+                ctrl.showLatestTweets(function(){
+                    clearTimeout(errTimeOut);
+                    assert(true);
+                    done();
+                }, function(err){
+                    throw err;
+                });
             });
         });
     });

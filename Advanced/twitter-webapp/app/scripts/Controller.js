@@ -1,4 +1,4 @@
-﻿define('Controller',['Data','Service', 'UI'],function(DB, srv, ui){
+﻿define('Controller',['Data','Service', 'UI'],function(DB, srv, UI){
     'use strict';
     console.log('Controller module started');
 
@@ -35,8 +35,24 @@
         }, error);
     };
 
+
+
+    var showLatestTweets = function(success, err){
+        //Get latest data from provider
+        DB.getTweets(function(tweets){
+            //Show new data
+            UI.showTweetsList(tweets);
+            if (success){
+                success();
+            }
+        });
+
+
+    };
+
     return{
-        getTweetsFromTwitter:getTweetsFromTwitter
+        getTweetsFromTwitter:getTweetsFromTwitter,
+        showLatestTweets: showLatestTweets
     };
 
 });
