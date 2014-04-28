@@ -11,6 +11,8 @@
             date:''
         };
 
+       data = JSON.parse(data);
+
         if (data && data.statuses && data.statuses.length >0){
             for (var i in data.statuses){
                 tweet ={id:'',text:'',usr:'',date:''};

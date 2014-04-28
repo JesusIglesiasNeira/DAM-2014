@@ -1,4 +1,4 @@
-﻿define('Events',['jquery','Controller'],function($,controller){
+﻿define('Events',['quo','Controller'],function($,controller){
     'use strict';
 
     $(document).on('datachange',controller.showLatestTweets);

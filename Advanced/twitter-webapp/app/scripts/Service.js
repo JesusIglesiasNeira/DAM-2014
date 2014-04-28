@@ -1,4 +1,4 @@
-define('Service',['jquery'],function($){
+define('Service',['quo'],function($){
     'use strict';
     console.log('Service module started');
 
