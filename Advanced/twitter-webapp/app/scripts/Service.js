@@ -5,7 +5,7 @@ define('Service',['quo'],function($){
     var getTweets = function (config, success, error){
         $.ajax({
             url : '/app/data/tweets.json',
-            dataType : 'JSON',
+            dataType : 'json',
             success : success,
             error : error
         });

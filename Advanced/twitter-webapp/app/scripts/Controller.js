@@ -11,8 +11,6 @@
             date:''
         };
 
-       data = JSON.parse(data);
-
         if (data && data.statuses && data.statuses.length >0){
             for (var i in data.statuses){
                 tweet ={id:'',text:'',usr:'',date:''};
@@ -39,14 +37,11 @@
 
 
 
-    var showLatestTweets = function(success, err){
+    var showLatestTweets = function(){
         //Get latest data from provider
         DB.getTweets(function(tweets){
             //Show new data
             UI.showTweetsList(tweets);
-            if (success){
-                success();
-            }
         });
 
 
