@@ -39,12 +39,13 @@ define('Data', ['ydn-db'], function(ydn) {
 
     var getTweets = function(success, error) {
         var req = db.values(tweetTable);
-        req.done(function(values){
+        req.done(success);
+        /*req.done(function(values){
             if (success){
                 success();
             }
-            console.log(values);
-        });
+
+        });*/
         req.fail(error);
     };
 
