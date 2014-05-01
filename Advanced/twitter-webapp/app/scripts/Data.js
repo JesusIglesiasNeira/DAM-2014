@@ -22,7 +22,7 @@ define('Data', ['ydn-db'], function(ydn) {
         console.log('Tweets insertados:'+tweets.length);
         //req.done(success);
         req.done(function(keys){
-            throwEvent();
+            //throwEvent();
             if (success){
                 success(keys);
             }
@@ -40,12 +40,6 @@ define('Data', ['ydn-db'], function(ydn) {
     var getTweets = function(success, error) {
         var req = db.values(tweetTable);
         req.done(success);
-        /*req.done(function(values){
-            if (success){
-                success();
-            }
-
-        });*/
         req.fail(error);
     };
 
